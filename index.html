@@ -118,16 +118,120 @@
     }
 
     .hero-mascot {
-      width: 180px;
-      height: 180px;
+      width: 260px;
+      height: 260px;
       margin-bottom: 32px;
+      object-fit: contain;
       animation: bobble 3s ease-in-out infinite;
-      filter: drop-shadow(0 12px 24px rgba(255,107,53,0.3));
+      filter: drop-shadow(0 14px 28px rgba(255,107,53,0.28));
     }
 
     @keyframes bobble {
       0%, 100% { transform: translateY(0) rotate(-2deg); }
       50%       { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    /* ── MASCOT FRAMING SYSTEM ──
+       Same source PNG, multiple "views" via CSS crops/masks/wrappers. */
+    .mascot-frame {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+    }
+    .mascot-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Portrait — circular head closeup */
+    .mascot-frame--portrait {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--yellow);
+      background: var(--cream);
+      box-shadow: 0 10px 24px rgba(255,107,53,0.22);
+    }
+    .mascot-frame--portrait .mascot-img {
+      object-fit: cover;
+      object-position: center 22%;
+      transform: scale(1.95);
+      transform-origin: center 22%;
+    }
+
+    /* Badge — rotating sunburst halo */
+    .mascot-frame--badge {
+      width: 156px;
+      height: 156px;
+      padding: 12px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        var(--orange) 0 15deg, var(--yellow) 15deg 30deg,
+        var(--orange) 30deg 45deg, var(--yellow) 45deg 60deg,
+        var(--orange) 60deg 75deg, var(--yellow) 75deg 90deg,
+        var(--orange) 90deg 105deg, var(--yellow) 105deg 120deg,
+        var(--orange) 120deg 135deg, var(--yellow) 135deg 150deg,
+        var(--orange) 150deg 165deg, var(--yellow) 165deg 180deg,
+        var(--orange) 180deg 195deg, var(--yellow) 195deg 210deg,
+        var(--orange) 210deg 225deg, var(--yellow) 225deg 240deg,
+        var(--orange) 240deg 255deg, var(--yellow) 255deg 270deg,
+        var(--orange) 270deg 285deg, var(--yellow) 285deg 300deg,
+        var(--orange) 300deg 315deg, var(--yellow) 315deg 330deg,
+        var(--orange) 330deg 345deg, var(--yellow) 345deg 360deg);
+      box-shadow: 0 12px 30px rgba(255,107,53,0.3);
+      animation: spin-slow 18s linear infinite;
+    }
+    .mascot-frame--badge .mascot-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--cream);
+      animation: spin-slow-reverse 18s linear infinite;
+    }
+    .mascot-frame--badge .mascot-img {
+      object-fit: cover;
+      object-position: center 32%;
+      transform: scale(1.18);
+    }
+    @keyframes spin-slow         { to { transform: rotate(360deg); } }
+    @keyframes spin-slow-reverse { to { transform: rotate(-360deg); } }
+
+    /* Polaroid — tilted card with caption */
+    .mascot-frame--polaroid {
+      background: white;
+      padding: 10px 10px 34px;
+      border-radius: 6px;
+      box-shadow: 0 14px 36px rgba(26,26,46,0.18);
+      transform: rotate(-4deg);
+      width: 152px;
+    }
+    .mascot-frame--polaroid .mascot-inner {
+      width: 132px;
+      height: 132px;
+      background: var(--cream);
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .mascot-frame--polaroid .mascot-img {
+      object-fit: cover;
+      object-position: center 42%;
+      transform: scale(1.1);
+    }
+    .mascot-frame--polaroid::after {
+      content: attr(data-caption);
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 8px;
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      color: var(--mid);
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
     }
 
     .hero-badge {
@@ -322,7 +426,10 @@
     .step-icon {
       font-size: 2.8rem;
       margin-bottom: 20px;
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      min-height: 170px;
     }
 
     .step h3 {
@@ -735,38 +842,12 @@
     <div class="hero-bg-blob blob-1"></div>
     <div class="hero-bg-blob blob-2"></div>
 
-    <!-- Rooster Mascot SVG -->
-    <svg class="hero-mascot" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Body -->
-      <ellipse cx="100" cy="130" rx="55" ry="50" fill="#FF6B35"/>
-      <ellipse cx="100" cy="130" rx="38" ry="35" fill="#FF8559" opacity="0.6"/>
-      <!-- Tail feathers -->
-      <path d="M50 130 Q30 105 40 80" stroke="#EF233C" stroke-width="6" stroke-linecap="round" fill="none"/>
-      <path d="M48 138 Q22 118 28 88" stroke="#FF6B35" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <path d="M52 145 Q28 132 32 105" stroke="#C44B1A" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <!-- Head -->
-      <circle cx="120" cy="72" r="35" fill="#FF6B35"/>
-      <!-- Comb -->
-      <path d="M112 40 Q116 22 120 38 Q124 18 128 36 Q132 20 136 38" stroke="#EF233C" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <!-- Wattle -->
-      <ellipse cx="135" cy="88" rx="10" ry="13" fill="#EF233C"/>
-      <!-- Beak -->
-      <path d="M148 68 L166 74 L148 80 Z" fill="#FFD166"/>
-      <!-- Eye -->
-      <circle cx="130" cy="62" r="7" fill="#1A1A2E"/>
-      <circle cx="132" cy="59" r="2.5" fill="white"/>
-      <!-- Wing highlight -->
-      <path d="M62 118 Q80 98 100 115" stroke="#C44B1A" stroke-width="6" stroke-linecap="round" fill="none"/>
-      <!-- Feet -->
-      <line x1="84" y1="175" x2="84" y2="185" stroke="#FFD166" stroke-width="4"/>
-      <path d="M84 185 L74 192 M84 185 L84 194 M84 185 L94 192" stroke="#FFD166" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="116" y1="175" x2="116" y2="185" stroke="#FFD166" stroke-width="4"/>
-      <path d="M116 185 L106 192 M116 185 L116 194 M116 185 L126 192" stroke="#FFD166" stroke-width="3.5" stroke-linecap="round"/>
-      <!-- Stars/sparkles -->
-      <text x="22" y="68" font-size="20">✦</text>
-      <text x="168" y="44" font-size="14">✦</text>
-      <text x="54" y="48" font-size="10">✦</text>
-    </svg>
+    <!-- Rooster Mascot -->
+    <img class="hero-mascot" src="rooster.png" alt="Vibe Rooster mascot — happy cartoon rooster" />
+    <!-- Sparkles around mascot -->
+    <span style="position:absolute; top:18%; left:38%; font-size:1.4rem; opacity:0.7;">✦</span>
+    <span style="position:absolute; top:14%; right:36%; font-size:1.1rem; opacity:0.6;">✦</span>
+    <span style="position:absolute; top:30%; left:30%; font-size:0.9rem; opacity:0.5;">✦</span>
 
     <div class="hero-badge">
       <span class="badge-dot"></span>
@@ -801,21 +882,37 @@
       <div class="steps">
         <div class="step">
           <span class="step-num">01</span>
-          <span class="step-icon">🎨</span>
+          <span class="step-icon">
+            <span class="mascot-frame mascot-frame--portrait">
+              <img class="mascot-img" src="rooster.png" alt="" />
+            </span>
+          </span>
           <h3>Vibe It</h3>
           <p>Build your UI with any AI tool — Claude, Cursor, v0, Lovable, whatever gets you in the zone. We support HTML, React, Vue, and more.</p>
           <span class="step-tag">Any AI tool works</span>
         </div>
         <div class="step">
           <span class="step-num">02</span>
-          <span class="step-icon">🪺</span>
+          <span class="step-icon">
+            <span class="mascot-frame mascot-frame--badge">
+              <span class="mascot-inner">
+                <img class="mascot-img" src="rooster.png" alt="" />
+              </span>
+            </span>
+          </span>
           <h3>Roost It</h3>
           <p>Drop your project on Vibe Rooster. We wire up auth, a database, file storage, and multi-tenant routing — automatically.</p>
           <span class="step-tag">One-click deploy</span>
         </div>
         <div class="step">
           <span class="step-num">03</span>
-          <span class="step-icon">🌅</span>
+          <span class="step-icon">
+            <span class="mascot-frame mascot-frame--polaroid" data-caption="Shipped!">
+              <span class="mascot-inner">
+                <img class="mascot-img" src="rooster.png" alt="" />
+              </span>
+            </span>
+          </span>
           <h3>Ship It</h3>
           <p>Go live instantly. Share your link, add a custom domain, and watch your vibe reach the world. Your app, production-ready from day one.</p>
           <span class="step-tag">Live in seconds</span>
@@ -871,69 +968,83 @@
     </div>
   </section>
 
-  <!-- PRICING TEASER -->
+  <!-- PRICING -->
   <section id="pricing">
     <div class="pricing-inner">
       <div class="pricing-header">
         <span class="section-label">Pricing</span>
-        <h2>Pick your flock size.</h2>
+        <h2>Pay when you're ready. Win together.</h2>
         <p class="section-sub" style="margin: 0 auto 16px;">
-          Start free. Scale when your vibes go viral.
+          No subscription anxiety. Deploy free, publish once, and only pay us when your app makes money.
         </p>
-        <span class="pricing-disclaimer">🌅 Early access pricing — locked in for life when you join now</span>
+        <span class="pricing-disclaimer">🌅 Early access — join now and lock in founding terms</span>
       </div>
+
+      <!-- Phase flow -->
+      <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:40px; flex-wrap:wrap;">
+        <span style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px;">Passion project</span>
+        <span style="color:var(--orange); font-size:1.2rem;">→</span>
+        <span style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px;">Live app</span>
+        <span style="color:var(--orange); font-size:1.2rem;">→</span>
+        <span style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px;">Real business</span>
+      </div>
+
       <div class="pricing-grid">
 
-        <!-- Nest -->
+        <!-- Tier 1A: Deploy -->
         <div class="price-card">
           <span class="price-emoji">🐣</span>
-          <div class="price-tier">Nest</div>
-          <div class="price-amount">Free<span> forever</span></div>
-          <p class="price-desc">Perfect for trying things out and shipping your first vibe.</p>
+          <div class="price-tier">Deploy</div>
+          <div class="price-amount">Free<span> 48-hours</span></div>
+          <p class="price-desc">Get your Roost live instantly. Share it and see if it has legs — no commitment, no bill.</p>
           <ul class="price-features">
-            <li>1 app</li>
-            <li>Up to 2 tenants</li>
-            <li>Vibe Rooster subdomain</li>
-            <li>Auth &amp; database included</li>
-            <li>Community support</li>
+            <li>Instant deploy, always on</li>
+            <li>theroost.dev subdomain</li>
+            <li>48 hours to resurrect</li>
+            <li>512 MB RAM · 1 GB storage</li>
           </ul>
           <a href="#early" class="price-btn price-btn-outline">Get Early Access</a>
         </div>
 
-        <!-- Rooster (featured) -->
+        <!-- Tier 1B: Publish (featured) -->
         <div class="price-card featured">
-          <span class="featured-badge">🌟 Most Popular</span>
+          <span class="featured-badge">🚀 The Launch Moment</span>
           <span class="price-emoji">🐓</span>
-          <div class="price-tier">Rooster</div>
-          <div class="price-amount">$19<span>/mo</span></div>
-          <p class="price-desc">For builders who are serious about shipping.</p>
+          <div class="price-tier">Publish</div>
+          <div class="price-amount">$24.99<span> one-time</span></div>
+          <p class="price-desc">Your app. Make it permanent. Pay once — it lives forever. No subscription, no ongoing anxiety.</p>
           <ul class="price-features">
-            <li>Unlimited apps</li>
-            <li>Up to 25 tenants</li>
-            <li>Custom domain</li>
-            <li>Full MBaaS stack</li>
-            <li>Priority support</li>
+            <li>For...uh...uh...ever</li>
+            <li>Always-on — zero cold starts</li>
+            <li>Permanent URL, never expires</li>
+            <li>512 MB RAM · 1 GB storage</li>
           </ul>
           <a href="#early" class="price-btn price-btn-solid">Request Early Access</a>
         </div>
 
-        <!-- Flock -->
+        <!-- Tier 2: Grow -->
         <div class="price-card">
-          <span class="price-emoji">🦅</span>
-          <div class="price-tier">Flock</div>
-          <div class="price-amount">Custom<span> pricing</span></div>
-          <p class="price-desc">For teams and agencies deploying at scale.</p>
+          <span class="price-emoji">🌅</span>
+          <div class="price-tier">Grow</div>
+          <div class="price-amount">3%<span> of API billings</span></div>
+          <p class="price-desc">You added a payment button. Now we're partners. We only make money when you make money — that's the whole deal.</p>
           <ul class="price-features">
-            <li>Unlimited everything</li>
-            <li>Unlimited tenants</li>
-            <li>SLA guarantees</li>
-            <li>Dedicated infrastructure</li>
-            <li>White-glove onboarding</li>
+            <li>Everything in Publish</li>
+            <li>Stripe payment processing built in</li>
+            <li>Premium APIs</li>
+            <li>Custom domain included</li>
+            <li>Priority support · Badge removed</li>
           </ul>
           <a href="#early" class="price-btn price-btn-outline">Talk to Us</a>
         </div>
 
       </div>
+
+      <!-- Philosophy note -->
+      <p style="text-align:center; margin-top:48px; font-size:0.9rem; color:var(--muted); font-weight:600; max-width:600px; margin-left:auto; margin-right:auto;">
+        Publishing an app should feel like publishing a book — you pay once, it exists, people can find it.<br>
+        <span style="color:var(--orange);">No subscriptions for passion projects. Ever.</span>
+      </p>
     </div>
   </section>
 
