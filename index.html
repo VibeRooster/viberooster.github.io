@@ -793,12 +793,162 @@
       margin-top: 12px;
     }
 
+    /* ── HATCH GALLERY CAROUSEL ── */
+    #gallery {
+      background: var(--white);
+      border-top: 1px solid rgba(255,107,53,0.12);
+      border-bottom: 1px solid rgba(255,107,53,0.12);
+    }
+
+    .gallery-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .gallery-stage {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .gallery-nav {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,107,53,0.25);
+      background: var(--cream);
+      color: var(--orange);
+      font-size: 1.25rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .gallery-nav:hover:not(:disabled) {
+      background: rgba(255,107,53,0.1);
+      transform: scale(1.05);
+    }
+
+    .gallery-nav:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .gallery-frame-wrap {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid rgba(255,107,53,0.15);
+      box-shadow: var(--shadow);
+      background: var(--dark);
+      min-height: 420px;
+    }
+
+    .gallery-frame {
+      width: 100%;
+      height: min(52vh, 520px);
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+
+    .gallery-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+      padding: 0 4px;
+    }
+
+    .gallery-slug {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+
+    .gallery-slug span {
+      color: var(--orange);
+    }
+
+    .gallery-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-link {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--orange);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,107,53,0.3);
+      transition: background 0.2s;
+    }
+
+    .gallery-link:hover {
+      background: rgba(255,107,53,0.08);
+    }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,107,53,0.2);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .gallery-dot.active {
+      background: var(--orange);
+      transform: scale(1.15);
+    }
+
+    .gallery-empty {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .gallery-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 16px 20px; }
       .features-header { flex-direction: column; align-items: flex-start; }
       .price-card.featured { transform: scale(1); }
       .price-card.featured:hover { transform: translateY(-4px); }
+      .gallery-stage { grid-template-columns: 1fr; }
+      .gallery-nav { display: none; }
+      .gallery-frame { height: 44vh; min-height: 280px; }
     }
   </style>
 </head>
@@ -867,6 +1017,23 @@
     </form>
     <p class="hero-note">No credit card. No infra knowledge. Just your vibe.</p>
     <div class="form-success" id="hero-success">🎉 You're on the list! We'll crow when you're in.</div>
+  </section>
+
+  <!-- LIVE HATCHES GALLERY -->
+  <section id="gallery">
+    <div class="gallery-inner">
+      <div class="gallery-header">
+        <span class="section-label">The Barnyard</span>
+        <h2>Fresh hatches, live right now.</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Browse roosts hatched on Vibe Rooster. Open one to explore — and leave a heart rating while you're there.
+        </p>
+      </div>
+
+      <div id="gallery-app">
+        <div class="gallery-loading">Loading hatches…</div>
+      </div>
+    </div>
   </section>
 
   <!-- HOW IT WORKS -->
@@ -1109,6 +1276,92 @@
         }
       });
     }, { threshold: 0.12 });
+
+    // ── Hatch gallery carousel ──
+    const GALLERY_API = 'https://console.theroost.dev/api/public/hatches';
+    const ROTATE_MS = 8000;
+
+    (function initGallery() {
+      const mount = document.getElementById('gallery-app');
+      if (!mount) return;
+
+      let items = [];
+      let index = 0;
+      let timer = null;
+
+      function renderEmpty(msg) {
+        mount.innerHTML = '<p class="gallery-empty">' + msg + '</p>';
+      }
+
+      function render() {
+        if (!items.length) {
+          renderEmpty('No live hatches yet — be the first to <a href="#early" style="color:var(--orange)">request access</a>.');
+          return;
+        }
+
+        const h = items[index];
+        const slugLabel = h.slug;
+        mount.innerHTML =
+          '<div class="gallery-stage">' +
+            '<button type="button" class="gallery-nav" id="gallery-prev" aria-label="Previous hatch">‹</button>' +
+            '<div class="gallery-frame-wrap">' +
+              '<iframe class="gallery-frame" id="gallery-frame" title="' + slugLabel + ' hatch preview" src="' + h.galleryUrl + '" loading="lazy"></iframe>' +
+            '</div>' +
+            '<button type="button" class="gallery-nav" id="gallery-next" aria-label="Next hatch">›</button>' +
+          '</div>' +
+          '<div class="gallery-meta">' +
+            '<div class="gallery-slug"><span>' + slugLabel + '</span>.theroost.dev</div>' +
+            '<div class="gallery-actions">' +
+              '<a class="gallery-link" href="' + h.galleryUrl + '" target="_blank" rel="noopener noreferrer">Open &amp; rate ♥</a>' +
+            '</div>' +
+          '</div>' +
+          '<div class="gallery-dots" id="gallery-dots"></div>';
+
+        const dots = document.getElementById('gallery-dots');
+        items.forEach(function (item, i) {
+          const d = document.createElement('button');
+          d.type = 'button';
+          d.className = 'gallery-dot' + (i === index ? ' active' : '');
+          d.setAttribute('aria-label', 'Show ' + item.slug);
+          d.addEventListener('click', function () { go(i); });
+          dots.appendChild(d);
+        });
+
+        document.getElementById('gallery-prev').addEventListener('click', function () {
+          go((index - 1 + items.length) % items.length);
+        });
+        document.getElementById('gallery-next').addEventListener('click', function () {
+          go((index + 1) % items.length);
+        });
+
+        resetTimer();
+      }
+
+      function go(i) {
+        index = i;
+        render();
+      }
+
+      function resetTimer() {
+        if (timer) clearInterval(timer);
+        if (items.length > 1) {
+          timer = setInterval(function () {
+            go((index + 1) % items.length);
+          }, ROTATE_MS);
+        }
+      }
+
+      fetch(GALLERY_API + '?limit=24')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          items = data.items || [];
+          index = 0;
+          render();
+        })
+        .catch(function () {
+          renderEmpty('Could not load hatches. <a href="https://console.theroost.dev" style="color:var(--orange)">Try again later</a>.');
+        });
+    })();
 
     document.querySelectorAll('.step, .feature-card, .price-card').forEach(el => {
       el.style.opacity = '0';
