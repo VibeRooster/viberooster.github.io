@@ -117,18 +117,21 @@
       to   { transform: translate(30px, 20px) scale(1.05); }
     }
 
-    .hero-mascot {
-      width: 260px;
-      height: 260px;
-      margin-bottom: 32px;
-      object-fit: contain;
-      animation: bobble 3s ease-in-out infinite;
-      filter: drop-shadow(0 14px 28px rgba(255,107,53,0.28));
+    .hero-banner {
+      width: 90vw;
+      max-width: 900px;
+      border-radius: 20px;
+      box-shadow:
+        0 32px 80px rgba(26,26,46,0.32),
+        0 8px 24px rgba(26,26,46,0.16);
+      margin-bottom: 48px;
+      display: block;
+      animation: heroFloat 7s ease-in-out infinite;
     }
 
-    @keyframes bobble {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50%       { transform: translateY(-12px) rotate(2deg); }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
     }
 
     /* ── MASCOT FRAMING SYSTEM ──
@@ -163,44 +166,6 @@
       transform-origin: center 22%;
     }
 
-    /* Badge — rotating sunburst halo */
-    .mascot-frame--badge {
-      width: 156px;
-      height: 156px;
-      padding: 12px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg,
-        var(--orange) 0 15deg, var(--yellow) 15deg 30deg,
-        var(--orange) 30deg 45deg, var(--yellow) 45deg 60deg,
-        var(--orange) 60deg 75deg, var(--yellow) 75deg 90deg,
-        var(--orange) 90deg 105deg, var(--yellow) 105deg 120deg,
-        var(--orange) 120deg 135deg, var(--yellow) 135deg 150deg,
-        var(--orange) 150deg 165deg, var(--yellow) 165deg 180deg,
-        var(--orange) 180deg 195deg, var(--yellow) 195deg 210deg,
-        var(--orange) 210deg 225deg, var(--yellow) 225deg 240deg,
-        var(--orange) 240deg 255deg, var(--yellow) 255deg 270deg,
-        var(--orange) 270deg 285deg, var(--yellow) 285deg 300deg,
-        var(--orange) 300deg 315deg, var(--yellow) 315deg 330deg,
-        var(--orange) 330deg 345deg, var(--yellow) 345deg 360deg);
-      box-shadow: 0 12px 30px rgba(255,107,53,0.3);
-      animation: spin-slow 18s linear infinite;
-    }
-    .mascot-frame--badge .mascot-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-      background: var(--cream);
-      animation: spin-slow-reverse 18s linear infinite;
-    }
-    .mascot-frame--badge .mascot-img {
-      object-fit: cover;
-      object-position: center 32%;
-      transform: scale(1.18);
-    }
-    @keyframes spin-slow         { to { transform: rotate(360deg); } }
-    @keyframes spin-slow-reverse { to { transform: rotate(-360deg); } }
-
     /* Polaroid — tilted card with caption */
     .mascot-frame--polaroid {
       background: white;
@@ -211,16 +176,43 @@
       width: 152px;
     }
     .mascot-frame--polaroid .mascot-inner {
+      display: block;
       width: 132px;
       height: 132px;
       background: var(--cream);
       overflow: hidden;
       border-radius: 2px;
+      box-shadow: inset 0 0 0 1px rgba(26,26,46,0.06);
     }
     .mascot-frame--polaroid .mascot-img {
-      object-fit: cover;
-      object-position: center 42%;
-      transform: scale(1.1);
+      object-fit: contain;
+    }
+
+    /* Per-mascot framing — each subject scaled + tilted uniquely.
+       Images are square with the subject centered, so we zoom toward a
+       per-image origin to crop the transparent margins evenly. */
+    .mascot-frame--egg {
+      transform: rotate(-5deg);
+    }
+    .mascot-frame--egg .mascot-img {
+      transform-origin: 75% 20%;
+      transform: scale(2.05);
+    }
+
+    .mascot-frame--chick {
+      transform: rotate(3.5deg);
+    }
+    .mascot-frame--chick .mascot-img {
+      transform-origin: 55% 20%;
+      transform: scale(2.85);
+    }
+
+    .mascot-frame--rooster {
+      transform: rotate(-2.5deg);
+    }
+    .mascot-frame--rooster .mascot-img {
+      transform-origin: 55% 10%;
+      transform: scale(3.05);
     }
     .mascot-frame--polaroid::after {
       content: attr(data-caption);
@@ -993,7 +985,7 @@
     <div class="hero-bg-blob blob-2"></div>
 
     <!-- Rooster Mascot -->
-    <img class="hero-mascot" src="rooster.png" alt="Vibe Rooster mascot — happy cartoon rooster" />
+    <img class="hero-banner" src="barnyard_bokeh.png" alt="Vibe Rooster mascot — happy cartoon rooster" />
     <!-- Sparkles around mascot -->
     <span style="position:absolute; top:18%; left:38%; font-size:1.4rem; opacity:0.7;">✦</span>
     <span style="position:absolute; top:14%; right:36%; font-size:1.1rem; opacity:0.6;">✦</span>
@@ -1050,8 +1042,10 @@
         <div class="step">
           <span class="step-num">01</span>
           <span class="step-icon">
-            <span class="mascot-frame mascot-frame--portrait">
-              <img class="mascot-img" src="rooster.png" alt="" />
+            <span class="mascot-frame mascot-frame--polaroid mascot-frame--egg" data-caption="Vibed!">
+              <span class="mascot-inner">
+                <img class="mascot-img" src="egg_v2_transparent.png" alt="" />
+              </span>
             </span>
           </span>
           <h3>Vibe It</h3>
@@ -1061,26 +1055,26 @@
         <div class="step">
           <span class="step-num">02</span>
           <span class="step-icon">
-            <span class="mascot-frame mascot-frame--badge">
+            <span class="mascot-frame mascot-frame--polaroid mascot-frame--chick" data-caption="Hatched!">
               <span class="mascot-inner">
-                <img class="mascot-img" src="rooster.png" alt="" />
+                <img class="mascot-img" src="chick_transparent.png" alt="" />
               </span>
             </span>
           </span>
-          <h3>Roost It</h3>
-          <p>Drop your project on Vibe Rooster. We wire up auth, a database, file storage, and multi-tenant routing — automatically.</p>
+          <h3>Hatch It</h3>
+          <p>Ask your agent to Hatch your app using our MCP server. We wire up auth, a database, file storage, and multi-tenant routing — automatically.</p>
           <span class="step-tag">One-click deploy</span>
         </div>
         <div class="step">
           <span class="step-num">03</span>
           <span class="step-icon">
-            <span class="mascot-frame mascot-frame--polaroid" data-caption="Shipped!">
+            <span class="mascot-frame mascot-frame--polaroid mascot-frame--rooster" data-caption="Shipped!">
               <span class="mascot-inner">
-                <img class="mascot-img" src="rooster.png" alt="" />
+                <img class="mascot-img" src="rooster_transparent.png" alt="" />
               </span>
             </span>
           </span>
-          <h3>Ship It</h3>
+          <h3>Roost It</h3>
           <p>Go live instantly. Share your link, add a custom domain, and watch your vibe reach the world. Your app, production-ready from day one.</p>
           <span class="step-tag">Live in seconds</span>
         </div>
