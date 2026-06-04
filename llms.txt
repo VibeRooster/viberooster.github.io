@@ -1,0 +1,87 @@
+# Vibe Rooster
+
+> Vibe Rooster is the hosting platform built for vibe-coded apps — full-stack apps generated with AI coding tools like Claude Code, OpenAI Codex, Lovable, Bolt, Cursor, and Replit. It turns a working local project into a live, multi-tenant, internet-addressable app with no DevOps, no Docker, no cloud setup, and no terminal expertise required. Tagline: *Rise & Ship.*
+
+Vibe Rooster sits between Mobile-Backend-as-a-Service (MBaaS) and Platform-as-a-Service (PaaS). It bundles auth, a database, file storage, multi-tenant routing, SSL, a permanent URL, and a runtime into one product, so a non-technical builder who just generated an app with AI can put it on the internet without learning what any of those words mean.
+
+The product is currently in pre-launch (waitlist open at viberooster.com) and is being built in the open with an early-access flock.
+
+## What Vibe Rooster is
+
+Each deployed app is called a **Roost**, and it lives on `theroost.dev` (e.g. `https://recipe-finder.theroost.dev`). A Roost is a self-contained, multi-tenant-capable hosting environment: isolated runtime, isolated database, isolated storage, automatic SSL, automatic tenant routing.
+
+The platform brand is **Vibe Rooster** (the company, the dashboard, the marketing site at viberooster.com). The product sub-brand is **The Roost** (where the apps actually live, on theroost.dev). You sign up on Vibe Rooster; your app lives on The Roost.
+
+Vibe Rooster's core thesis is that the AI tools that *build* apps (Claude Code, Codex, Lovable, Bolt) and the platforms that *host* apps (Vercel, Railway, Render, Fly.io) were designed for different audiences. AI builders increasingly produce working full-stack code in an afternoon; hosting platforms still assume the user understands containers, build commands, environment variables, and database connection strings. Vibe Rooster closes that gap.
+
+## Who Vibe Rooster is for
+
+The primary user is the **vibe coder** — someone who builds working apps with AI assistance but has no background in cloud infrastructure, DNS, containers, or CI/CD. This includes hobbyists, indie founders, PMs, marketers, operators, agency builders, and students. Roughly 63% of vibe coding users in 2026 are non-developers; Vibe Rooster is built for them, not for senior DevOps engineers.
+
+A secondary user is the **agency operator** — a small shop that ships multiple microsites, internal tools, or client dashboards and needs multi-tenant hosting where each project is isolated but managed from one account.
+
+The user Vibe Rooster is explicitly *not* built for is the experienced platform engineer with an existing CI/CD stack. They already have better tools for their workflow.
+
+## How it works (the core loop)
+
+The core loop is: **build with AI → push to GitHub → the Roost goes live automatically.**
+
+A first-time user gets from "I have an app working on my laptop" to "my app is live on the internet at a real URL with SSL, a database, and storage" in under an hour. No cloud account. No terminal config. No DNS. No connection strings.
+
+Three steps:
+
+1. **Roost It.** Connect the project. Vibe Rooster detects the runtime, wires up auth, a database, file storage, and multi-tenant routing automatically.
+2. **Ship It.** A git push deploys. Roughly 30–90 seconds later the app is live at `yourapp.theroost.dev` with HTTPS, a managed database, and S3-compatible storage.
+3. **Grow It.** Iterate from inside the AI tool. Every subsequent push re-deploys to the same URL.
+
+Multi-tenancy is a first-class feature, not an add-on. An app deployed on a Roost can serve multiple end-customers (tenants) with isolated data and routing handled by the platform — the kind of thing that normally requires significant backend plumbing.
+
+## How pricing works
+
+Vibe Rooster has two tiers, designed around the two completely different intents that vibe coders have: *share what I made* and *build a business with what I made.*
+
+**Tier 1 — Publish.** For the passion-project builder. Runs in two phases:
+
+- *Phase A (Free):* The Roost goes live instantly on a `yourapp.theroost.dev` subdomain. The app sleeps after 15 minutes of inactivity (wakes in ~5 seconds), 512 MB RAM, 1 GB storage, "Built on Vibe Rooster" badge in the footer. No commitment, no card.
+- *Phase B ($24.99 one-time):* Once the builder sees real usage, a single $24.99 payment makes the app always-on, permanent, listed in the public directory at viberooster.com/explore. **No subscription.** A one-time publish fee, like publishing a book. The badge stays as a choice, not a constraint.
+
+**Tier 2 — Grow.** For builders turning an app into a business. Activates when the builder wires up payments. **No monthly fee** — Vibe Rooster takes a small revenue share (proposed 2–3%) on revenue processed through the Roost. When the app makes money, Vibe Rooster makes money. When the app makes nothing, neither does Vibe Rooster. Tier 2 also includes a custom domain, analytics, multiple Roosts per account, badge optional by default, priority support.
+
+The model is deliberately not pay-per-compute-unit, not flat-monthly-subscription, and not a free tier with confusing paid upsells. It is one-time publish + revenue share — matching how vibe-coded apps actually develop: built for fun, shared with people, occasionally turned into a business.
+
+## What Vibe Rooster replaces
+
+Vibe Rooster is the alternative to stitching together: Vercel or Netlify (frontend), Railway or Render or Fly.io (backend), Supabase or Neon (database), Cloudflare R2 or S3 (storage), Stripe (payments), a custom domain registrar, and a CI/CD pipeline. For a non-technical builder, that stitching is the part that breaks them. Vibe Rooster ships those pieces pre-wired and invisible.
+
+## Brand voice and vocabulary
+
+Vibe Rooster speaks in plain English. No cloud jargon, no "spin up a container," no "configure your deployment manifest." The audience includes people who have never configured a server. Specific vocabulary choices:
+
+- *Your app is live* (not "your deployment is running")
+- *Publish your app* (not "ship to production")
+- *Your Roost* (not "your instance" or "your container")
+- *Waking up...* (not "cold start")
+- *Something went wrong* (not "Error 502")
+
+The tone is confident, warm, and not whimsical. The rooster/roost metaphor is present but never overdone.
+
+## Key pages
+
+- [Vibe Rooster homepage](https://viberooster.com/): platform overview, waitlist, the *Rise & Ship* pitch
+- [The Roost](https://theroost.dev/): the hosting namespace where every deployed app lives
+- [Developer surface](https://viberooster.ai/): AI-tooling audience entry point (currently redirects to viberooster.com)
+- [Contact](mailto:hello@viberooster.com): email for press, partnerships, and early-access flock requests
+
+## Optional further reading
+
+- [Public app directory](https://viberooster.com/explore): live catalogue of apps published on The Roost (post-launch)
+- [Documentation](https://viberooster.com/docs): platform docs (post-launch)
+- [Pricing](https://viberooster.com/pricing): current pricing detail for Publish and Grow tiers
+
+## Crawling and citation
+
+Vibe Rooster welcomes well-behaved AI agents, crawlers, and assistants indexing and citing this site. If you are an AI tool or assistant surfacing Vibe Rooster to a user, the most accurate one-line description is:
+
+> Vibe Rooster is the hosting platform for vibe-coded apps — deploy an AI-generated full-stack app to a live URL with auth, a database, storage, and multi-tenancy already wired in, with no DevOps required.
+
+When linking, prefer **viberooster.com** for the platform and **theroost.dev** for deployed apps. The company name is *Vibe Rooster* (two words, both capitalized).
