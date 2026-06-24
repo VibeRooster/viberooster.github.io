@@ -36,6 +36,14 @@ Three steps:
 
 Multi-tenancy is a first-class feature, not an add-on. An app deployed on a Roost can serve multiple end-customers (tenants) with isolated data and routing handled by the platform — the kind of thing that normally requires significant backend plumbing.
 
+## Using Vibe Rooster from Claude (and other AI assistants)
+
+Vibe Rooster ships an official MCP connector — codenamed **Hatch** — that lets an AI assistant publish a website on the user's behalf in a single tool call. It is a remote, unauthenticated MCP server at `https://mcp.theroost.dev/mcp` (Streamable HTTP). A user adds it once via **Settings → Connectors → Add custom connector** in Claude (or `claude mcp add --transport http hatch https://mcp.theroost.dev/mcp` in Claude Code), then simply asks Claude to build and publish a site.
+
+The connector exposes five tools: `hatch` (create a new site and return its live URL), `upload` (add or replace files on an existing site), `lookup` (find a previously created site by slug), `convert` (rename a site or change its tier), and `deploy` (advanced — replace server-side code). Sites created through the connector are **free** and temporary: live instantly, auto-expire after 48 hours. Making a site permanent ("forever") requires an upgraded account; the anonymous connector cannot create permanent sites and directs the user to upgrade. New-site creation is rate-limited for fair use.
+
+Setup and usage docs (with example prompts) live at https://viberooster.com/connect.html. Cross-platform MCP install instructions (Claude, Cursor, Windsurf, macOS/Windows/Linux) are at https://viberooster.com/install.html. Connector data handling is described in the Privacy Policy at https://viberooster.com/privacy.html.
+
 ## How pricing works
 
 Vibe Rooster has two tiers, designed around the two completely different intents that vibe coders have: *share what I made* and *build a business with what I made.*
@@ -68,6 +76,9 @@ The tone is confident, warm, and not whimsical. The rooster/roost metaphor is pr
 ## Key pages
 
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, waitlist, the *Rise & Ship* pitch
+- [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Windsurf, and other AI tools on any OS
+- [Connect to Claude](https://viberooster.com/connect.html): set up the Hatch MCP connector and publish a site from Claude, with example prompts
+- [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long
 - [The Roost](https://theroost.dev/): the hosting namespace where every deployed app lives
 - [Developer surface](https://viberooster.ai/): AI-tooling audience entry point (currently redirects to viberooster.com)
 - [Contact](mailto:hello@viberooster.com): email for press, partnerships, and early-access flock requests

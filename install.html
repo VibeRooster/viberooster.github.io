@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install Hatch MCP — Vibe Rooster</title>
+  <meta name="description" content="Add the Vibe Rooster Hatch MCP server to Claude, Cursor, Windsurf, and other AI tools on macOS, Windows, and Linux. No API key required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange:#FF6B35; --yellow:#FFD166; --red:#EF233C; --cream:#FFFBF2;
+      --dark:#1A1A2E; --mid:#2D2D44; --muted:#6B6B8A; --white:#FFFFFF;
+      --radius:16px; --shadow:0 8px 32px rgba(255,107,53,0.15);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); line-height:1.65; }
+    a { color:var(--orange); }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 40px; background:rgba(255,251,242,0.9); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,107,53,0.1);
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-family:'Fredoka One',cursive; font-size:1.4rem; color:var(--orange); text-decoration:none; }
+    .nav-cta { background:var(--orange); color:var(--white); border:none; border-radius:50px; padding:9px 22px; font-weight:800; font-size:0.85rem; text-decoration:none; }
+    main { max-width:860px; margin:0 auto; padding:130px 24px 80px; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2.6rem; color:var(--dark); line-height:1.15; margin-bottom:14px; }
+    h1 span { color:var(--orange); }
+    h2 { font-family:'Fredoka One',cursive; font-size:1.6rem; color:var(--dark); margin:48px 0 16px; scroll-margin-top:100px; }
+    h3 { font-size:1.15rem; font-weight:800; margin:28px 0 8px; }
+    p { margin-bottom:16px; }
+    .lead { font-size:1.2rem; color:var(--mid); margin-bottom:8px; }
+    ol, ul { margin:0 0 16px 22px; }
+    li { margin-bottom:8px; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; background:rgba(255,107,53,0.1); padding:2px 6px; border-radius:6px; font-size:0.9em; }
+    pre { background:var(--dark); color:#F4F4F8; border-radius:12px; padding:18px 20px; overflow-x:auto; margin-bottom:20px; font-size:0.86rem; }
+    pre code { background:none; padding:0; color:inherit; }
+    .card { background:var(--white); border:1px solid rgba(255,107,53,0.15); border-radius:var(--radius); padding:22px 26px; margin-bottom:20px; box-shadow:var(--shadow); }
+    .pill { display:inline-block; background:var(--yellow); color:var(--dark); font-weight:800; font-size:0.72rem; padding:3px 10px; border-radius:50px; letter-spacing:0.04em; text-transform:uppercase; }
+    table { width:100%; border-collapse:collapse; margin-bottom:20px; font-size:0.95rem; }
+    th, td { text-align:left; padding:10px 12px; border-bottom:1px solid rgba(107,107,138,0.18); vertical-align:top; }
+    th { font-weight:800; color:var(--mid); }
+    .prompt { background:var(--white); border-left:4px solid var(--orange); border-radius:8px; padding:14px 18px; margin-bottom:14px; font-size:1.02rem; }
+    .prompt small { display:block; color:var(--muted); font-weight:700; margin-top:6px; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; }
+    .toc { background:var(--white); border:1px solid rgba(255,107,53,0.12); border-radius:12px; padding:18px 22px; margin:24px 0 32px; }
+    .toc ul { margin-bottom:0; }
+    .note { background:rgba(255,209,102,0.25); border-left:4px solid var(--yellow); border-radius:8px; padding:14px 18px; margin-bottom:20px; font-size:0.95rem; }
+    footer { text-align:center; padding:40px 24px; color:var(--muted); border-top:1px solid rgba(255,107,53,0.12); }
+    .footer-logo { font-family:'Fredoka One',cursive; color:var(--orange); }
+    @media (max-width:600px){ nav{padding:14px 20px;} h1{font-size:2rem;} main{padding-top:110px;} }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">🐓 Vibe Rooster</a>
+    <a href="/" class="nav-cta">Home</a>
+  </nav>
+
+  <main>
+    <span class="pill">MCP Setup</span>
+    <h1>Install <span>Hatch</span> on your AI tool</h1>
+    <p class="lead">Hatch is Vibe Rooster's MCP connector — it lets your AI assistant publish a live website at <code>https://your-name.theroost.dev</code> in one tool call. No API key, no sign-in, no cloud account.</p>
+
+    <div class="card">
+      <p style="margin-bottom:8px;"><strong>Server URL</strong></p>
+      <pre style="margin-bottom:0;"><code>https://mcp.theroost.dev/mcp</code></pre>
+    </div>
+
+    <div class="toc">
+      <strong>Jump to your tool</strong>
+      <ul>
+        <li><a href="#claude">Claude.ai &amp; Claude Desktop</a></li>
+        <li><a href="#claude-code">Claude Code</a></li>
+        <li><a href="#cursor">Cursor</a></li>
+        <li><a href="#windsurf">Windsurf</a></li>
+        <li><a href="#other">Other MCP clients</a></li>
+        <li><a href="#try-it">Try it — example prompts</a></li>
+      </ul>
+    </div>
+
+    <h2 id="claude">Claude.ai &amp; Claude Desktop</h2>
+    <p><strong>Recommended.</strong> Claude connects directly over Streamable HTTP — no local install.</p>
+
+    <h3>Claude.ai (web)</h3>
+    <ol>
+      <li>Open <strong>Settings → Connectors</strong>.</li>
+      <li>Click <strong>Add custom connector</strong>.</li>
+      <li>Paste <code>https://mcp.theroost.dev/mcp</code> and set authentication to <strong>None</strong>.</li>
+      <li>Save. Start a new chat and enable the Hatch connector for that conversation.</li>
+    </ol>
+    <p>Custom connectors require Claude Pro, Max, Team, or Enterprise.</p>
+
+    <h3>Claude Desktop (macOS, Windows, Linux)</h3>
+    <p>Use the same <strong>Settings → Connectors → Add custom connector</strong> flow as Claude.ai. Fully quit and reopen Claude Desktop after adding — a window reload is not enough.</p>
+
+    <p>If your plan does not support custom connectors, use the <code>mcp-remote</code> bridge (requires <strong>Node 20+</strong> on your PATH). Edit your Claude Desktop config:</p>
+    <table>
+      <tr><th>OS</th><th>Config file</th></tr>
+      <tr><td>macOS</td><td><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></td></tr>
+      <tr><td>Windows</td><td><code>%APPDATA%\Claude\claude_desktop_config.json</code></td></tr>
+      <tr><td>Linux</td><td><code>~/.config/Claude/claude_desktop_config.json</code></td></tr>
+    </table>
+    <pre><code>{
+  "mcpServers": {
+    "hatch": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.theroost.dev/mcp", "--transport", "http-only"]
+    }
+  }
+}</code></pre>
+    <p>Quit and relaunch Claude Desktop after saving.</p>
+
+    <h2 id="claude-code">Claude Code</h2>
+    <p>From any terminal (macOS, Windows, Linux):</p>
+    <pre><code>claude mcp add --transport http hatch https://mcp.theroost.dev/mcp</code></pre>
+    <p>Or add to a project-scoped <code>.mcp.json</code> in your repo root:</p>
+    <pre><code>{
+  "mcpServers": {
+    "hatch": {
+      "type": "http",
+      "url": "https://mcp.theroost.dev/mcp"
+    }
+  }
+}</code></pre>
+
+    <h2 id="cursor">Cursor</h2>
+    <p>Cursor supports remote MCP over Streamable HTTP. Add Hatch globally or per project.</p>
+
+    <h3>Option A — Settings UI</h3>
+    <ol>
+      <li>Open <strong>Cursor Settings → Tools &amp; MCP</strong>.</li>
+      <li>Click <strong>New MCP Server</strong> (or edit the JSON directly).</li>
+      <li>Add the Hatch entry below and reload Cursor.</li>
+    </ol>
+
+    <h3>Option B — Config file</h3>
+    <table>
+      <tr><th>Scope</th><th>Path</th></tr>
+      <tr><td>Global (all projects)</td><td><code>~/.cursor/mcp.json</code> on macOS/Linux · <code>%USERPROFILE%\.cursor\mcp.json</code> on Windows</td></tr>
+      <tr><td>Project only</td><td><code>.cursor/mcp.json</code> in your project root</td></tr>
+    </table>
+    <pre><code>{
+  "mcpServers": {
+    "hatch": {
+      "url": "https://mcp.theroost.dev/mcp"
+    }
+  }
+}</code></pre>
+    <p>No <code>headers</code> or auth token needed. Restart Cursor or reload the window after saving.</p>
+
+    <h2 id="windsurf">Windsurf</h2>
+    <ol>
+      <li>Open the Command Palette (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Mac, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Windows).</li>
+      <li>Run <strong>Windsurf: Configure MCP Servers</strong> (or click the hammer icon in Cascade → Configure).</li>
+      <li>Add Hatch to <code>~/.codeium/windsurf/mcp_config.json</code> (Windows: <code>%USERPROFILE%\.codeium\windsurf\mcp_config.json</code>).</li>
+    </ol>
+    <div class="note">Windsurf uses <code>serverUrl</code> for remote servers — not <code>url</code>. Copying a Cursor config without changing the field name will silently fail.</div>
+    <pre><code>{
+  "mcpServers": {
+    "hatch": {
+      "serverUrl": "https://mcp.theroost.dev/mcp"
+    }
+  }
+}</code></pre>
+    <p>Click <strong>Refresh</strong> in the Cascade MCP toolbar after saving.</p>
+
+    <h2 id="other">Other MCP clients</h2>
+    <p>Any client that speaks local stdio but not remote HTTP can bridge with <a href="https://www.npmjs.com/package/mcp-remote">mcp-remote</a> (Node 20+). Merge this into your client's MCP config file:</p>
+    <pre><code>{
+  "mcpServers": {
+    "hatch": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.theroost.dev/mcp", "--transport", "http-only"]
+    }
+  }
+}</code></pre>
+    <p>Works with VS Code extensions, Cline, Zed (via external MCP), and other stdio-based setups. Clients that support Streamable HTTP natively should use the URL directly instead.</p>
+
+    <h2 id="try-it">Try it — example prompts</h2>
+    <p>Once Hatch shows as connected (you should see tools like <code>hatch</code>, <code>upload</code>, and <code>lookup</code>), paste any of these into your assistant:</p>
+
+    <div class="prompt">“Hatch me a one-page landing site for my coffee shop and give me the live link.”
+      <small>→ creates a new site instantly</small></div>
+
+    <div class="prompt">“Here's my portfolio — index.html, styles.css, and three photos. Put it online.”
+      <small>→ uploads your files to a live URL</small></div>
+
+    <div class="prompt">“Add a contact page to the site you just made.”
+      <small>→ adds a file to the existing site</small></div>
+
+    <div class="prompt">“What was the URL of the site named ‘tacobot’?”
+      <small>→ looks up a previous site by slug</small></div>
+
+    <div class="note"><strong>Free sites last 48 hours.</strong> Sites created through Hatch are temporary demos — perfect for trying the connector. To keep a site permanently, publish first, then <a href="/#pricing">upgrade your account</a>.</div>
+
+    <h2>More help</h2>
+    <ul>
+      <li><a href="/connect.html">Connect to Claude</a> — detailed tool reference, tiers, and limits</li>
+      <li><a href="/privacy.html">Privacy Policy</a> — what Hatch stores and for how long</li>
+      <li><a href="mailto:hello@viberooster.com">hello@viberooster.com</a> — questions and feedback</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p><span class="footer-logo">🐓 Vibe Rooster</span></p>
+    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/privacy.html">Privacy</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Vibe Rooster</title>
+  <meta name="description" content="How the Vibe Rooster (Hatch) connector and platform handle the data you publish, including retention and third parties." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange:#FF6B35; --yellow:#FFD166; --cream:#FFFBF2; --dark:#1A1A2E;
+      --mid:#2D2D44; --muted:#6B6B8A; --white:#FFFFFF; --radius:16px;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); line-height:1.7; }
+    a { color:var(--orange); }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 40px; background:rgba(255,251,242,0.9); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,107,53,0.1);
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-family:'Fredoka One',cursive; font-size:1.4rem; color:var(--orange); text-decoration:none; }
+    .nav-cta { background:var(--orange); color:var(--white); border:none; border-radius:50px; padding:9px 22px; font-weight:800; font-size:0.85rem; text-decoration:none; }
+    main { max-width:780px; margin:0 auto; padding:130px 24px 80px; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2.4rem; color:var(--dark); margin-bottom:8px; }
+    h2 { font-family:'Fredoka One',cursive; font-size:1.4rem; color:var(--dark); margin:40px 0 12px; }
+    p { margin-bottom:16px; }
+    ul { margin:0 0 16px 22px; }
+    li { margin-bottom:8px; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; background:rgba(255,107,53,0.1); padding:2px 6px; border-radius:6px; font-size:0.9em; }
+    .updated { color:var(--muted); font-weight:700; margin-bottom:8px; }
+    footer { text-align:center; padding:40px 24px; color:var(--muted); border-top:1px solid rgba(255,107,53,0.12); }
+    .footer-logo { font-family:'Fredoka One',cursive; color:var(--orange); }
+    @media (max-width:600px){ nav{padding:14px 20px;} h1{font-size:1.9rem;} main{padding-top:110px;} }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">🐓 Vibe Rooster</a>
+    <a href="/" class="nav-cta">Home</a>
+  </nav>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 4, 2026</p>
+    <p>Vibe Rooster, Inc. (“Vibe Rooster,” “we,” “us”) operates the Vibe Rooster platform and the <strong>Hatch connector</strong> for Claude and other AI assistants. This policy explains what data we handle when you use the connector to publish a website, and how we treat it.</p>
+
+    <h2>What the connector is</h2>
+    <p>The Hatch connector is a remote service that lets an AI assistant (such as Claude) publish a website on your behalf to <code>*.theroost.dev</code>. The connector is <strong>unauthenticated</strong>: you don't create an account or provide a password, API key, or payment details to use it. We therefore do not knowingly collect your name, email, or login identity through the connector itself.</p>
+
+    <h2>What we process</h2>
+    <ul>
+      <li><strong>Site content you publish.</strong> The files and code your assistant sends — HTML, CSS, JavaScript, images, and other assets — are stored so we can serve your live site. This content is published to a <strong>public URL</strong> and is intended to be viewable by anyone.</li>
+      <li><strong>Site metadata.</strong> The site's name (slug), tier, creation time, expiry time, and internal identifiers needed to route and serve the site.</li>
+      <li><strong>Operational logs.</strong> A record of connector actions (for example, “a site was created” or “a file upload failed”), including a summary of the request such as the slug, tier, and file count. These logs do <strong>not</strong> contain your file contents.</li>
+      <li><strong>Abuse-prevention data.</strong> To enforce fair-use rate limits on new-site creation, we keep short-lived counters keyed in part by network (IP) address. These counters expire automatically (within roughly an hour) and are used only to throttle abuse.</li>
+      <li><strong>Visitor traffic to your site.</strong> When someone visits a site you published, we record coarse traffic counts for the site so we can show basic visit statistics and operate the service.</li>
+    </ul>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't sell your data.</li>
+      <li>We don't use your published site content to train AI models.</li>
+      <li>We don't require or collect account credentials or payment information through the anonymous connector.</li>
+    </ul>
+
+    <h2>How long we keep it</h2>
+    <ul>
+      <li><strong>Free sites</strong> created through the connector are temporary: their content and routing expire automatically about <strong>48 hours</strong> after creation.</li>
+      <li><strong>Operational logs</strong> and <strong>visit counts</strong> are retained for a limited period for security, debugging, and service operation, then aged out.</li>
+      <li><strong>Rate-limit counters</strong> expire within roughly an hour.</li>
+    </ul>
+    <p>If you later upgrade a site to a permanent (“forever”) tier through an account, that site's content is retained until you delete it or close your account.</p>
+
+    <h2>Service providers</h2>
+    <p>We run on <strong>Cloudflare</strong> (Workers, R2 storage, D1, KV, and Queues), which processes and stores data on our behalf as our infrastructure provider. When you use the connector inside an AI assistant such as <strong>Claude</strong> (Anthropic), your prompts and the assistant's tool calls are handled by that assistant's provider under their own privacy terms; we receive only the tool calls the assistant sends to the connector.</p>
+
+    <h2>Your choices</h2>
+    <p>Because free sites expire on their own, the simplest way to remove a published site is to let it lapse. To delete a site sooner, or to request removal of content or logs, email us at <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> with the site's URL or slug.</p>
+
+    <h2>Children</h2>
+    <p>The service is not directed to children under 13, and we do not knowingly collect personal information from them.</p>
+
+    <h2>Changes</h2>
+    <p>We may update this policy as the product evolves. Material changes will be reflected by the “Last updated” date above.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy or your data: <a href="mailto:hello@viberooster.com">hello@viberooster.com</a>.</p>
+  </main>
+
+  <footer>
+    <p><span class="footer-logo">🐓 Vibe Rooster</span></p>
+    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/connect.html">Connect to Claude</a></p>
+  </footer>
+</body>
+</html>
