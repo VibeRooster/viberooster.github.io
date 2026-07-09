@@ -1003,8 +1003,8 @@
       Deploy AI-generated UIs in seconds — no DevOps, no drama, just vibes.
     </p>
 
-    <form class="hero-form" onsubmit="handleSubmit(event, 'hero-success')">
-      <input class="hero-input" type="email" placeholder="your@email.com" required />
+    <form class="hero-form" onsubmit="handleSubmit(event, 'hero-success', 'hero')">
+      <input class="hero-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
       <button class="btn-primary" type="submit">Request Early Access 🐓</button>
     </form>
     <p class="hero-note">No credit card. No infra knowledge. Just your vibe.</p>
@@ -1218,8 +1218,8 @@
         We're building Vibe Rooster in the open with our early flock.
         Get first access, founding pricing, and a direct line to the team.
       </p>
-      <form class="early-form" onsubmit="handleSubmit(event, 'early-success')" style="margin-top:32px;">
-        <input class="early-input" type="email" placeholder="your@email.com" required />
+      <form class="early-form" onsubmit="handleSubmit(event, 'early-success', 'early')" style="margin-top:32px;">
+        <input class="early-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
         <button class="btn-primary" type="submit">Crow Me In 🌅</button>
       </form>
       <div class="form-success" id="early-success" style="display:none; margin-top:16px; background: rgba(6,214,160,0.12); border-color: rgba(6,214,160,0.3);">
@@ -1238,28 +1238,55 @@
   </footer>
 
   <script>
-    function handleSubmit(e, successId) {
+    const WAITLIST_API = 'https://console.theroost.dev/api/public/waitlist';
+
+    async function handleSubmit(e, successId, source) {
       e.preventDefault();
       const form = e.target;
       const btn = form.querySelector('button');
       const successEl = document.getElementById(successId);
+      const emailInput = form.querySelector('input[type="email"]');
+      const email = (emailInput && emailInput.value || '').trim();
+      if (!email) return;
 
-      btn.textContent = '✓ You\'re in!';
-      btn.style.background = '#06D6A0';
+      const defaultLabel = btn.textContent;
       btn.disabled = true;
+      btn.textContent = 'Joining…';
 
-      if (successEl) {
-        successEl.style.display = 'block';
-      }
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const utm = {};
+        for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
+          if (params.has(key)) utm[key] = params.get(key);
+        }
+        const res = await fetch(WAITLIST_API, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            source: source || 'marketing',
+            referrer: document.referrer || undefined,
+            utm: Object.keys(utm).length ? utm : undefined,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'Signup failed');
 
-      // Reset after 5s (in production, you'd post to your backend here)
-      setTimeout(() => {
-        btn.textContent = e.submitter ? e.submitter.textContent : 'Request Early Access 🐓';
-        btn.style.background = '';
-        btn.disabled = false;
+        btn.textContent = '✓ You\'re in!';
+        btn.style.background = '#06D6A0';
+        if (successEl) {
+          successEl.style.display = 'block';
+          if (data.alreadyRegistered) {
+            successEl.textContent = "You're already on the list — we'll crow when you're in.";
+          }
+        }
         form.reset();
-        if (successEl) successEl.style.display = 'none';
-      }, 5000);
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = defaultLabel;
+        btn.style.background = '';
+        alert(err.message || 'Could not join the waitlist. Try again or email hello@viberooster.com');
+      }
     }
 
     // Subtle scroll-in animation
