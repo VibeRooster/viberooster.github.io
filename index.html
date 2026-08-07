@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Rooster — Rise & Ship</title>
+  <title>Vibe Rooster — Rise &amp; Ship</title>
+  <meta name="description" content="Vibe Rooster turns a vibe-coded artifact into a live URL in about 90 seconds — app or explorable. Host it for a meeting, till the wedding, or forever." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -149,23 +150,6 @@
       -webkit-user-drag: none;
     }
 
-    /* Portrait — circular head closeup */
-    .mascot-frame--portrait {
-      width: 132px;
-      height: 132px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid var(--yellow);
-      background: var(--cream);
-      box-shadow: 0 10px 24px rgba(255,107,53,0.22);
-    }
-    .mascot-frame--portrait .mascot-img {
-      object-fit: cover;
-      object-position: center 22%;
-      transform: scale(1.95);
-      transform-origin: center 22%;
-    }
-
     /* Polaroid — tilted card with caption */
     .mascot-frame--polaroid {
       background: white;
@@ -188,9 +172,6 @@
       object-fit: contain;
     }
 
-    /* Per-mascot framing — each subject scaled + tilted uniquely.
-       Images are square with the subject centered, so we zoom toward a
-       per-image origin to crop the transparent margins evenly. */
     .mascot-frame--egg {
       transform: rotate(-5deg);
     }
@@ -265,48 +246,32 @@
     .hero-sub {
       font-size: clamp(1.1rem, 2.5vw, 1.35rem);
       color: var(--muted);
-      max-width: 560px;
+      max-width: 640px;
       margin: 0 auto 40px;
       line-height: 1.6;
       font-weight: 600;
     }
 
-    .hero-form {
+    .cta-row {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
-      max-width: 500px;
-      margin: 0 auto 20px;
+      margin-bottom: 20px;
     }
-
-    .hero-input {
-      flex: 1;
-      min-width: 220px;
-      padding: 16px 20px;
-      border: 2px solid rgba(255,107,53,0.2);
-      border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1rem;
-      background: var(--white);
-      color: var(--dark);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .hero-input:focus { border-color: var(--orange); }
-    .hero-input::placeholder { color: #b0a999; }
 
     .btn-primary {
+      display: inline-block;
       background: var(--orange);
       color: var(--white);
-      border: none;
+      border: 2px solid var(--orange);
       border-radius: 50px;
       padding: 16px 32px;
       font-family: 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 1rem;
       cursor: pointer;
+      text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
       white-space: nowrap;
     }
@@ -317,6 +282,27 @@
     }
 
     .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--orange);
+      border: 2px solid rgba(255,107,53,0.35);
+      border-radius: 50px;
+      padding: 16px 32px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,107,53,0.07);
+      transform: translateY(-3px);
+    }
 
     .hero-note {
       font-size: 0.82rem;
@@ -348,10 +334,136 @@
     .section-sub {
       font-size: 1.1rem;
       color: var(--muted);
-      max-width: 540px;
+      max-width: 580px;
       line-height: 1.65;
       font-weight: 600;
     }
+
+    /* ── EXPLORABLES / FIELD NOTES CAROUSEL ──
+       Mirrors the Barnyard gallery: prev/next arrows, dots, auto-rotate.
+       To add a new slice, drop another <article class="slice"> into
+       #slice-track — the carousel picks it up automatically. */
+    #explorables {
+      background: var(--cream);
+    }
+
+    .explorables-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .explorables-header {
+      margin-bottom: 40px;
+    }
+
+    .slice-stage {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .slice-frame-wrap {
+      position: relative;
+      background: var(--white);
+      border: 2px solid rgba(255,107,53,0.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 44px 48px;
+      min-height: 420px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slice { display: none; }
+
+    .slice.active {
+      display: block;
+      animation: sliceIn 0.45s ease;
+    }
+
+    @keyframes sliceIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .slice h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .slice h3 .accent { color: var(--orange); }
+
+    .slice p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      line-height: 1.75;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .slice p strong { color: var(--orange); }
+
+    .slice-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--orange);
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,107,53,0.3);
+      transition: background 0.2s;
+    }
+
+    .slice-link:hover { background: rgba(255,107,53,0.08); }
+
+    .ladder {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--white);
+      border: 2px solid rgba(255,107,53,0.12);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .ladder th {
+      background: var(--dark);
+      color: var(--white);
+      font-family: 'Fredoka One', cursive;
+      font-weight: 400;
+      font-size: 0.95rem;
+      padding: 14px 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .ladder td {
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--mid);
+      border-top: 1px solid rgba(255,107,53,0.1);
+      vertical-align: top;
+    }
+
+    .ladder td:first-child {
+      font-family: 'Fredoka One', cursive;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+
+    .ladder tr.ladder-top td:first-child { color: var(--orange); }
 
     /* ── HOW IT WORKS ── */
     #how {
@@ -517,35 +629,105 @@
       font-weight: 600;
     }
 
+    /* ── VERTICALS / THE COOP ── */
+    #coop {
+      background: var(--white);
+      border-top: 1px solid rgba(255,107,53,0.12);
+      border-bottom: 1px solid rgba(255,107,53,0.12);
+    }
+
+    .coop-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .coop-header { margin-bottom: 56px; }
+
+    .vert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      text-align: left;
+    }
+
+    .vert-card {
+      background: var(--cream);
+      border: 2px solid rgba(255,107,53,0.1);
+      border-radius: var(--radius);
+      padding: 30px 28px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+
+    .vert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255,107,53,0.3);
+    }
+
+    .vert-emoji { font-size: 1.9rem; display: block; margin-bottom: 12px; }
+
+    .vert-domain {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .vert-domain span { color: var(--orange); }
+
+    .vert-life {
+      display: inline-block;
+      background: rgba(255,209,102,0.35);
+      border: 1px solid rgba(255,209,102,0.9);
+      color: #8A5A00;
+      border-radius: 50px;
+      padding: 3px 12px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .vert-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .coop-footnote {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .coop-footnote strong { color: var(--dark); }
+
     /* ── PRICING ── */
     #pricing {
       background: linear-gradient(135deg, #fff9ee 0%, #fff3d9 100%);
     }
 
     .pricing-inner {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
     }
 
-    .pricing-header { margin-bottom: 64px; }
-
-    .pricing-disclaimer {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 8px 18px;
-      background: rgba(255,107,53,0.1);
-      border-radius: 50px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--orange);
-    }
+    .pricing-header { margin-bottom: 56px; }
 
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .price-card {
@@ -565,12 +747,7 @@
 
     .price-card.featured {
       border-color: var(--orange);
-      transform: scale(1.04);
       box-shadow: 0 16px 48px rgba(255,107,53,0.25);
-    }
-
-    .price-card.featured:hover {
-      transform: scale(1.04) translateY(-4px);
     }
 
     .featured-badge {
@@ -690,8 +867,39 @@
       box-shadow: 0 8px 24px rgba(255,107,53,0.4);
     }
 
-    /* ── EARLY ACCESS BANNER ── */
-    #early {
+    /* ── CONTINUE STRIP ── */
+    .continue-strip {
+      margin-top: 28px;
+      background: var(--dark);
+      border-radius: var(--radius);
+      padding: 26px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 18px;
+      box-shadow: 0 12px 36px rgba(26,26,46,0.2);
+    }
+
+    .continue-count {
+      font-family: 'Fredoka One', cursive;
+      color: var(--yellow);
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .continue-copy {
+      color: rgba(255,255,255,0.85);
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .continue-copy strong { color: var(--yellow); }
+
+    /* ── FINAL CTA BANNER ── */
+    #hatch-now {
       background: var(--dark);
       color: var(--white);
       padding: 80px 24px;
@@ -700,7 +908,7 @@
       overflow: hidden;
     }
 
-    #early::before {
+    #hatch-now::before {
       content: '🐓';
       font-size: 18rem;
       position: absolute;
@@ -711,48 +919,22 @@
       pointer-events: none;
     }
 
-    #early h2 {
+    #hatch-now h2 {
       color: var(--white);
       margin-bottom: 12px;
     }
 
-    #early .section-sub {
+    #hatch-now .section-sub {
       color: rgba(255,255,255,0.55);
       margin: 0 auto 36px;
     }
-
-    .early-form {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .early-input {
-      flex: 1;
-      min-width: 200px;
-      padding: 16px 20px;
-      border: 2px solid rgba(255,255,255,0.12);
-      border-radius: 50px;
-      background: rgba(255,255,255,0.06);
-      color: var(--white);
-      font-family: 'Nunito', sans-serif;
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .early-input:focus { border-color: var(--orange); }
-    .early-input::placeholder { color: rgba(255,255,255,0.3); }
 
     /* ── FOOTER ── */
     footer {
       background: #111128;
       color: rgba(255,255,255,0.35);
       text-align: center;
-      padding: 32px 24px;
+      padding: 40px 24px;
       font-size: 0.85rem;
       font-weight: 600;
     }
@@ -772,17 +954,30 @@
       margin-bottom: 8px;
     }
 
-    /* ── SUCCESS STATE ── */
-    .form-success {
-      display: none;
-      background: rgba(6,214,160,0.15);
-      border: 2px solid rgba(6,214,160,0.4);
+    .social-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 10px;
+    }
+
+    .social-row a {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid rgba(255,107,53,0.35);
       border-radius: 50px;
-      padding: 14px 28px;
-      color: #06D6A0;
-      font-weight: 800;
-      font-size: 0.95rem;
-      margin-top: 12px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .social-row a:hover {
+      background: rgba(255,107,53,0.15);
+      color: var(--white);
+      text-decoration: none;
     }
 
     /* ── HATCH GALLERY CAROUSEL ── */
@@ -936,11 +1131,12 @@
     @media (max-width: 640px) {
       nav { padding: 16px 20px; }
       .features-header { flex-direction: column; align-items: flex-start; }
-      .price-card.featured { transform: scale(1); }
-      .price-card.featured:hover { transform: translateY(-4px); }
       .gallery-stage { grid-template-columns: 1fr; }
+      .slice-stage { grid-template-columns: 1fr; }
       .gallery-nav { display: none; }
       .gallery-frame { height: 44vh; min-height: 280px; }
+      .slice-frame-wrap { padding: 28px 22px; min-height: 0; }
+      .ladder th, .ladder td { padding: 10px 12px; font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -976,7 +1172,7 @@
       </svg>
       Vibe Rooster
     </a>
-    <a href="#early" class="nav-cta">Request Access</a>
+    <a href="/connect.html" class="nav-cta">Hatch Now</a>
   </nav>
 
   <!-- HERO -->
@@ -993,22 +1189,22 @@
 
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Now accepting early access
+      Live now — no account needed
     </div>
 
     <h1>Rise &amp; <span class="accent">Ship.</span></h1>
 
     <p class="hero-sub">
-      The hosting platform built for vibe-coded apps.
-      Deploy AI-generated UIs in seconds — no DevOps, no drama, just vibes.
+      The hosting platform for anything vibe-coded. Turn an AI-built artifact into
+      a live URL in about 90 seconds — an app, an explorable, or a site that only
+      needs to live till the big day.
     </p>
 
-    <form class="hero-form" onsubmit="handleSubmit(event, 'hero-success', 'hero')">
-      <input class="hero-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-      <button class="btn-primary" type="submit">Request Early Access 🐓</button>
-    </form>
-    <p class="hero-note">No credit card. No infra knowledge. Just your vibe.</p>
-    <div class="form-success" id="hero-success">🎉 You're on the list! We'll crow when you're in.</div>
+    <div class="cta-row">
+      <a href="/connect.html" class="btn-primary">Hatch one now 🐓</a>
+      <a href="/install.html" class="btn-secondary">Install the MCP</a>
+    </div>
+    <p class="hero-note">Free for 48 hours · No credit card · No DevOps · No account</p>
   </section>
 
   <!-- LIVE HATCHES GALLERY -->
@@ -1018,13 +1214,87 @@
         <span class="section-label">The Barnyard</span>
         <h2>Fresh hatches, live right now.</h2>
         <p class="section-sub" style="margin: 0 auto;">
-          Browse roosts hatched on Vibe Rooster. Open one to explore — and leave a heart rating while you're there.
+          Apps, one-meeting breakdowns, listings, invitations, dashboards — browse what
+          people are hatching. Open one to explore, and leave a heart while you're there.
         </p>
       </div>
 
       <div id="gallery-app">
         <div class="gallery-loading">Loading hatches…</div>
       </div>
+    </div>
+  </section>
+
+  <!-- EXPLORABLES / FIELD NOTES -->
+  <section id="explorables">
+    <div class="explorables-inner">
+      <div class="explorables-header">
+        <span class="section-label">Field Notes</span>
+        <h2>Fresh thinking from the coop.</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Short slices of what we're learning as people hatch. New ones land here as we write them.
+        </p>
+      </div>
+
+      <div class="slice-stage">
+        <button type="button" class="gallery-nav" id="slice-prev" aria-label="Previous note">‹</button>
+        <div class="slice-frame-wrap" id="slice-track">
+
+          <!-- Slice: what's an explorable -->
+          <article class="slice">
+            <h3>Some of the best things people hatch are <span class="accent">explanations.</span></h3>
+            <p>
+              A pricing model mapped for one board meeting. A competitive landscape built to win
+              one pitch. A causal diagram made to settle one argument. We call these
+              <strong>explorables</strong> — interactive artifacts the reader <em>navigates</em>
+              instead of reads. Expand a node, filter the set, drill from the overview into the
+              one case you care about. The reader controls the projection, instead of receiving
+              a snapshot someone else chose.
+            </p>
+            <p>
+              AI can now emit a working interactive artifact about as cheaply as a static picture.
+              That's why <strong>hatch it, share it, let it expire</strong> is a first-class way to
+              publish here — not an edge case.
+            </p>
+            <a href="/explorables.html" class="slice-link">Read the full argument →</a>
+          </article>
+
+          <!-- Slice: the ladder -->
+          <article class="slice">
+            <h3>Prose → infographic → <span class="accent">explorable.</span> The ladder.</h3>
+            <p>
+              Each tier earns its rung by holding a payload shape the tier below can't — and each
+              has a ceiling above which it's pure tax, the explorable included.
+            </p>
+            <table class="ladder" style="margin-bottom: 20px;">
+              <tr>
+                <th>Tier</th>
+                <th>Native to</th>
+                <th>Where it breaks</th>
+              </tr>
+              <tr>
+                <td>Prose</td>
+                <td>Narrative, contingent reasoning</td>
+                <td>Structural payloads — the reader has to rebuild the topology</td>
+              </tr>
+              <tr>
+                <td>Static infographic</td>
+                <td>Structural payloads</td>
+                <td>Frozen to one projection</td>
+              </tr>
+              <tr class="ladder-top">
+                <td>Explorable</td>
+                <td>Structures too rich for a single frame</td>
+                <td>Overkill when one clean frame already holds it</td>
+              </tr>
+            </table>
+            <a href="/explorables.html" class="slice-link">Which rung does your idea need? →</a>
+          </article>
+
+        </div>
+        <button type="button" class="gallery-nav" id="slice-next" aria-label="Next note">›</button>
+      </div>
+      <div class="gallery-dots" id="slice-dots"></div>
     </div>
   </section>
 
@@ -1049,7 +1319,7 @@
             </span>
           </span>
           <h3>Vibe It</h3>
-          <p>Build your UI with any AI tool — Claude, Cursor, v0, Lovable, whatever gets you in the zone. We support HTML, React, Vue, and more.</p>
+          <p>Build with any AI tool — Claude, Cursor, v0, Lovable, whatever gets you in the zone. An app, a data story, a wedding site, a one-meeting explorable. If it renders, it can Roost.</p>
           <span class="step-tag">Any AI tool works</span>
         </div>
         <div class="step">
@@ -1062,8 +1332,8 @@
             </span>
           </span>
           <h3>Hatch It</h3>
-          <p>Ask your agent to Hatch your app using our MCP server. We wire up auth, a database, file storage, and multi-tenant routing — automatically.</p>
-          <span class="step-tag">One-click deploy</span>
+          <p>Ask your agent to Hatch it through our MCP. One tool call and it's live at a real URL — no accounts, no config, no connection strings, nothing to babysit.</p>
+          <span class="step-tag">One tool call</span>
         </div>
         <div class="step">
           <span class="step-num">03</span>
@@ -1075,7 +1345,7 @@
             </span>
           </span>
           <h3>Roost It</h3>
-          <p>Go live instantly. Share your link, add a custom domain, and watch your vibe reach the world. Your app, production-ready from day one.</p>
+          <p>Share the link while it matters. Then decide its fate — let it bow out gracefully, drop a coin to Continue, or make it Forever. Your call, and you make it later.</p>
           <span class="step-tag">Live in seconds</span>
         </div>
       </div>
@@ -1091,29 +1361,29 @@
           <h2>Everything your vibe needs to thrive.</h2>
         </div>
         <p class="section-sub">
-          We took the best of MBaaS and PaaS and wrapped it in something a vibe-coder can actually love.
+          Publishing should feel like sharing, not like operating infrastructure. Here's what's under the feathers.
         </p>
       </div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon fi-orange">⚡</div>
           <h3>Instant Deploy</h3>
-          <p>Push your vibe-coded app and it's live. No config files, no build pipelines to babysit. We watch the pipeline so you don't have to.</p>
+          <p>From your agent's chat to a live URL in about 90 seconds. No config files, no build pipelines, no cloud account. It just materializes.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon fi-yellow">🏠</div>
-          <h3>Multi-Tenant, Out of the Box</h3>
-          <p>One app, many customers. Vibe Rooster handles tenant isolation, routing, and access control without a single line of tenant-plumbing code.</p>
+          <div class="feature-icon fi-yellow">⏳</div>
+          <h3>Alive Exactly as Long as It Matters</h3>
+          <p>48 hours free. Two more weeks per coin. A season, till the wedding, or Forever. Duration is a dial, not a subscription.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon fi-teal">🔧</div>
-          <h3>Backend Included</h3>
-          <p>Auth, database, file storage, and serverless APIs — all built in. We're your entire backend, so you can stay in vibe mode longer.</p>
+          <div class="feature-icon fi-teal">🤖</div>
+          <h3>Your Agent Keeps the Lights On</h3>
+          <p>The agent that built your Roost knows when it's done. Set an allowance once and it drops coins as expiry nears — never past your cap, every purchase logged.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon fi-red">🔒</div>
-          <h3>Production-Grade from Day One</h3>
-          <p>SSL, global CDN, autoscaling, and uptime monitoring. Your prototype ships with the same infrastructure a $10M startup would use.</p>
+          <div class="feature-icon fi-red">📱</div>
+          <h3>One Tap From Your Phone</h3>
+          <p>The mobile app nudges you before a Roost expires — tap to Continue. It's also where you set, raise, or revoke your agent's allowance. No laptop needed.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon fi-purple">🎨</div>
@@ -1123,9 +1393,68 @@
         <div class="feature-card">
           <div class="feature-icon fi-blue">🌐</div>
           <h3>Custom Domains</h3>
-          <p>Ship as myapp.viberooster.com or bring your own domain. Either way, you're one DNS record away from looking like you have a whole team.</p>
+          <p>Ship as yourname.theroost.dev, or bring your own domain. Either way, you're one DNS record away from looking like you have a whole team.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- VERTICALS / THE COOP -->
+  <section id="coop">
+    <div class="coop-inner">
+      <div class="coop-header">
+        <span class="section-label">The Coop</span>
+        <h2>Every Roost knows when it's done.</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Some sites shouldn't live forever — they should live exactly as long as the real-world
+          thing they're about. Eight roosts, each sized to a lifecycle. Pay for the occasion, then decide.
+        </p>
+      </div>
+
+      <div class="vert-grid">
+        <div class="vert-card">
+          <span class="vert-emoji">🏡</span>
+          <div class="vert-domain">yourlisting<span>.theroost.homes</span></div>
+          <span class="vert-life">⏳ Live till it sells</span>
+          <p>A dedicated site for one home for sale. It works through closing, then bows out — or stays Forever as a portfolio piece.</p>
+        </div>
+        <div class="vert-card">
+          <span class="vert-emoji">🏢</span>
+          <div class="vert-domain">yourproperty<span>.theroost.estate</span></div>
+          <span class="vert-life">⏳ Live through closing</span>
+          <p>Commercial and luxury property marketing, without the $399-a-month dedicated-site bill. One property, one site, one term.</p>
+        </div>
+        <div class="vert-card">
+          <span class="vert-emoji">🌄</span>
+          <div class="vert-domain">yourparcel<span>.theroost.land</span></div>
+          <span class="vert-life">⏳ Live till the deal is done</span>
+          <p>Lots, raw land, development parcels — a proper marketing site for ground that deserves better than a PDF flyer.</p>
+        </div>
+        <div class="vert-card">
+          <span class="vert-emoji">💍</span>
+          <div class="vert-domain">yournames<span>.theroost.wedding</span></div>
+          <span class="vert-life">⏳ Through the big day + the memories</span>
+          <p>Your wedding site, exactly as custom as you can imagine it. Live through the date and the months of photos after — Forever as a keepsake if you want it.</p>
+        </div>
+        <div class="vert-card">
+          <span class="vert-emoji">🎪</span>
+          <div class="vert-domain">yourevent<span>.theroost.events</span></div>
+          <span class="vert-life">⏳ Through the event + wind-down</span>
+          <p>One microsite per conference, meetup, or launch party. Gone the morning after — unless it's annual, in which case, see you next year.</p>
+        </div>
+        <div class="vert-card">
+          <span class="vert-emoji">🤝</span>
+          <div class="vert-domain">yourpitch<span>.theroost.agency</span></div>
+          <span class="vert-life">⏳ Till you win it</span>
+          <p>A bespoke pitch site that <em>is</em> the skill demo. Cheap enough to hatch per prospect. Won the work? Make it Forever.</p>
+        </div>
+      </div>
+
+      <p class="coop-footnote">
+        Plus <strong>theroost.site</strong> for everything that doesn't fit a nest, and
+        <strong>theroost.dev</strong> — where it all started. Just tell your agent where to hatch:
+        <em>"put my open house site on theroost.homes."</em>
+      </p>
     </div>
   </section>
 
@@ -1134,98 +1463,78 @@
     <div class="pricing-inner">
       <div class="pricing-header">
         <span class="section-label">Pricing</span>
-        <h2>Pay when you're ready. Win together.</h2>
-        <p class="section-sub" style="margin: 0 auto 16px;">
-          No subscription anxiety. Deploy free, publish once, and only pay us when your app makes money.
+        <h2>Hatch free. Continue when it matters. Forever when it's a keeper.</h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Two questions, two answers: how long does it need to live, and does it ever get to die?
+          No subscriptions for passion projects. Ever.
         </p>
-        <span class="pricing-disclaimer">🌅 Early access — join now and lock in founding terms</span>
-      </div>
-
-      <!-- Phase flow -->
-      <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:40px; flex-wrap:wrap;">
-        <span style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px;">Passion project</span>
-        <span style="color:var(--orange); font-size:1.2rem;">→</span>
-        <span style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px;">Live app</span>
-        <span style="color:var(--orange); font-size:1.2rem;">→</span>
-        <span style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px;">Real business</span>
       </div>
 
       <div class="pricing-grid">
 
-        <!-- Tier 1A: Deploy -->
+        <!-- Hatch (Free) -->
         <div class="price-card">
           <span class="price-emoji">🐣</span>
-          <div class="price-tier">Deploy</div>
-          <div class="price-amount">Free<span> 48-hours</span></div>
-          <p class="price-desc">Get your Roost live instantly. Share it and see if it has legs — no commitment, no bill.</p>
+          <div class="price-tier">Hatch</div>
+          <div class="price-amount">Free<span> 48 hours at a time</span></div>
+          <p class="price-desc">The default for explorables, listings, invitations, and quick tests. Live instantly — share it while it matters, no commitment, no bill.</p>
           <ul class="price-features">
             <li>Instant deploy, always on</li>
-            <li>theroost.dev subdomain</li>
-            <li>48 hours to resurrect</li>
+            <li>yourname.theroost.dev</li>
+            <li>3 free Continues — 8 live days before you decide</li>
             <li>512 MB RAM · 1 GB storage</li>
           </ul>
-          <a href="#early" class="price-btn price-btn-outline">Get Early Access</a>
+          <a href="/connect.html" class="price-btn price-btn-outline">Hatch free</a>
         </div>
 
-        <!-- Tier 1B: Publish (featured) -->
+        <!-- Roost (Forever) -->
         <div class="price-card featured">
-          <span class="featured-badge">🚀 The Launch Moment</span>
+          <span class="featured-badge">🚀 Free Play — never runs out</span>
           <span class="price-emoji">🐓</span>
-          <div class="price-tier">Publish</div>
+          <div class="price-tier">Roost</div>
           <div class="price-amount">$24.99<span> one-time</span></div>
-          <p class="price-desc">Your app. Make it permanent. Pay once — it lives forever. No subscription, no ongoing anxiety.</p>
+          <p class="price-desc">Pay once, it lives forever. No subscription, no ongoing anxiety. For the ones that outlive their occasion.</p>
           <ul class="price-features">
             <li>For...uh...uh...ever</li>
             <li>Always-on — zero cold starts</li>
             <li>Permanent URL, never expires</li>
             <li>512 MB RAM · 1 GB storage</li>
           </ul>
-          <a href="#early" class="price-btn price-btn-solid">Request Early Access</a>
-        </div>
-
-        <!-- Tier 2: Grow -->
-        <div class="price-card">
-          <span class="price-emoji">🌅</span>
-          <div class="price-tier">Grow</div>
-          <div class="price-amount">3%<span> of API billings</span></div>
-          <p class="price-desc">You added a payment button. Now we're partners. We only make money when you make money — that's the whole deal.</p>
-          <ul class="price-features">
-            <li>Everything in Publish</li>
-            <li>Stripe payment processing built in</li>
-            <li>Premium APIs</li>
-            <li>Custom domain included</li>
-            <li>Priority support · Badge removed</li>
-          </ul>
-          <a href="#early" class="price-btn price-btn-outline">Talk to Us</a>
+          <a href="/connect.html" class="price-btn price-btn-solid">Make it Forever</a>
         </div>
 
       </div>
 
+      <!-- Continue strip -->
+      <div class="continue-strip">
+        <span class="continue-count">CONTINUE? 9…8…7…</span>
+        <p class="continue-copy">
+          Out of free Continues? Drop a coin 🪙 — <strong>$4.99 buys two more weeks of life.</strong>
+          Cheaper by the roll. Your agent can drop them for you, within an allowance you set once.
+        </p>
+      </div>
+
       <!-- Philosophy note -->
-      <p style="text-align:center; margin-top:48px; font-size:0.9rem; color:var(--muted); font-weight:600; max-width:600px; margin-left:auto; margin-right:auto;">
+      <p style="text-align:center; margin-top:40px; font-size:0.9rem; color:var(--muted); font-weight:600; max-width:600px; margin-left:auto; margin-right:auto;">
         Publishing an app should feel like publishing a book — you pay once, it exists, people can find it.<br>
-        <span style="color:var(--orange);">No subscriptions for passion projects. Ever.</span>
+        <span style="color:var(--orange);">And publishing an insight should cost about as much as saying it out loud.</span>
       </p>
     </div>
   </section>
 
-  <!-- EARLY ACCESS BANNER -->
-  <section id="early">
+  <!-- FINAL CTA BANNER -->
+  <section id="hatch-now">
     <div style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">
-      <span class="section-label" style="color: var(--yellow);">Early Access</span>
-      <h2>Be first in the coop.</h2>
+      <span class="section-label" style="color: var(--yellow);">Ready when you are</span>
+      <h2>Something on localhost deserves better.</h2>
       <p class="section-sub">
-        We're building Vibe Rooster in the open with our early flock.
-        Get first access, founding pricing, and a direct line to the team.
+        Connect the Hatch MCP to Claude or your IDE and put it live in the next couple of minutes.
+        Free for 48 hours — decide its fate after.
       </p>
-      <form class="early-form" onsubmit="handleSubmit(event, 'early-success', 'early')" style="margin-top:32px;">
-        <input class="early-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-        <button class="btn-primary" type="submit">Crow Me In 🌅</button>
-      </form>
-      <div class="form-success" id="early-success" style="display:none; margin-top:16px; background: rgba(6,214,160,0.12); border-color: rgba(6,214,160,0.3);">
-        🎉 You're on the list! We'll crow when you're in.
+      <div class="cta-row">
+        <a href="/connect.html" class="btn-primary">Connect to Claude 🐓</a>
+        <a href="/install.html" class="btn-secondary" style="border-color: rgba(255,255,255,0.25); color: var(--white);">Install the MCP</a>
       </div>
-      <p class="hero-note" style="margin-top: 16px; color: rgba(255,255,255,0.35);">Join 200+ early builders. No spam, ever.</p>
     </div>
   </section>
 
@@ -1233,62 +1542,19 @@
   <footer>
     <span class="footer-logo">🐓 Vibe Rooster</span>
     <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a></p>
-    <p style="margin-top: 6px;"><a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect to Claude</a> · <a href="/privacy.html">Privacy</a></p>
+    <p style="margin-top: 6px;"><a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect to Claude</a> · <a href="/explorables.html">Explorables</a> · <a href="/privacy.html">Privacy</a></p>
+    <div class="social-row">
+      <a href="https://x.com/VibeRooster" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://www.github.com/viberooster" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/viberooster" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@viberooster" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.linkedin.com/company/vibe-rooster/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.reddit.com/user/VibeRooster/" target="_blank" rel="noopener noreferrer">Reddit</a>
+    </div>
     <p style="margin-top: 6px;">Made with good vibes ✦ Ships fast ✦ No DevOps required</p>
   </footer>
 
   <script>
-    const WAITLIST_API = 'https://console.theroost.dev/api/public/waitlist';
-
-    async function handleSubmit(e, successId, source) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('button');
-      const successEl = document.getElementById(successId);
-      const emailInput = form.querySelector('input[type="email"]');
-      const email = (emailInput && emailInput.value || '').trim();
-      if (!email) return;
-
-      const defaultLabel = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Joining…';
-
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const utm = {};
-        for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
-          if (params.has(key)) utm[key] = params.get(key);
-        }
-        const res = await fetch(WAITLIST_API, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            email,
-            source: source || 'marketing',
-            referrer: document.referrer || undefined,
-            utm: Object.keys(utm).length ? utm : undefined,
-          }),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(data.error || 'Signup failed');
-
-        btn.textContent = '✓ You\'re in!';
-        btn.style.background = '#06D6A0';
-        if (successEl) {
-          successEl.style.display = 'block';
-          if (data.alreadyRegistered) {
-            successEl.textContent = "You're already on the list — we'll crow when you're in.";
-          }
-        }
-        form.reset();
-      } catch (err) {
-        btn.disabled = false;
-        btn.textContent = defaultLabel;
-        btn.style.background = '';
-        alert(err.message || 'Could not join the waitlist. Try again or email hello@viberooster.com');
-      }
-    }
-
     // Subtle scroll-in animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1317,7 +1583,7 @@
 
       function render() {
         if (!items.length) {
-          renderEmpty('No live hatches yet — be the first to <a href="#early" style="color:var(--orange)">request access</a>.');
+          renderEmpty('No live hatches yet — be the first: <a href="/connect.html" style="color:var(--orange)">hatch one now</a>.');
           return;
         }
 
@@ -1385,7 +1651,64 @@
         });
     })();
 
-    document.querySelectorAll('.step, .feature-card, .price-card').forEach(el => {
+    // ── Field Notes slice carousel (mirrors the Barnyard gallery) ──
+    // Slides are the <article class="slice"> elements inside #slice-track;
+    // add a new one there and it joins the rotation automatically.
+    (function initSlices() {
+      const track = document.getElementById('slice-track');
+      const dotsMount = document.getElementById('slice-dots');
+      if (!track || !dotsMount) return;
+
+      const slices = Array.from(track.querySelectorAll('.slice'));
+      if (!slices.length) return;
+
+      let index = 0;
+      let timer = null;
+      const SLICE_ROTATE_MS = 12000;
+
+      const dots = slices.map(function (_, i) {
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'gallery-dot';
+        d.setAttribute('aria-label', 'Show note ' + (i + 1));
+        d.addEventListener('click', function () { go(i); });
+        dotsMount.appendChild(d);
+        return d;
+      });
+
+      function render() {
+        slices.forEach(function (s, i) { s.classList.toggle('active', i === index); });
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+      }
+
+      function go(i) {
+        index = i;
+        render();
+        resetTimer();
+      }
+
+      function resetTimer() {
+        if (timer) clearInterval(timer);
+        if (slices.length > 1) {
+          timer = setInterval(function () {
+            index = (index + 1) % slices.length;
+            render();
+          }, SLICE_ROTATE_MS);
+        }
+      }
+
+      document.getElementById('slice-prev').addEventListener('click', function () {
+        go((index - 1 + slices.length) % slices.length);
+      });
+      document.getElementById('slice-next').addEventListener('click', function () {
+        go((index + 1) % slices.length);
+      });
+
+      render();
+      resetTimer();
+    })();
+
+    document.querySelectorAll('.step, .feature-card, .price-card, .vert-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';

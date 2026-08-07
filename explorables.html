@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorables — Vibe Rooster</title>
+  <meta name="description" content="An explorable is an interactive artifact the reader navigates instead of reads. Why they exist, how to tell a good one from theater, and why Vibe Rooster hosts them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange:#FF6B35; --yellow:#FFD166; --red:#EF233C; --cream:#FFFBF2;
+      --dark:#1A1A2E; --mid:#2D2D44; --muted:#6B6B8A; --white:#FFFFFF;
+      --radius:16px; --shadow:0 8px 32px rgba(255,107,53,0.15);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); line-height:1.7; }
+    a { color:var(--orange); }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 40px; background:rgba(255,251,242,0.9); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,107,53,0.1);
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-family:'Fredoka One',cursive; font-size:1.4rem; color:var(--orange); text-decoration:none; }
+    .nav-cta { background:var(--orange); color:var(--white); border:none; border-radius:50px; padding:9px 22px; font-weight:800; font-size:0.85rem; text-decoration:none; }
+    main { max-width:780px; margin:0 auto; padding:130px 24px 80px; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2.6rem; color:var(--dark); line-height:1.15; margin-bottom:14px; }
+    h1 span { color:var(--orange); }
+    h2 { font-family:'Fredoka One',cursive; font-size:1.6rem; color:var(--dark); margin:48px 0 16px; scroll-margin-top:100px; }
+    p { margin-bottom:16px; font-weight:600; color:var(--mid); }
+    .lead { font-size:1.2rem; color:var(--mid); margin-bottom:8px; }
+    .pill { display:inline-block; background:var(--yellow); color:var(--dark); font-weight:800; font-size:0.72rem; padding:3px 10px; border-radius:50px; letter-spacing:0.04em; text-transform:uppercase; }
+    em { color:var(--dark); }
+    strong { color:var(--dark); }
+    table { width:100%; border-collapse:separate; border-spacing:0; margin:24px 0 28px; font-size:0.95rem; background:var(--white); border:2px solid rgba(255,107,53,0.12); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    th { background:var(--dark); color:var(--white); font-family:'Fredoka One',cursive; font-weight:400; text-align:left; padding:13px 18px; font-size:0.92rem; }
+    td { text-align:left; padding:14px 18px; border-top:1px solid rgba(255,107,53,0.1); vertical-align:top; font-weight:600; color:var(--mid); }
+    td:first-child { font-family:'Fredoka One',cursive; color:var(--dark); white-space:nowrap; }
+    tr.top td:first-child { color:var(--orange); }
+    .card { background:var(--white); border:1px solid rgba(255,107,53,0.15); border-radius:var(--radius); padding:22px 26px; margin:20px 0; box-shadow:var(--shadow); }
+    .card p:last-child { margin-bottom:0; }
+    .good { border-left:5px solid #06D6A0; }
+    .bad  { border-left:5px solid var(--red); }
+    .card h3 { font-family:'Fredoka One',cursive; font-size:1.1rem; margin-bottom:8px; }
+    .note { background:rgba(255,209,102,0.25); border-left:4px solid var(--yellow); border-radius:8px; padding:14px 18px; margin:20px 0; font-size:0.95rem; }
+    .cta-row { display:flex; gap:14px; flex-wrap:wrap; margin-top:36px; }
+    .btn-primary {
+      display:inline-block; background:var(--orange); color:var(--white); border:2px solid var(--orange);
+      border-radius:50px; padding:14px 28px; font-weight:800; font-size:0.95rem; text-decoration:none;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,107,53,0.4); }
+    .btn-secondary {
+      display:inline-block; background:transparent; color:var(--orange); border:2px solid rgba(255,107,53,0.35);
+      border-radius:50px; padding:14px 28px; font-weight:800; font-size:0.95rem; text-decoration:none;
+      transition:transform 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { background:rgba(255,107,53,0.07); transform:translateY(-2px); }
+    footer { text-align:center; padding:40px 24px; color:var(--muted); border-top:1px solid rgba(255,107,53,0.12); font-size:0.85rem; font-weight:600; }
+    .footer-logo { font-family:'Fredoka One',cursive; color:var(--orange); }
+    .social-row { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:14px 0 6px; }
+    .social-row a {
+      display:inline-block; padding:5px 14px; border:1px solid rgba(255,107,53,0.3); border-radius:50px;
+      color:var(--muted); font-weight:700; font-size:0.78rem; text-decoration:none;
+    }
+    .social-row a:hover { background:rgba(255,107,53,0.08); color:var(--dark); }
+    @media (max-width:600px){ nav{padding:14px 20px;} h1{font-size:2rem;} main{padding-top:110px;} th,td{padding:10px 12px; font-size:0.85rem;} }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">🐓 Vibe Rooster</a>
+    <a href="/connect.html" class="nav-cta">Hatch Now</a>
+  </nav>
+
+  <main>
+    <span class="pill">New vocabulary</span>
+    <h1>What's an <span>explorable?</span></h1>
+    <p class="lead">An interactive artifact the reader <em>navigates</em> instead of reads. It's what a growing share of our users hatch — and it's why publishing something for one meeting, one pitch, or one argument is a first-class use of Vibe Rooster.</p>
+
+    <h2>Where it comes from</h2>
+    <p>When we opened the beta, we expected apps. We got some. But we also got <em>explanations</em>: a pricing model mapped for a single board meeting. A competitive landscape built to win one pitch. A causal diagram made to settle one argument with one team. Each went live, did its job, and its author never touched it again. Disposable by design.</p>
+    <p>Until recently, a genuinely good custom visual — one whose <strong>form matches the structure it's trying to convey</strong> — required a designer or a costly afternoon of tool-wrangling. So most communication defaulted down into a sloppy deck or sideways into prose nobody reads. AI collapsed that production cost to near zero, and the collapse revealed that the middle tier was load-bearing all along.</p>
+
+    <h2>The step past the static picture</h2>
+    <p>A static infographic gives a structure a native, two-dimensional form — but the author has to pre-commit to <strong>one projection</strong>: one set of axes, one level of detail, one choice of what's foregrounded and what's buried. If the structure is rich, no single frame can hold it.</p>
+    <p>An <strong>explorable</strong> breaks that constraint. The reader moves through frames — expand a node, filter the set, change the axis, drill from the overview into the one case they care about. <em>The reader controls the projection instead of receiving a fixed snapshot.</em></p>
+    <p>The word has real lineage: it comes from Bret Victor's <a href="http://worrydream.com/ExplorableExplanations/" target="_blank" rel="noopener noreferrer">"explorable explanations"</a> (2011). We deliberately don't say "interactive infographic" — the marketing world colonized that term to mean quizzes and hover theater bolted on to raise time-on-page. The entire point runs the other way: interaction exists to <em>lower</em> the reader's cost of grasping a structure, not to detain them in it.</p>
+
+    <h2>The ladder</h2>
+    <table>
+      <tr><th>Tier</th><th>Native to</th><th>Where it breaks</th></tr>
+      <tr><td>Prose</td><td>Narrative, contingent reasoning</td><td>Structural payloads — the reader has to rebuild the topology</td></tr>
+      <tr><td>Static infographic</td><td>Structural payloads</td><td>Frozen to one projection</td></tr>
+      <tr class="top"><td>Explorable</td><td>Structures too rich for a single frame</td><td>Overkill when one clean frame already holds it</td></tr>
+    </table>
+    <p>Each tier earns its rung by holding a payload shape the tier below can't — and each has a ceiling above which it's pure tax, the explorable included. If one clean frame already holds your structure, making it interactive isn't a gift to the reader; it's a cost you've charged them for nothing.</p>
+
+    <h2>How to tell the real thing from theater</h2>
+    <div class="card good">
+      <h3>✓ The real thing</h3>
+      <p>Interaction changes <strong>which part of the structure you're seeing</strong> — progressive disclosure. The reader manages their own complexity budget and drills to the depth <em>they</em> need. Information per unit of effort goes up.</p>
+    </div>
+    <div class="card bad">
+      <h3>✗ Theater</h3>
+      <p>Interaction is just motion — hover effects, animated transitions, click-to-reveal that gates information the reader could simply have been shown. It looks sophisticated and adds no understanding. A state machine bolted onto a picture.</p>
+    </div>
+    <p>The rule, stated flatly: the upgrade is <strong>not</strong> "it moves." The upgrade is "the reader controls the projection."</p>
+
+    <h2>Why Vibe Rooster hosts them</h2>
+    <p>AI can now emit a working interactive artifact about as cheaply as a static picture. That's a new price point, not a new capability — and it means the natural home for an explorable is a live URL that exists for exactly as long as the conversation it serves. Hatch it free, share it in the meeting, let it expire. Drop a coin if the conversation runs long. Make it Forever if it turns out to be a keeper.</p>
+    <div class="note"><strong>One honest caveat.</strong> A wrong explorable looks credible — data-viz styling lends authority it may not have earned. Cheap production doesn't excuse weak sourcing. Trace your artifact back to its ground truth before you ship it; provenance is a problem we take seriously.</div>
+
+    <p>If you've built something structural and it's sitting on localhost, the medium is finally cheap enough. Publish it.</p>
+
+    <div class="cta-row">
+      <a href="/connect.html" class="btn-primary">Hatch one free 🐓</a>
+      <a href="/#gallery" class="btn-secondary">See what's live in the Barnyard</a>
+    </div>
+  </main>
+
+  <footer>
+    <p><span class="footer-logo">🐓 Vibe Rooster</span></p>
+    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect to Claude</a> · <a href="/privacy.html">Privacy</a></p>
+    <div class="social-row">
+      <a href="https://x.com/VibeRooster" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://www.github.com/viberooster" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/viberooster" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@viberooster" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.linkedin.com/company/vibe-rooster/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.reddit.com/user/VibeRooster/" target="_blank" rel="noopener noreferrer">Reddit</a>
+    </div>
+  </footer>
+</body>
+</html>
