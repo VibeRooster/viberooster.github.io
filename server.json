@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.viberooster/hatch",
+  "title": "Hatch",
+  "description": "Publish a live website from your AI assistant in one tool call. Multi-tenant hosting for vibe-coded apps and explorables on theroost.* domains, with configurable TTL (1h-7d), human-in-the-loop decision hooks, and agent run-report scaffolding.",
+  "websiteUrl": "https://viberooster.com/install.html",
+  "version": "1.0.0-1",
+  "repository": {
+    "url": "https://github.com/VibeRooster/viberooster.github.io",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.theroost.dev/mcp"
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "com.github": {
+        "serverDisplayName": "Vibe Rooster — Hatch"
+      }
+    }
+  }
+}
