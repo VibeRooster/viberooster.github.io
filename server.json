@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.viberooster/hatch",
   "title": "Hatch",
-  "description": "Publish a live website from your AI assistant in one tool call. Multi-tenant hosting for vibe-coded apps and explorables on theroost.* domains, with configurable TTL (1h-7d), human-in-the-loop decision hooks, and agent run-report scaffolding.",
+  "description": "Hosting for AI agents: publish a live website in one tool call, ephemeral or forever.",
   "websiteUrl": "https://viberooster.com/install.html",
   "version": "1.0.0-1",
   "repository": {
