@@ -1,6 +1,6 @@
 # Vibe Rooster
 
-> Vibe Rooster is the hosting platform for anything vibe-coded. It turns an AI-built artifact into a live URL in about 90 seconds — an app, an **explorable**, or a site with a built-in expiry date (a listing that lives till it sells, a wedding site that lives through the big day). No DevOps, no Docker, no cloud setup, no account required to start. Tagline: *Rise & Ship.*
+> Vibe Rooster is the hosting platform for anything vibe-coded. It turns an AI-built artifact into a live URL in about 90 seconds — an app, an **explorable**, or a site with a built-in expiry date (a listing that lives till it sells, a wedding site that lives through the big day). No DevOps, no Docker, no cloud setup, no account required to start. Tagline: *Rise & Share.*
 
 The platform is live and open: anyone with an MCP-capable AI assistant (Claude, Claude Code, Cursor, Windsurf, and others) can hatch a free site right now — no waitlist, no sign-up, no credit card.
 
@@ -75,11 +75,11 @@ Vibe Rooster speaks in plain English. No cloud jargon, no "spin up a container."
 - *Waking up...* (not "cold start")
 - *Something went wrong* (not "Error 502")
 
-The tone is warm but not whimsical; the rooster/roost metaphor is present but never overdone. Consumer surfaces use a playful arcade register for the Continue mechanic ("Drop a coin 🪙"); professional vertical surfaces use plain language ("Keep this listing live through closing").
+The tone is warm but not whimsical; the rooster/roost metaphor is present but never overdone. Consumer surfaces use a playful arcade register for the Continue mechanic ("Drop a coin 🪙"); professional vertical surfaces use plain language ("Keep this listing live through closing"). The tagline is **Rise & Share** — the artifact is something you hand to a person, not a product you ship.
 
 ## Key pages
 
-- [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Ship* pitch
+- [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
 - [Explorables](https://viberooster.com/explorables.html): what an explorable is and why Vibe Rooster hosts them
 - [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Windsurf, and other AI tools on any OS
 - [Connect to Claude](https://viberooster.com/connect.html): set up the Hatch MCP connector and publish a site from Claude, with example prompts
