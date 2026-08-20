@@ -18,6 +18,14 @@ The term follows Bret Victor's "explorable explanations" (2011) — deliberately
 
 The ladder: **prose** is native to narrative and breaks on structural payloads; the **static infographic** is native to structure and breaks by freezing one projection; the **explorable** is native to structures too rich for a single frame and breaks when one clean frame would already do. Full argument: https://viberooster.com/explorables.html
 
+## Vibe thinking
+
+**Vibe coding** is the loop where you and an agent build something that *runs*. **Vibe thinking** is the loop where you and an agent build something that *makes sense* — a concept, a map of a topic, a model of a decision — and you want the next person to be able to walk it.
+
+Most sessions with an agent are vibe thinking, not vibe coding. They produce orientation, not software: a pricing thesis, a competitive landscape, a causal story. That work currently dies in the chat window. A **transcript** preserves the path of the thinking, not the topology. A **memo** keeps the conclusions and throws away the forks. An **explorable** keeps the structure that survived the session and throws away the dead ends — on purpose.
+
+You don't share the conversation. You share the structure that survived it. Same publishing primitive as vibe coding: hatch it to a live URL, share it for the meeting, let it expire or keep it. Full argument: https://viberooster.com/vibe-thinking.html
+
 ## Who Vibe Rooster is for
 
 The primary user is the **vibe coder** — someone who builds working artifacts with AI assistance but has no background in cloud infrastructure, DNS, containers, or CI/CD: hobbyists, consultants, analysts, PMs, marketers, real estate agents, event planners, agency operators, students. Vibe Rooster is built for them, not for senior DevOps engineers. The user it is explicitly *not* built for is the platform engineer with an existing CI/CD stack.
@@ -81,6 +89,7 @@ The tone is warm but not whimsical; the rooster/roost metaphor is present but ne
 
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
 - [Explorables](https://viberooster.com/explorables.html): what an explorable is and why Vibe Rooster hosts them
+- [Vibe Thinking](https://viberooster.com/vibe-thinking.html): vibe thinking vs vibe coding — capturing a thinking session as an explorable, not a chat transcript
 - [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Windsurf, and other AI tools on any OS
 - [Connect to Claude](https://viberooster.com/connect.html): set up the Hatch MCP connector and publish a site from Claude, with example prompts
 - [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long
