@@ -85,8 +85,8 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: June 4, 2026</p>
-    <p>Vibe Rooster, Inc. (“Vibe Rooster,” “we,” “us”) operates the Vibe Rooster platform and the <strong>Hatch connector</strong> for Claude and other AI assistants. This policy explains what data we handle when you use the connector to publish a website, and how we treat it.</p>
+    <p class="updated">Last updated: August 20, 2026</p>
+    <p>Vibe Rooster, Inc. (“Vibe Rooster,” “we,” “us”) operates the Vibe Rooster platform, the public site at <code>viberooster.com</code>, and the <strong>Hatch connector</strong> for Claude and other AI assistants. This policy explains what data we handle when you visit the site or use the connector to publish a website, and how we treat it.</p>
 
     <h2>What the connector is</h2>
     <p>The Hatch connector is a remote service that lets an AI assistant (such as Claude) publish a website on your behalf to <code>*.theroost.dev</code>. The connector is <strong>unauthenticated</strong>: you don't create an account or provide a password, API key, or payment details to use it. We therefore do not knowingly collect your name, email, or login identity through the connector itself.</p>
@@ -98,6 +98,7 @@
       <li><strong>Operational logs.</strong> A record of connector actions (for example, “a site was created” or “a file upload failed”), including a summary of the request such as the slug, tier, and file count. These logs do <strong>not</strong> contain your file contents.</li>
       <li><strong>Abuse-prevention data.</strong> To enforce fair-use rate limits on new-site creation, we keep short-lived counters keyed in part by network (IP) address. These counters expire automatically (within roughly an hour) and are used only to throttle abuse.</li>
       <li><strong>Visitor traffic to your site.</strong> When someone visits a site you published, we record coarse traffic counts for the site so we can show basic visit statistics and operate the service.</li>
+      <li><strong>Visits to viberooster.com.</strong> We count page views on this marketing site with Cloudflare’s cookieless Web Analytics (pages, referrers, country, browser). No cookies, no ads, no sale of data.</li>
     </ul>
 
     <h2>What we don't do</h2>
@@ -116,7 +117,7 @@
     <p>If you later upgrade a site to a permanent (“forever”) tier through an account, that site's content is retained until you delete it or close your account.</p>
 
     <h2>Service providers</h2>
-    <p>We run on <strong>Cloudflare</strong> (Workers, R2 storage, D1, KV, and Queues), which processes and stores data on our behalf as our infrastructure provider. When you use the connector inside an AI assistant such as <strong>Claude</strong> (Anthropic), your prompts and the assistant's tool calls are handled by that assistant's provider under their own privacy terms; we receive only the tool calls the assistant sends to the connector.</p>
+    <p>We run on <strong>Cloudflare</strong> (Workers, R2 storage, D1, KV, Queues, and Web Analytics), which processes and stores data on our behalf as our infrastructure provider. When you use the connector inside an AI assistant such as <strong>Claude</strong> (Anthropic), your prompts and the assistant's tool calls are handled by that assistant's provider under their own privacy terms; we receive only the tool calls the assistant sends to the connector.</p>
 
     <h2>Your choices</h2>
     <p>Because free sites expire on their own, the simplest way to remove a published site is to let it lapse. To delete a site sooner, or to request removal of content or logs, email us at <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> with the site's URL or slug.</p>
@@ -135,5 +136,8 @@
     <p><span class="footer-logo">🐓 Vibe Rooster</span></p>
     <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/connect.html">Connect to Claude</a></p>
   </footer>
+  <!-- Cloudflare Web Analytics -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ada69257d1fd423f901d5f05195f57c6"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 </body>
 </html>
