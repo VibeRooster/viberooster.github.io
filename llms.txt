@@ -54,9 +54,13 @@ Pricing has two orthogonal axes: **duration** (how long does it stay live while 
 
 **Roost (Forever) — $24.99 one-time.** Pay once, it lives forever: always-on, permanent URL, no subscription. Publishing an app should feel like publishing a book — you pay once, it exists, people can find it. Five coins cost roughly what Forever does, so anything worth keeping past a couple of months should just be made Forever.
 
+**Workspace Team — $259/month.** For teams of humans and agents. Unlimited temporary (free-tier) hatches, 10 included Forever roosts (more at Forever rates), 10 coins per month for resurrections, unlimited team members, and unlimited unaudited HITL. Passion projects still don't need a subscription; this is the team operating plan.
+
+**Agentic HITL — $359/month.** Workspace Team plus audited HITL (system of record), custom domain, and 20 Forever roosts with HITL.
+
 **Term Passes (verticals).** On the vertical namespaces, the primary product is a Term Pass — the Continue mechanic bought as one bounded chunk sized to a real-world lifecycle: a Listing Pass ("till it sells"), a Wedding Pass (through the date plus months of memories), an Event Pass (through the event and wind-down), a Pitch Pass (short and cheap; won it → make it Forever).
 
-**Add-ons, not tiers:** custom domain ($4/month or $39 one-time), AI credit top-ups for Roosts that call AI through the platform's proxy. A monthly membership for high-frequency hatchers ("The Coop") is planned.
+**Add-ons:** AI credit top-ups for Roosts that call AI through the platform's proxy. Custom domain is included with Agentic HITL.
 
 ## The vertical namespaces
 

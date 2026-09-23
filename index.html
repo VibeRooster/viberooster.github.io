@@ -103,6 +103,20 @@
           "price": "24.99",
           "priceCurrency": "USD",
           "description": "One-time payment for a permanent, always-on site."
+        },
+        {
+          "@type": "Offer",
+          "name": "Workspace Team",
+          "price": "259",
+          "priceCurrency": "USD",
+          "description": "Monthly team plan: unlimited temporary hatches, 10 Forever roosts, 10 coins/month, unlimited members, unaudited HITL."
+        },
+        {
+          "@type": "Offer",
+          "name": "Agentic HITL",
+          "price": "359",
+          "priceCurrency": "USD",
+          "description": "Workspace Team plus audited HITL, custom domain, and 20 Forever roosts with HITL."
         }
       ]
     },
@@ -847,9 +861,16 @@
     }
 
     .pricing-inner {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       text-align: center;
+    }
+
+    .pricing-teams-label {
+      margin: 56px 0 24px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      color: var(--dark);
     }
 
     .pricing-header { margin-bottom: 56px; }
@@ -1755,6 +1776,41 @@
             <li>512 MB RAM · 1 GB storage</li>
           </ul>
           <a href="/connect.html" class="price-btn price-btn-solid">Make it Forever</a>
+        </div>
+
+      </div>
+
+      <p class="pricing-teams-label">For teams</p>
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <span class="price-emoji">🪺</span>
+          <div class="price-tier">Workspace Team</div>
+          <div class="price-amount">$259<span> / mo</span></div>
+          <p class="price-desc">A shared workspace for people and agents. Hatch as much as you want. Keep the keepers.</p>
+          <ul class="price-features">
+            <li>Unlimited temporary (free-tier) hatches</li>
+            <li>10 forever hatches (more at Forever rates)</li>
+            <li>10 coins per month for resurrections</li>
+            <li>Unlimited team members</li>
+            <li>Unlimited unaudited HITL</li>
+          </ul>
+          <a href="/connect.html" class="price-btn price-btn-outline">Start a workspace</a>
+        </div>
+
+        <div class="price-card featured">
+          <span class="featured-badge">System of record</span>
+          <span class="price-emoji">🛡️</span>
+          <div class="price-tier">Agentic HITL</div>
+          <div class="price-amount">$359<span> / mo</span></div>
+          <p class="price-desc">Workspace Team plus audited human-in-the-loop — decisions you can stand behind.</p>
+          <ul class="price-features">
+            <li>Everything in Workspace Team</li>
+            <li>Audited HITL (system of record)</li>
+            <li>Custom domain</li>
+            <li>20 forever hatches with HITL</li>
+          </ul>
+          <a href="/connect.html" class="price-btn price-btn-solid">Get Agentic HITL</a>
         </div>
 
       </div>
