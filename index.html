@@ -85,38 +85,57 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "Hatch (Free)",
+          "name": "Hatch",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Live instantly for 48 hours, includes 3 free Continues (8 live days total)."
+          "description": "Free ephemeral hatches. Live 48 hours. Try HITL. Pin or Pack when you need durability or space."
         },
         {
           "@type": "Offer",
-          "name": "Continue (coin)",
+          "name": "Pin",
           "price": "4.99",
           "priceCurrency": "USD",
-          "description": "Adds two more weeks of life to a Roost."
+          "description": "Keep one hatch for 1 year."
         },
         {
           "@type": "Offer",
-          "name": "Roost (Forever)",
-          "price": "24.99",
+          "name": "Pack",
+          "price": "4.99",
           "priceCurrency": "USD",
-          "description": "One-time payment for a permanent, always-on site."
+          "description": "Extra storage on a hatch or Pin. $4.99 per year per GB."
         },
         {
           "@type": "Offer",
-          "name": "Workspace Team",
+          "name": "Roost",
           "price": "259",
           "priceCurrency": "USD",
-          "description": "Monthly team plan: unlimited temporary hatches, 10 Forever roosts, 10 coins/month, unlimited members, unaudited HITL."
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "259",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          },
+          "description": "Team workspace: fair-use ephemeral hatches, 10 subscription Pins, durable HITL, unlimited members."
         },
         {
           "@type": "Offer",
-          "name": "Agentic HITL",
-          "price": "359",
+          "name": "Roost Audit",
+          "price": "459",
           "priceCurrency": "USD",
-          "description": "Workspace Team plus audited HITL, custom domain, and 20 Forever roosts with HITL."
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "459",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          },
+          "description": "Roost plus exportable audit trail and 1-year HITL retention."
+        },
+        {
+          "@type": "Offer",
+          "name": "Custom domain",
+          "price": "29",
+          "priceCurrency": "USD",
+          "description": "+$29/mo on Roost or Roost Audit."
         }
       ]
     },
@@ -1738,10 +1757,10 @@
     <div class="pricing-inner">
       <div class="pricing-header">
         <span class="section-label">Pricing</span>
-        <h2>Hatch free. Continue when it matters. Forever when it's a keeper.</h2>
+        <h2>Hatch free. Pin it. Pack it.</h2>
         <p class="section-sub" style="margin: 0 auto;">
-          Two questions, two answers: how long does it need to live, and does it ever get to die?
-          No subscriptions for passion projects. Ever.
+          Try it for 48 hours. Pin a keeper for a year. Pack more space if you need it.
+          Teams get a Roost.
         </p>
       </div>
 
@@ -1752,82 +1771,96 @@
           <span class="price-emoji">🐣</span>
           <div class="price-tier">Hatch</div>
           <div class="price-amount">Free<span> 48 hours at a time</span></div>
-          <p class="price-desc">The default for explorables, listings, invitations, and quick tests. Live instantly — share it while it matters, no commitment, no bill.</p>
+          <p class="price-desc">Try it, pin it for a year, pack more space if you need it. Instant URL. No card.</p>
           <ul class="price-features">
-            <li>Instant deploy, always on</li>
-            <li>yourname.theroost.dev</li>
-            <li>3 free Continues — 8 live days before you decide</li>
-            <li>512 MB RAM · 1 GB storage</li>
+            <li>Ephemeral hatches (48h)</li>
+            <li>yourname.theroost.dev · TLD list</li>
+            <li>Try HITL (capped)</li>
+            <li>100 MB per hatch</li>
           </ul>
           <a href="/connect.html" class="price-btn price-btn-outline">Hatch free</a>
         </div>
 
-        <!-- Roost (Forever) -->
+        <!-- Roost -->
         <div class="price-card featured">
-          <span class="featured-badge">🚀 Free Play — never runs out</span>
-          <span class="price-emoji">🐓</span>
+          <span class="featured-badge">Teams</span>
+          <span class="price-emoji">🪺</span>
           <div class="price-tier">Roost</div>
-          <div class="price-amount">$24.99<span> one-time</span></div>
-          <p class="price-desc">Pay once, it lives forever. No subscription, no ongoing anxiety. For the ones that outlive their occasion.</p>
+          <div class="price-amount">$259<span> / mo</span></div>
+          <p class="price-desc">Team workspace for agentic work — 10 pins while you subscribe, durable HITL included.</p>
           <ul class="price-features">
-            <li>For...uh...uh...ever</li>
-            <li>Always-on — zero cold starts</li>
-            <li>Permanent URL, never expires</li>
-            <li>512 MB RAM · 1 GB storage</li>
+            <li>Unlimited Free-class ephemeral hatches (fair use)</li>
+            <li>10 subscription Pins</li>
+            <li>Durable HITL (~90 day retention)</li>
+            <li>Unlimited members</li>
           </ul>
-          <a href="/connect.html" class="price-btn price-btn-solid">Make it Forever</a>
+          <a href="/connect.html" class="price-btn price-btn-solid">Start a Roost</a>
+        </div>
+
+        <!-- Roost Audit -->
+        <div class="price-card">
+          <span class="price-emoji">🛡️</span>
+          <div class="price-tier">Roost Audit</div>
+          <div class="price-amount">$459<span> / mo</span></div>
+          <p class="price-desc">Roost plus compliance-grade trail and longer keep for procurement.</p>
+          <ul class="price-features">
+            <li>Everything in Roost</li>
+            <li>Exportable audit trail</li>
+            <li>1-year HITL retention</li>
+            <li>Same 10 Pins · Pin &amp; Pack add-ons</li>
+          </ul>
+          <a href="/connect.html" class="price-btn price-btn-outline">Get Roost Audit</a>
         </div>
 
       </div>
 
-      <p class="pricing-teams-label">For teams</p>
+      <p class="pricing-teams-label">Pin it. Pack it.</p>
       <div class="pricing-grid">
 
         <div class="price-card">
-          <span class="price-emoji">🪺</span>
-          <div class="price-tier">Workspace Team</div>
-          <div class="price-amount">$259<span> / mo</span></div>
-          <p class="price-desc">A shared workspace for people and agents. Hatch as much as you want. Keep the keepers.</p>
+          <span class="price-emoji">📌</span>
+          <div class="price-tier">Pin</div>
+          <div class="price-amount">$4.99<span> / year</span></div>
+          <p class="price-desc">Keep one hatch for a year. Durability, not a subscription.</p>
           <ul class="price-features">
-            <li>Unlimited temporary (free-tier) hatches</li>
-            <li>10 forever hatches (more at Forever rates)</li>
-            <li>10 coins per month for resurrections</li>
-            <li>Unlimited team members</li>
-            <li>Unlimited unaudited HITL</li>
+            <li>1-year keep</li>
+            <li>Works on Hatch, Roost, and Roost Audit</li>
+            <li>1 GB included · Pack for more</li>
           </ul>
-          <a href="/connect.html" class="price-btn price-btn-outline">Start a workspace</a>
+          <a href="/connect.html" class="price-btn price-btn-outline">Pin a hatch</a>
         </div>
 
-        <div class="price-card featured">
-          <span class="featured-badge">System of record</span>
-          <span class="price-emoji">🛡️</span>
-          <div class="price-tier">Agentic HITL</div>
-          <div class="price-amount">$359<span> / mo</span></div>
-          <p class="price-desc">Workspace Team plus audited human-in-the-loop — decisions you can stand behind.</p>
+        <div class="price-card">
+          <span class="price-emoji">📦</span>
+          <div class="price-tier">Pack</div>
+          <div class="price-amount">$4.99<span> / year / GB</span></div>
+          <p class="price-desc">Extra storage on a hatch or Pin. Space, not time.</p>
           <ul class="price-features">
-            <li>Everything in Workspace Team</li>
-            <li>Audited HITL (system of record)</li>
-            <li>Custom domain</li>
-            <li>20 forever hatches with HITL</li>
+            <li>Add 1 GB per Pack</li>
+            <li>Stack as needed</li>
+            <li>Same price on every tier</li>
           </ul>
-          <a href="/connect.html" class="price-btn price-btn-solid">Get Agentic HITL</a>
+          <a href="/connect.html" class="price-btn price-btn-outline">Pack more space</a>
+        </div>
+
+        <div class="price-card">
+          <span class="price-emoji">🌐</span>
+          <div class="price-tier">Custom domain</div>
+          <div class="price-amount">+$29<span> / mo</span></div>
+          <p class="price-desc">Your hostname on Roost or Roost Audit. Hatch stays on the TLD list.</p>
+          <ul class="price-features">
+            <li>Roost &amp; Roost Audit only</li>
+            <li>1 hostname per add-on</li>
+            <li>Ask your agent to checkout grant custom_domain</li>
+          </ul>
+          <a href="/connect.html" class="price-btn price-btn-outline">Add a domain</a>
         </div>
 
       </div>
 
-      <!-- Continue strip -->
-      <div class="continue-strip">
-        <span class="continue-count">CONTINUE? 9…8…7…</span>
-        <p class="continue-copy">
-          Out of free Continues? Drop a coin 🪙 — <strong>$4.99 buys two more weeks of life.</strong>
-          Cheaper by the roll. Your agent can drop them for you, within an allowance you set once.
-        </p>
-      </div>
-
-      <!-- Philosophy note -->
       <p style="text-align:center; margin-top:40px; font-size:0.9rem; color:var(--muted); font-weight:600; max-width:600px; margin-left:auto; margin-right:auto;">
-        Publishing an app should feel like publishing a book — you pay once, it exists, people can find it.<br>
-        <span style="color:var(--orange);">And publishing an insight should cost about as much as saying it out loud.</span>
+        Try it, pin it for a year, pack more if you need the space.<br>
+        <span style="color:var(--orange);">No coins. No Forever. Pin it. Pack it.</span>
       </p>
     </div>
   </section>

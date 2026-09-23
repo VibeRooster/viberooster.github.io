@@ -34,33 +34,33 @@ The primary user is the **vibe coder** — someone who builds working artifacts 
 
 1. **Vibe It.** Build with any AI tool — Claude, Cursor, v0, Lovable. An app, a data story, a one-meeting explorable, a wedding site. If it renders, it can Roost.
 2. **Hatch It.** Ask your agent to Hatch it through the MCP connector. One tool call and it's live at a real URL with HTTPS — no accounts, no config, no connection strings.
-3. **Roost It.** Share the link while it matters, then decide its fate: let it expire, Continue it, or make it Forever.
+3. **Roost It.** Share the link while it matters, then decide its fate: let it expire, or Pin it for a year.
 
 ## Using Vibe Rooster from Claude (and other AI assistants)
 
 Vibe Rooster ships an official MCP connector — codenamed **Hatch** — that lets an AI assistant publish a website on the user's behalf in a single tool call. It is a remote, unauthenticated MCP server at `https://mcp.theroost.dev/mcp` (Streamable HTTP). A user adds it once via **Settings → Connectors → Add custom connector** in Claude (or `claude mcp add --transport http hatch https://mcp.theroost.dev/mcp` in Claude Code), then simply asks Claude to build and publish a site.
 
-The connector exposes tools including `hatch` (create a new site and return its live URL), `upload` (add or replace files on an existing site), `lookup` (find a previously created site by slug), `convert` (rename a site or change its tier), `share` (guest view links for private run reports), `await_decision` / `poll_decision` (human-in-the-loop decision hooks), and `deploy` (advanced — replace server-side code). MCP prompt `run-report` scaffolds agent observability HTML — use `prompts/get` with name `run-report`, fill the sections, then hatch with `kind: "run-report"`. Free-tier TTL is configurable via `ttlSeconds` (1h–7d). Sites created through the anonymous connector are **free**: live instantly, expiring after 48 hours by default unless Continued. Making a site permanent ("Forever") requires an account upgrade; the connector directs users to https://viberooster.com/connect.html#upgrade. New-site creation is rate-limited for fair use.
+The connector exposes tools including `hatch` (create a new site and return its live URL), `upload` (add or replace files on an existing site), `lookup` (find a previously created site by slug), `convert` (rename a site or Pin it while subscription slots remain), `catalog` / `checkout` / `poll_checkout` (in-chat Stripe payment for Pin, Pack, Roost, Roost Audit — show checkoutUrl; do not use Stripe MCP for VibeRooster features), `share` (guest view links for private run reports), `await_decision` / `poll_decision` (human-in-the-loop decision hooks), and `deploy` (advanced — replace server-side code). MCP prompt `run-report` scaffolds agent observability HTML — use `prompts/get` with name `run-report`, fill the sections, then hatch with `kind: "run-report"`. Free-tier TTL is configurable via `ttlSeconds` (1h–7d). Sites created through the anonymous connector are **Hatch**: live instantly, expiring after 48 hours by default. Pin a site for a year with `checkout` grant `publish`. New-site creation is rate-limited for fair use.
 
 Setup and usage docs (with example prompts) live at https://viberooster.com/connect.html. Cross-platform MCP install instructions (Claude, Cursor, Windsurf, macOS/Windows/Linux) are at https://viberooster.com/install.html. Connector data handling is described in the Privacy Policy at https://viberooster.com/privacy.html.
 
-## How pricing works — two axes
+## How pricing works — Pin it. Pack it.
 
-Pricing has two orthogonal axes: **duration** (how long does it stay live while you decide?) and **permanence** (does it live forever?). There are no subscriptions for passion projects.
+Three tiers plus shared add-ons. No user-facing coin. Term Passes are deferred.
 
-**Hatch (Free).** The default for explorables, listings, invitations, and quick tests. Live instantly on a `yourname.theroost.dev` subdomain, always on for 48 hours, 512 MB RAM, 1 GB storage. Includes **3 free Continues** — 8 live days in total before you decide. No commitment, no card.
+**Hatch (Free).** Ephemeral hatches (48h), try HITL (capped), TLD list only. Pin $4.99/yr keeps one hatch for a year. Pack $4.99/yr/GB adds storage. 100 MB per ephemeral hatch.
 
-**Continue (coins).** Out of free Continues? A coin costs **$4.99 and buys two more weeks of life** (cheaper in packs). Two ways to spend one: manually (the mobile app nudges you before expiry — one tap to Continue) or **agent-automated** — the agent that built the Roost can drop coins as expiry nears, within a spend allowance and/or end-date the owner sets once. Automated purchases never exceed the allowance and every one is logged and pushed to the owner.
+**Roost — $259/month.** Team workspace: fair-use ephemeral hatches, 10 subscription Pins while subscribed, durable HITL (~90 day retention), unlimited members. Custom domain is +$29/mo, not bundled.
 
-**Roost (Forever) — $24.99 one-time.** Pay once, it lives forever: always-on, permanent URL, no subscription. Publishing an app should feel like publishing a book — you pay once, it exists, people can find it. Five coins cost roughly what Forever does, so anything worth keeping past a couple of months should just be made Forever.
+**Roost Audit — $459/month.** Everything in Roost plus exportable audit trail and 1-year HITL retention. Same 10 Pins and Pin / Pack add-ons.
 
-**Workspace Team — $259/month.** For teams of humans and agents. Unlimited temporary (free-tier) hatches, 10 included Forever roosts (more at Forever rates), 10 coins per month for resurrections, unlimited team members, and unlimited unaudited HITL. Passion projects still don't need a subscription; this is the team operating plan.
+**Pin — $4.99/year.** Durability: keep one hatch for 1 year. Works on Hatch, Roost, and Roost Audit. Beyond 10 subscription Pins, buy another Pin.
 
-**Agentic HITL — $359/month.** Workspace Team plus audited HITL (system of record), custom domain, and 20 Forever roosts with HITL.
+**Pack — $4.99/year/GB.** Capacity: extra storage on a hatch or Pin.
 
-**Term Passes (verticals).** On the vertical namespaces, the primary product is a Term Pass — the Continue mechanic bought as one bounded chunk sized to a real-world lifecycle: a Listing Pass ("till it sells"), a Wedding Pass (through the date plus months of memories), an Event Pass (through the event and wind-down), a Pitch Pass (short and cheap; won it → make it Forever).
+**Custom domain — +$29/month.** Roost and Roost Audit only. Hatch stays on the TLD list.
 
-**Add-ons:** AI credit top-ups for Roosts that call AI through the platform's proxy. Custom domain is included with Agentic HITL.
+**Add-ons:** AI credit top-ups for roosts that call AI through the platform's proxy.
 
 ## The vertical namespaces
 
@@ -83,11 +83,11 @@ Vibe Rooster speaks in plain English. No cloud jargon, no "spin up a container."
 
 - *Your site is live* (not "your deployment is running")
 - *Your Roost* (not "your instance" or "your container")
-- *Continue* (a pre-expiry extension) / *Revive* (a post-expiry restore) / *coin* (what you drop to buy one)
+- *Pin* (1-year keep) / *Pack* (extra GB) / *Roost* (team plan) / *Roost Audit* (compliance)
 - *Waking up...* (not "cold start")
 - *Something went wrong* (not "Error 502")
 
-The tone is warm but not whimsical; the rooster/roost metaphor is present but never overdone. Consumer surfaces use a playful arcade register for the Continue mechanic ("Drop a coin 🪙"); professional vertical surfaces use plain language ("Keep this listing live through closing"). The tagline is **Rise & Share** — the artifact is something you hand to a person, not a product you ship.
+The tone is warm but not whimsical; the rooster/roost metaphor is present but never overdone. Consumer surfaces say **Pin it. Pack it.** Professional vertical surfaces use plain language ("Keep this listing live through closing"). The tagline is **Rise & Share** — the artifact is something you hand to a person, not a product you ship.
 
 ## Key pages
 
