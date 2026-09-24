@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Install Hatch MCP — Vibe Rooster</title>
-  <meta name="description" content="Add the Vibe Rooster Hatch MCP server to Claude, Cursor, Windsurf, and other AI tools on macOS, Windows, and Linux. No API key required." />
+  <meta name="description" content="Add Hatch to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and any Streamable HTTP MCP client. One public URL. No API key." />
   <link rel="canonical" href="https://viberooster.com/install.html" />
   <link rel="icon" href="/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/brand/icon-256.png" sizes="256x256" />
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vibe Rooster" />
   <meta property="og:title" content="Install Hatch MCP — Vibe Rooster" />
-  <meta property="og:description" content="Add the Vibe Rooster Hatch MCP server to Claude, Cursor, Windsurf, and other AI tools on macOS, Windows, and Linux. No API key required." />
+  <meta property="og:description" content="Add Hatch to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and any Streamable HTTP MCP client. One public URL. No API key." />
   <meta property="og:url" content="https://viberooster.com/install.html" />
   <meta property="og:image" content="https://viberooster.com/brand/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@VibeRooster" />
   <meta name="twitter:title" content="Install Hatch MCP — Vibe Rooster" />
-  <meta name="twitter:description" content="Add the Vibe Rooster Hatch MCP server to Claude, Cursor, Windsurf, and other AI tools on macOS, Windows, and Linux. No API key required." />
+  <meta name="twitter:description" content="Add Hatch to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and any Streamable HTTP MCP client. One public URL. No API key." />
   <meta name="twitter:image" content="https://viberooster.com/brand/icon-512.png" />
   <script type="application/ld+json">
 {
@@ -29,7 +29,7 @@
       "@id": "https://viberooster.com/install.html#page",
       "url": "https://viberooster.com/install.html",
       "name": "Install Hatch MCP — Vibe Rooster",
-      "description": "Add the Vibe Rooster Hatch MCP server to Claude, Cursor, Windsurf, and other AI tools on macOS, Windows, and Linux. No API key required.",
+      "description": "Add Hatch to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and any Streamable HTTP MCP client. One public URL. No API key.",
       "isPartOf": {
         "@id": "https://viberooster.com/#website"
       },
@@ -91,6 +91,11 @@
     .toc { background:var(--white); border:1px solid rgba(255,107,53,0.12); border-radius:12px; padding:18px 22px; margin:24px 0 32px; }
     .toc ul { margin-bottom:0; }
     .note { background:rgba(255,209,102,0.25); border-left:4px solid var(--yellow); border-radius:8px; padding:14px 18px; margin-bottom:20px; font-size:0.95rem; }
+    .status { display:inline-block; font-weight:800; font-size:0.68rem; padding:2px 8px; border-radius:50px; letter-spacing:0.04em; text-transform:uppercase; white-space:nowrap; vertical-align:middle; }
+    .status-tested { background:rgba(255,107,53,0.14); color:var(--orange); }
+    .status-expected { background:rgba(107,107,138,0.12); color:var(--mid); }
+    .status-new { background:rgba(255,209,102,0.45); color:#8A5A00; }
+    kbd { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; background:rgba(26,26,46,0.08); padding:2px 6px; border-radius:6px; font-size:0.85em; }
     footer { text-align:center; padding:40px 24px; color:var(--muted); border-top:1px solid rgba(255,107,53,0.12); }
     .footer-logo { font-family:'Fredoka One',cursive; color:var(--orange); }
     @media (max-width:600px){ nav{padding:14px 20px;} h1{font-size:2rem;} main{padding-top:110px;} }
@@ -105,27 +110,34 @@
   <main>
     <span class="pill">MCP Setup</span>
     <h1>Install <span>Hatch</span> on your AI tool</h1>
-    <p class="lead">Hatch is Vibe Rooster's MCP connector — it lets your AI assistant publish a live website at <code>https://your-name.theroost.dev</code> in one tool call. No API key, no sign-in, no cloud account.</p>
+    <p class="lead">Hatch is Vibe Rooster's MCP connector — one public URL, the same tools, whichever agent you use. No API key, no sign-in, no cloud account. If the client can add a remote Streamable HTTP server, it can Hatch.</p>
 
     <div class="card">
       <p style="margin-bottom:8px;"><strong>Server URL</strong></p>
       <pre style="margin-bottom:0;"><code>https://mcp.theroost.dev/mcp</code></pre>
     </div>
 
+    <p>We label what we know. <span class="status status-tested">Tested</span> means we have hatched a live site from that client. <span class="status status-expected">Expected</span> means the client speaks the same transport Hatch already serves. <span class="status status-new">New</span> means we have not run a dedicated pass yet.</p>
+
     <div class="toc">
       <strong>Jump to your tool</strong>
       <ul>
-        <li><a href="#claude">Claude.ai &amp; Claude Desktop</a></li>
-        <li><a href="#claude-code">Claude Code</a></li>
-        <li><a href="#cursor">Cursor</a></li>
-        <li><a href="#windsurf">Windsurf</a></li>
+        <li><a href="#claude">Claude.ai &amp; Claude Desktop</a> · <span class="status status-tested">Tested</span></li>
+        <li><a href="#claude-code">Claude Code</a> · <span class="status status-tested">Tested</span></li>
+        <li><a href="#cursor">Cursor</a> · <span class="status status-tested">Tested</span></li>
+        <li><a href="#grok">Grok</a> · <span class="status status-tested">Tested</span></li>
+        <li><a href="#hermes">Hermes</a> · <span class="status status-tested">Tested</span></li>
+        <li><a href="#openclaw">OpenClaw</a> · <span class="status status-tested">Tested</span></li>
+        <li><a href="#codex">Codex / OpenAI</a> · <span class="status status-expected">Expected</span></li>
+        <li><a href="#muse">Muse</a> · <span class="status status-new">New</span></li>
+        <li><a href="#windsurf">Windsurf</a> · <span class="status status-expected">Expected</span></li>
         <li><a href="#other">Other MCP clients</a></li>
         <li><a href="#try-it">Try it — example prompts</a></li>
       </ul>
     </div>
 
-    <h2 id="claude">Claude.ai &amp; Claude Desktop</h2>
-    <p><strong>Recommended.</strong> Claude connects directly over Streamable HTTP — no local install.</p>
+    <h2 id="claude">Claude.ai &amp; Claude Desktop <span class="status status-tested">Tested</span></h2>
+    <p>Claude connects directly over Streamable HTTP — no local install.</p>
 
     <h3>Claude.ai (web)</h3>
     <ol>
@@ -156,7 +168,7 @@
 }</code></pre>
     <p>Quit and relaunch Claude Desktop after saving.</p>
 
-    <h2 id="claude-code">Claude Code</h2>
+    <h2 id="claude-code">Claude Code <span class="status status-tested">Tested</span></h2>
     <p>From any terminal (macOS, Windows, Linux):</p>
     <pre><code>claude mcp add --transport http hatch https://mcp.theroost.dev/mcp</code></pre>
     <p>Or add to a project-scoped <code>.mcp.json</code> in your repo root:</p>
@@ -169,7 +181,7 @@
   }
 }</code></pre>
 
-    <h2 id="cursor">Cursor</h2>
+    <h2 id="cursor">Cursor <span class="status status-tested">Tested</span></h2>
     <p>Cursor supports remote MCP over Streamable HTTP. Add Hatch globally or per project.</p>
 
     <h3>Option A — Settings UI</h3>
@@ -194,7 +206,62 @@
 }</code></pre>
     <p>No <code>headers</code> or auth token needed. Restart Cursor or reload the window after saving.</p>
 
-    <h2 id="windsurf">Windsurf</h2>
+    <h2 id="grok">Grok <span class="status status-tested">Tested</span></h2>
+    <p>Grok Bot on the web uses custom MCP connectors. Hatch is a public HTTPS endpoint, so no tunnel is required.</p>
+    <ol>
+      <li>Open <a href="https://grok.com/connectors">grok.com/connectors</a>.</li>
+      <li>Click <strong>New Connector</strong>, then <strong>Custom</strong>.</li>
+      <li>Enter <code>https://mcp.theroost.dev/mcp</code>. Leave authentication empty.</li>
+      <li>Save. Grok discovers Hatch's tools and makes them available in chat.</li>
+    </ol>
+    <p>From the Grok CLI:</p>
+    <pre><code>grok mcp add --transport http hatch https://mcp.theroost.dev/mcp</code></pre>
+    <p>Or declare it in <code>~/.grok/config.toml</code>:</p>
+    <pre><code>[mcp_servers.hatch]
+url = "https://mcp.theroost.dev/mcp"</code></pre>
+
+    <h2 id="hermes">Hermes <span class="status status-tested">Tested</span></h2>
+    <p>Hermes Agent talks to remote HTTP MCP servers from <code>~/.hermes/config.yaml</code>. Hatch needs no OAuth and no bearer token.</p>
+    <pre><code>mcp_servers:
+  hatch:
+    url: "https://mcp.theroost.dev/mcp"</code></pre>
+    <p>Start a new Hermes session (or <code>/reload-mcp</code>) so it discovers <code>hatch</code>, <code>upload</code>, and <code>lookup</code>. You can also ask Hermes to add that URL as a custom MCP server — it writes the same config.</p>
+
+    <h2 id="openclaw">OpenClaw <span class="status status-tested">Tested</span></h2>
+    <ol>
+      <li>Open the Control UI and go to <strong>Settings → MCP</strong>.</li>
+      <li>Under Configured servers, select <strong>Add server</strong>.</li>
+      <li>Name it <code>hatch</code> and pick transport <strong>Streamable HTTP</strong>.</li>
+      <li>Enter <code>https://mcp.theroost.dev/mcp</code> and add the server.</li>
+    </ol>
+    <p>Or write it into OpenClaw config:</p>
+    <pre><code>{
+  mcp: {
+    servers: {
+      hatch: {
+        url: "https://mcp.theroost.dev/mcp",
+        transport: "streamable-http",
+        enabled: true,
+      },
+    },
+  },
+}</code></pre>
+    <p>Probe with <code>openclaw mcp probe hatch</code> if you want a live capabilities check.</p>
+
+    <h2 id="codex">Codex / OpenAI <span class="status status-expected">Expected</span></h2>
+    <p>OpenAI Codex CLI supports remote Streamable HTTP MCP. We have not run Hatch on Codex yet. The transport matches what Hatch already serves, so we expect it to work.</p>
+    <pre><code>codex mcp add hatch --url https://mcp.theroost.dev/mcp</code></pre>
+    <p>Or add to <code>~/.codex/config.toml</code>:</p>
+    <pre><code>[mcp_servers.hatch]
+url = "https://mcp.theroost.dev/mcp"</code></pre>
+    <p>Hatch is unauthenticated — skip <code>codex mcp login</code>. Confirm with <code>/mcp</code> in a Codex session. If a tool list does not appear, tell us at <a href="mailto:hello@viberooster.com">hello@viberooster.com</a>.</p>
+
+    <h2 id="muse">Muse <span class="status status-new">New</span></h2>
+    <p>Muse is Cursor's new model, not a separate MCP client. If Hatch is already in Cursor's <code>mcp.json</code>, Muse uses the same connector.</p>
+    <p>We think it will work. We have not run a dedicated Muse pass yet. Add Hatch the <a href="#cursor">Cursor</a> way, then ask Muse to hatch.</p>
+
+    <h2 id="windsurf">Windsurf <span class="status status-expected">Expected</span></h2>
+    <p>Windsurf speaks remote MCP. We have not run a Hatch pass on Windsurf.</p>
     <ol>
       <li>Open the Command Palette (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Mac, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Windows).</li>
       <li>Run <strong>Windsurf: Configure MCP Servers</strong> (or click the hammer icon in Cascade → Configure).</li>
@@ -211,6 +278,7 @@
     <p>Click <strong>Refresh</strong> in the Cascade MCP toolbar after saving.</p>
 
     <h2 id="other">Other MCP clients</h2>
+    <p>If the client has a field for a remote MCP URL, paste <code>https://mcp.theroost.dev/mcp</code> and leave auth empty. That is the whole integration.</p>
     <p>Any client that speaks local stdio but not remote HTTP can bridge with <a href="https://www.npmjs.com/package/mcp-remote">mcp-remote</a> (Node 20+). Merge this into your client's MCP config file:</p>
     <pre><code>{
   "mcpServers": {
@@ -249,15 +317,15 @@
 
     <h2>More help</h2>
     <ul>
-      <li><a href="/connect.html">Connect to Claude</a> — detailed tool reference, tiers, and limits</li>
+      <li><a href="/connect.html">Connect Hatch</a> — what the URL is, who we have tested, tools, tiers, and limits</li>
       <li><a href="/privacy.html">Privacy Policy</a> — what Hatch stores and for how long</li>
-      <li><a href="mailto:hello@viberooster.com">hello@viberooster.com</a> — questions and feedback</li>
+      <li><a href="mailto:hello@viberooster.com">hello@viberooster.com</a> — questions and feedback, including “it worked on my agent”</li>
     </ul>
   </main>
 
   <footer>
     <p><span class="footer-logo">🐓 Vibe Rooster</span></p>
-    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/connect.html">Connect to Claude</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
+    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/connect.html">Connect Hatch</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
     <p style="margin-top:10px;">
       <a href="https://x.com/VibeRooster">X</a> ·
       <a href="https://www.github.com/viberooster">GitHub</a> ·

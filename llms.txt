@@ -2,7 +2,7 @@
 
 > Vibe Rooster is the hosting platform for anything vibe-coded. It turns an AI-built artifact into a live URL in about 90 seconds — an app, an **explorable**, or a site with a built-in expiry date (a listing that lives till it sells, a wedding site that lives through the big day). No DevOps, no Docker, no cloud setup, no account required to start. Tagline: *Rise & Share.*
 
-The platform is live and open: anyone with an MCP-capable AI assistant (Claude, Claude Code, Cursor, Windsurf, and others) can hatch a free site right now — no waitlist, no sign-up, no credit card.
+The platform is live and open: anyone whose AI assistant can add a remote MCP server can hatch a free site right now — no waitlist, no sign-up, no credit card. Hatch is one public URL (`https://mcp.theroost.dev/mcp`), not a Claude plugin. **Tested:** Claude, Cursor, Grok, Hermes, OpenClaw. **Expected:** Codex / OpenAI and any Streamable HTTP MCP client. **New:** Muse (Cursor's new model — same connector as Cursor; we have not run a dedicated Muse pass yet).
 
 ## What Vibe Rooster is
 
@@ -32,17 +32,29 @@ The primary user is the **vibe coder** — someone who builds working artifacts 
 
 ## How it works (the core loop)
 
-1. **Vibe It.** Build with any AI tool — Claude, Cursor, v0, Lovable. An app, a data story, a one-meeting explorable, a wedding site. If it renders, it can Roost.
+1. **Vibe It.** Build with the agent you already use — Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, v0, Lovable. An app, a data story, a one-meeting explorable, a wedding site. If it renders, it can Roost.
 2. **Hatch It.** Ask your agent to Hatch it through the MCP connector. One tool call and it's live at a real URL with HTTPS — no accounts, no config, no connection strings.
 3. **Roost It.** Share the link while it matters, then decide its fate: let it expire, or Pin it for a year.
 
-## Using Vibe Rooster from Claude (and other AI assistants)
+## Using Vibe Rooster from any MCP agent
 
-Vibe Rooster ships an official MCP connector — codenamed **Hatch** — that lets an AI assistant publish a website on the user's behalf in a single tool call. It is a remote, unauthenticated MCP server at `https://mcp.theroost.dev/mcp` (Streamable HTTP). A user adds it once via **Settings → Connectors → Add custom connector** in Claude (or `claude mcp add --transport http hatch https://mcp.theroost.dev/mcp` in Claude Code), then simply asks Claude to build and publish a site.
+Vibe Rooster ships an official MCP connector — codenamed **Hatch** — that lets an AI assistant publish a website on the user's behalf in a single tool call. It is a remote, unauthenticated MCP server at `https://mcp.theroost.dev/mcp` (Streamable HTTP). The product is that URL. A user adds it once in whatever client they use, then asks the agent to build and publish a site.
+
+We do not certify vendors. **Tested** (we have hatched live sites): Claude, Cursor, Grok, Hermes, OpenClaw. **Expected** (same transport; we have not run Hatch on these yet): Codex / OpenAI, Windsurf, and any client that can add a remote Streamable HTTP MCP server. **New:** Muse is Cursor's new model, not a separate connector — same Hatch MCP as Cursor; we think it will work and have not run a dedicated Muse pass yet. Stdio-only clients can bridge with `mcp-remote`.
+
+Claude is one install path, not the product. Example add commands:
+
+- Claude Code: `claude mcp add --transport http hatch https://mcp.theroost.dev/mcp`
+- Claude.ai / Desktop: Settings → Connectors → Add custom connector, URL above, auth None
+- Cursor: `~/.cursor/mcp.json` with `{ "mcpServers": { "hatch": { "url": "https://mcp.theroost.dev/mcp" } } }`
+- Grok: grok.com/connectors → New Connector → Custom, or `grok mcp add --transport http hatch https://mcp.theroost.dev/mcp`
+- Hermes: `mcp_servers.hatch.url` in `~/.hermes/config.yaml`
+- OpenClaw: Settings → MCP → Add server → Streamable HTTP
+- Codex (expected): `codex mcp add hatch --url https://mcp.theroost.dev/mcp`
 
 The connector exposes tools including `hatch` (create a new site and return its live URL), `upload` (add or replace files on an existing site), `lookup` (find a previously created site by slug), `convert` (rename a site or Pin it while subscription slots remain), `catalog` / `checkout` / `poll_checkout` (in-chat Stripe payment for Pin, Pack, Roost, Roost Audit — show checkoutUrl; do not use Stripe MCP for VibeRooster features), `share` (guest view links for private run reports), `await_decision` / `poll_decision` (human-in-the-loop decision hooks), and `deploy` (advanced — replace server-side code). MCP prompt `run-report` scaffolds agent observability HTML — use `prompts/get` with name `run-report`, fill the sections, then hatch with `kind: "run-report"`. Free-tier TTL is configurable via `ttlSeconds` (1h–7d). Sites created through the anonymous connector are **Hatch**: live instantly, expiring after 48 hours by default. Pin a site for a year with `checkout` grant `publish`. New-site creation is rate-limited for fair use.
 
-Setup and usage docs (with example prompts) live at https://viberooster.com/connect.html. Cross-platform MCP install instructions (Claude, Cursor, Windsurf, macOS/Windows/Linux) are at https://viberooster.com/install.html. Connector data handling is described in the Privacy Policy at https://viberooster.com/privacy.html.
+Setup and usage docs (with example prompts) live at https://viberooster.com/connect.html. Per-client MCP install instructions are at https://viberooster.com/install.html. Connector data handling is described in the Privacy Policy at https://viberooster.com/privacy.html.
 
 ## How pricing works — Pin it. Pack it.
 
@@ -94,8 +106,8 @@ The tone is warm but not whimsical; the rooster/roost metaphor is present but ne
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
 - [Explorables](https://viberooster.com/explorables.html): what an explorable is and why Vibe Rooster hosts them
 - [Vibe Thinking](https://viberooster.com/vibe-thinking.html): vibe thinking vs vibe coding — capturing a thinking session as an explorable, not a chat transcript
-- [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Windsurf, and other AI tools on any OS
-- [Connect to Claude](https://viberooster.com/connect.html): set up the Hatch MCP connector and publish a site from Claude, with example prompts
+- [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and other MCP clients
+- [Connect Hatch](https://viberooster.com/connect.html): what the URL is, who we have tested, tools, example prompts, and limits
 - [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long
 - [The Roost](https://theroost.dev/): the default hosting namespace
 - [Developer surface](https://viberooster.ai/): AI-tooling audience entry point (currently redirects to viberooster.com)
