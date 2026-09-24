@@ -197,6 +197,14 @@
       overflow-x: hidden;
     }
 
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255,107,53,0.12);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+
     /* ── NAV ── */
     nav {
       position: fixed;
@@ -473,6 +481,43 @@
       color: var(--muted);
       font-weight: 600;
     }
+
+    .agent-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 18px auto 0;
+      max-width: 760px;
+    }
+
+    .agent-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 1px solid rgba(255,107,53,0.18);
+      border-radius: 50px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .agent-chip:hover {
+      border-color: rgba(255,107,53,0.45);
+    }
+
+    .agent-chip .status {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--orange);
+    }
+
+    .agent-chip.expected .status { color: var(--muted); }
+    .agent-chip.new .status { color: #8A5A00; }
 
     /* ── SECTION SHARED ── */
     section { padding: 100px 24px; }
@@ -1443,7 +1488,16 @@
       <a href="/connect.html" class="btn-primary">Hatch one now 🐓</a>
       <a href="/install.html" class="btn-secondary">Install the MCP</a>
     </div>
-    <p class="hero-note">Free for 48 hours · No credit card · No DevOps · No account</p>
+    <p class="hero-note">One public MCP URL · If your agent can add a remote server, it can Hatch</p>
+    <div class="agent-strip" aria-label="Agents Hatch works with">
+      <a class="agent-chip" href="/install.html#claude">Claude <span class="status">tested</span></a>
+      <a class="agent-chip" href="/install.html#cursor">Cursor <span class="status">tested</span></a>
+      <a class="agent-chip" href="/install.html#grok">Grok <span class="status">tested</span></a>
+      <a class="agent-chip" href="/install.html#hermes">Hermes <span class="status">tested</span></a>
+      <a class="agent-chip" href="/install.html#openclaw">OpenClaw <span class="status">tested</span></a>
+      <a class="agent-chip expected" href="/install.html#codex">Codex <span class="status">expected</span></a>
+      <a class="agent-chip new" href="/install.html#muse">Muse <span class="status">new</span></a>
+    </div>
   </section>
 
   <!-- LIVE HATCHES GALLERY -->
@@ -1613,8 +1667,8 @@
             </span>
           </span>
           <h3>Vibe It</h3>
-          <p>Build with any AI tool — Claude, Cursor, v0, Lovable, whatever gets you in the zone. An app, a data story, a wedding site, a one-meeting explorable. If it renders, it can Roost.</p>
-          <span class="step-tag">Any AI tool works</span>
+          <p>Build with the agent you already use — Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, v0, Lovable, whatever gets you in the zone. An app, a data story, a wedding site, a one-meeting explorable. If it renders, it can Roost.</p>
+          <span class="step-tag">Any agent that speaks MCP</span>
         </div>
         <div class="step">
           <span class="step-num">02</span>
@@ -1626,8 +1680,8 @@
             </span>
           </span>
           <h3>Hatch It</h3>
-          <p>Ask your agent to Hatch it through our MCP. One tool call and it's live at a real URL — no accounts, no config, no connection strings, nothing to babysit.</p>
-          <span class="step-tag">One tool call</span>
+          <p>Paste <code>https://mcp.theroost.dev/mcp</code> into your agent and ask it to Hatch. One tool call and it's live at a real URL — no accounts, no config, no connection strings, nothing to babysit.</p>
+          <span class="step-tag">One public URL</span>
         </div>
         <div class="step">
           <span class="step-num">03</span>
@@ -1639,7 +1693,7 @@
             </span>
           </span>
           <h3>Roost It</h3>
-          <p>Share the link while it matters. Then decide its fate — let it bow out gracefully, drop a coin to Continue, or make it Forever. Your call, and you make it later.</p>
+          <p>Share the link while it matters. Then decide its fate — let it bow out, Pin it for a year, or start a Roost. Your call, and you make it later.</p>
           <span class="step-tag">Live in seconds</span>
         </div>
       </div>
@@ -1667,22 +1721,22 @@
         <div class="feature-card">
           <div class="feature-icon fi-yellow">⏳</div>
           <h3>Alive Exactly as Long as It Matters</h3>
-          <p>48 hours free. Two more weeks per coin. A season, till the wedding, or Forever. Duration is a dial, not a subscription.</p>
+          <p>48 hours free. Pin a keeper for a year. Pack more space if you need it. Duration is a dial, not a vendor lock-in.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon fi-teal">🤖</div>
           <h3>Your Agent Keeps the Lights On</h3>
-          <p>The agent that built your Roost knows when it's done. Set an allowance once and it drops coins as expiry nears — never past your cap, every purchase logged.</p>
+          <p>The agent that built your Roost can Pin it in the same chat. <code>catalog</code>, then <code>checkout</code> — you pay the URL, Hatch watches for the payment. No separate Claude plugin.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon fi-red">📱</div>
           <h3>One Tap From Your Phone</h3>
-          <p>The mobile app nudges you before a Roost expires — tap to Continue. It's also where you set, raise, or revoke your agent's allowance. No laptop needed.</p>
+          <p>The mobile app is where you claim a roost and approve the spends your agent starts. No laptop required to keep a hatch alive.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon fi-purple">🎨</div>
           <h3>Works With Any Vibe</h3>
-          <p>React, Vue, Svelte, plain HTML — whatever your AI outputs, we host it. No framework lock-in, no opinions about your stack.</p>
+          <p>React, Vue, Svelte, plain HTML — whatever your agent outputs, we host it. No framework lock-in, and no lock-in to Claude either.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon fi-blue">🌐</div>
@@ -1871,11 +1925,11 @@
       <span class="section-label" style="color: var(--yellow);">Ready when you are</span>
       <h2>Something on localhost deserves better.</h2>
       <p class="section-sub">
-        Connect the Hatch MCP to Claude or your IDE and put it live in the next couple of minutes.
+        Paste Hatch into the agent you already use and put it live in the next couple of minutes.
         Free for 48 hours — decide its fate after.
       </p>
       <div class="cta-row">
-        <a href="/connect.html" class="btn-primary">Connect to Claude 🐓</a>
+        <a href="/connect.html" class="btn-primary">Connect your agent 🐓</a>
         <a href="/install.html" class="btn-secondary" style="border-color: rgba(255,255,255,0.25); color: var(--white);">Install the MCP</a>
       </div>
     </div>
@@ -1885,7 +1939,7 @@
   <footer>
     <span class="footer-logo">🐓 Vibe Rooster</span>
     <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a></p>
-    <p style="margin-top: 6px;"><a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect to Claude</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
+    <p style="margin-top: 6px;"><a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect Hatch</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
     <div class="social-row">
       <a href="https://x.com/VibeRooster" target="_blank" rel="noopener noreferrer">X</a>
       <a href="https://www.github.com/viberooster" target="_blank" rel="noopener noreferrer">GitHub</a>

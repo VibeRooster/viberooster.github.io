@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Rooster for Claude — Connector Setup &amp; Usage</title>
-  <meta name="description" content="Add the Vibe Rooster (Hatch) connector to Claude and publish a live website in one message. Setup, tools, example prompts, tiers, and limits." />
+  <title>Connect Hatch — Vibe Rooster</title>
+  <meta name="description" content="Hatch is a public MCP URL. Add it to any agent that speaks Streamable HTTP. Tested with Claude, Cursor, Grok, Hermes, and OpenClaw. No API key." />
   <link rel="canonical" href="https://viberooster.com/connect.html" />
   <link rel="icon" href="/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/brand/icon-256.png" sizes="256x256" />
   <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vibe Rooster" />
-  <meta property="og:title" content="Vibe Rooster for Claude — Connector Setup & Usage" />
-  <meta property="og:description" content="Add the Vibe Rooster (Hatch) connector to Claude and publish a live website in one message. Setup, tools, example prompts, tiers, and limits." />
+  <meta property="og:title" content="Connect Hatch — Vibe Rooster" />
+  <meta property="og:description" content="Hatch is a public MCP URL. Add it to any agent that speaks Streamable HTTP. Tested with Claude, Cursor, Grok, Hermes, and OpenClaw. No API key." />
   <meta property="og:url" content="https://viberooster.com/connect.html" />
   <meta property="og:image" content="https://viberooster.com/brand/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@VibeRooster" />
-  <meta name="twitter:title" content="Vibe Rooster for Claude — Connector Setup & Usage" />
-  <meta name="twitter:description" content="Add the Vibe Rooster (Hatch) connector to Claude and publish a live website in one message. Setup, tools, example prompts, tiers, and limits." />
+  <meta name="twitter:title" content="Connect Hatch — Vibe Rooster" />
+  <meta name="twitter:description" content="Hatch is a public MCP URL. Add it to any agent that speaks Streamable HTTP. Tested with Claude, Cursor, Grok, Hermes, and OpenClaw. No API key." />
   <meta name="twitter:image" content="https://viberooster.com/brand/icon-512.png" />
   <script type="application/ld+json">
 {
@@ -28,8 +28,8 @@
       "@type": "TechArticle",
       "@id": "https://viberooster.com/connect.html#page",
       "url": "https://viberooster.com/connect.html",
-      "name": "Vibe Rooster for Claude — Connector Setup & Usage",
-      "description": "Add the Vibe Rooster (Hatch) connector to Claude and publish a live website in one message. Setup, tools, example prompts, tiers, and limits.",
+      "name": "Connect Hatch — Vibe Rooster",
+      "description": "Hatch is a public MCP URL. Add it to any agent that speaks Streamable HTTP. Tested with Claude, Cursor, Grok, Hermes, and OpenClaw. No API key.",
       "isPartOf": {
         "@id": "https://viberooster.com/#website"
       },
@@ -40,7 +40,7 @@
         "@id": "https://viberooster.com/#organization"
       },
       "inLanguage": "en",
-      "headline": "Vibe Rooster for Claude — Connector Setup & Usage",
+      "headline": "Connect Hatch — Vibe Rooster",
       "author": {
         "@id": "https://viberooster.com/#organization"
       }
@@ -88,6 +88,18 @@
     th { font-weight:800; color:var(--mid); }
     .prompt { background:var(--white); border-left:4px solid var(--orange); border-radius:8px; padding:14px 18px; margin-bottom:14px; font-size:1.02rem; }
     .prompt small { display:block; color:var(--muted); font-weight:700; margin-top:6px; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; }
+    .status { display:inline-block; font-weight:800; font-size:0.68rem; padding:2px 8px; border-radius:50px; letter-spacing:0.04em; text-transform:uppercase; white-space:nowrap; }
+    .status-tested { background:rgba(255,107,53,0.14); color:var(--orange); }
+    .status-expected { background:rgba(107,107,138,0.12); color:var(--mid); }
+    .status-new { background:rgba(255,209,102,0.45); color:#8A5A00; }
+    .agent-jump { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 24px; }
+    .agent-jump a {
+      display:inline-block; padding:6px 14px; border-radius:50px; font-weight:800; font-size:0.82rem;
+      text-decoration:none; color:var(--dark); background:var(--white);
+      border:1px solid rgba(255,107,53,0.2);
+    }
+    .agent-jump a:hover { background:rgba(255,107,53,0.08); }
+    .note { background:rgba(255,209,102,0.25); border-left:4px solid var(--yellow); border-radius:8px; padding:14px 18px; margin-bottom:20px; font-size:0.95rem; }
     footer { text-align:center; padding:40px 24px; color:var(--muted); border-top:1px solid rgba(255,107,53,0.12); }
     .footer-logo { font-family:'Fredoka One',cursive; color:var(--orange); }
     @media (max-width:600px){ nav{padding:14px 20px;} h1{font-size:2rem;} main{padding-top:110px;} }
@@ -100,16 +112,53 @@
   </nav>
 
   <main>
-    <span class="pill">Claude Connector</span>
-    <h1>Publish a website from <span>Claude</span>, in one message.</h1>
-    <p class="lead">The Vibe Rooster connector (codename <strong>Hatch</strong>) lets Claude turn a description or a folder of files into a live, SSL-secured website at <code>https://your-name.theroost.dev</code> — without you touching a terminal, a cloud account, or a deploy button.</p>
-    <p>Add it once, then just ask. Claude calls the connector, the site goes live in seconds, and you get a real URL to share.</p>
-    <p>Using Cursor, Windsurf, or another tool? See the <a href="/install.html">cross-platform install guide</a>.</p>
+    <span class="pill">MCP Connector</span>
+    <h1>Publish a website from <span>your agent</span>, in one message.</h1>
+    <p class="lead">Hatch is not a Claude plugin. It is a public MCP server. If your agent can add a remote Streamable HTTP connector, paste this URL — no API key, no sign-in, no vendor lock-in.</p>
 
-    <h2>Add it to Claude</h2>
-    <p>The connector is a remote MCP server at <code>https://mcp.theroost.dev/mcp</code>. It needs no API key and no sign-in — pick whichever setup matches your Claude app.</p>
+    <div class="card">
+      <p style="margin-bottom:8px;"><strong>The whole product is this URL</strong></p>
+      <pre style="margin-bottom:0;"><code>https://mcp.theroost.dev/mcp</code></pre>
+    </div>
 
-    <h3>Claude.ai &amp; Claude Desktop (recommended)</h3>
+    <p>Add it once. Ask the agent to hatch. You get a live URL at <code>https://your-name.theroost.dev</code>. Per-client recipes live in the <a href="/install.html">install guide</a>.</p>
+
+    <h2>Will it work with my agent?</h2>
+    <p>We do not certify vendors. Reassurance is the protocol plus what we have actually run. If your client speaks MCP over Streamable HTTP, Hatch is the same server Claude, Cursor, and Grok already call.</p>
+    <table>
+      <tr><th>Agent</th><th></th><th>What that means</th></tr>
+      <tr>
+        <td>Claude, Cursor, Grok, Hermes, OpenClaw</td>
+        <td><span class="status status-tested">Tested</span></td>
+        <td>We have hatched live sites from these clients.</td>
+      </tr>
+      <tr>
+        <td>Codex / OpenAI, Windsurf, any Streamable HTTP MCP client</td>
+        <td><span class="status status-expected">Expected</span></td>
+        <td>Same transport Hatch already serves. We have not run a Hatch pass on Codex yet.</td>
+      </tr>
+      <tr>
+        <td>Muse</td>
+        <td><span class="status status-new">New</span></td>
+        <td>Cursor’s new model, not a separate connector. Same Hatch MCP as Cursor. We think it will work; we have not run a dedicated Muse pass yet.</td>
+      </tr>
+    </table>
+    <p class="note" style="margin-top:0;">Stdio-only clients can still connect through <a href="https://www.npmjs.com/package/mcp-remote">mcp-remote</a>. That is a bridge, not a second product.</p>
+
+    <h2>Add it</h2>
+    <div class="agent-jump">
+      <a href="/install.html#claude">Claude</a>
+      <a href="/install.html#cursor">Cursor</a>
+      <a href="/install.html#grok">Grok</a>
+      <a href="/install.html#hermes">Hermes</a>
+      <a href="/install.html#openclaw">OpenClaw</a>
+      <a href="/install.html#codex">Codex</a>
+      <a href="/install.html#muse">Muse</a>
+      <a href="/install.html#windsurf">Windsurf</a>
+      <a href="/install.html#other">Other MCP</a>
+    </div>
+
+    <h3>Claude.ai &amp; Claude Desktop</h3>
     <ol>
       <li>Open <strong>Settings → Connectors</strong>.</li>
       <li>Click <strong>Add custom connector</strong>.</li>
@@ -132,18 +181,19 @@
   }
 }</code></pre>
 
-    <h2>What Claude can do with it</h2>
+    <h2>What your agent can do with it</h2>
     <table>
       <tr><th>Tool</th><th>What it does</th></tr>
       <tr><td><code>hatch</code></td><td>Create a brand-new site and return its live URL.</td></tr>
       <tr><td><code>upload</code></td><td>Add or replace files on a site you already made.</td></tr>
       <tr><td><code>lookup</code></td><td>Find a site you made earlier by its name (slug).</td></tr>
-      <tr><td><code>convert</code></td><td>Rename a site's URL or make it permanent.</td></tr>
+      <tr><td><code>convert</code></td><td>Rename a site's URL or Pin it while subscription slots remain.</td></tr>
+      <tr><td><code>catalog</code> / <code>checkout</code></td><td>Collect Pin, Pack, Roost, or Roost Audit payment in chat.</td></tr>
       <tr><td><code>deploy</code></td><td>Advanced: replace a site's server-side code.</td></tr>
     </table>
 
     <h2>Try these prompts</h2>
-    <p>After connecting, paste any of these into Claude:</p>
+    <p>After connecting, paste any of these into your assistant:</p>
 
     <div class="prompt">“Build me a one-page landing site for my dog-walking side hustle and give me the link.”
       <small>→ hatch · instant site</small></div>
@@ -173,12 +223,12 @@
     <div class="card">
       <p><strong>Free sites live 48 hours at a time.</strong> A site created through the connector is a <strong>Hatch</strong>: it goes live instantly and stays up for <strong>48 hours</strong>. Try HITL while it lives. Perfect for demos, explorables, and "show me a URL right now."</p>
       <p><strong>Pin it.</strong> Ask your agent to collect payment — <strong>$4.99/yr keeps one hatch for a year</strong>. <strong>Pack it</strong> for extra storage at <strong>$4.99/yr per GB</strong>.</p>
-      <p id="upgrade"><strong>Roost ($259/mo)</strong> is the team plan: fair-use ephemeral hatches, 10 subscription Pins, durable HITL, unlimited members. <strong>Roost Audit ($459/mo)</strong> adds an exportable audit trail and 1-year retention. Custom domain is <strong>+$29/mo</strong> on those plans. Ask Claude to <code>catalog</code> then <code>checkout</code> — pay the URL in chat; Hatch watches for the payment.</p>
-      <p style="margin-bottom:0;"><strong>Fair-use limits.</strong> To keep the free service healthy, new-site creation is rate-limited per hour. If Claude tells you it's been throttled, wait a little and try again.</p>
+      <p id="upgrade"><strong>Roost ($259/mo)</strong> is the team plan: fair-use ephemeral hatches, 10 subscription Pins, durable HITL, unlimited members. <strong>Roost Audit ($459/mo)</strong> adds an exportable audit trail and 1-year retention. Custom domain is <strong>+$29/mo</strong> on those plans. Ask your agent to <code>catalog</code> then <code>checkout</code> — pay the URL in chat; Hatch watches for the payment.</p>
+      <p style="margin-bottom:0;"><strong>Fair-use limits.</strong> To keep the free service healthy, new-site creation is rate-limited per hour. If your agent tells you it's been throttled, wait a little and try again.</p>
     </div>
 
     <h2>Privacy</h2>
-    <p>The connector publishes whatever content you ask Claude to publish to a public URL. See the <a href="/privacy.html">Privacy Policy</a> for exactly what's stored and for how long.</p>
+    <p>The connector publishes whatever content you ask your agent to publish to a public URL. See the <a href="/privacy.html">Privacy Policy</a> for exactly what's stored and for how long.</p>
 
     <h2>Support</h2>
     <p>Questions, bugs, or partnership requests: <a href="mailto:hello@viberooster.com">hello@viberooster.com</a>.</p>
