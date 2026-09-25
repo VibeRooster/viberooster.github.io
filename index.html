@@ -229,7 +229,7 @@
       text-decoration: none;
     }
 
-    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-logo img { width: 42px; height: 42px; object-fit: contain; display: block; }
 
     .nav-cta {
       background: var(--orange);
@@ -986,6 +986,13 @@
       display: block;
     }
 
+    .price-emoji img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      display: block;
+    }
+
     .price-tier {
       font-family: 'Fredoka One', cursive;
       font-size: 1.4rem;
@@ -1166,9 +1173,14 @@
       font-family: 'Fredoka One', cursive;
       font-size: 1.2rem;
       color: var(--orange);
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       margin-bottom: 8px;
     }
+
+    .footer-logo img { width: 32px; height: 32px; object-fit: contain; }
 
     .social-row {
       display: flex;
@@ -1429,31 +1441,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Body -->
-        <ellipse cx="32" cy="40" rx="18" ry="16" fill="#FF6B35"/>
-        <!-- Head -->
-        <circle cx="38" cy="22" r="11" fill="#FF6B35"/>
-        <!-- Comb -->
-        <path d="M36 12 Q38 6 40 11 Q42 5 44 11 Q46 7 45 13" stroke="#EF233C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Wattle -->
-        <ellipse cx="43" cy="28" rx="4" ry="5" fill="#EF233C"/>
-        <!-- Beak -->
-        <path d="M46 21 L52 23 L46 25 Z" fill="#FFD166"/>
-        <!-- Eye -->
-        <circle cx="41" cy="19" r="2" fill="#1A1A2E"/>
-        <circle cx="41.8" cy="18.2" r="0.7" fill="white"/>
-        <!-- Wing -->
-        <path d="M14 35 Q20 28 28 36" stroke="#C44B1A" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <!-- Tail feathers -->
-        <path d="M14 40 Q8 32 12 26" stroke="#EF233C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <path d="M16 42 Q8 36 10 28" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Feet -->
-        <path d="M26 56 L24 58 M26 56 L26 58 M26 56 L28 58" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
-        <path d="M38 56 L36 58 M38 56 L38 58 M38 56 L40 58" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
-        <line x1="26" y1="54" x2="26" y2="56" stroke="#FFD166" stroke-width="2"/>
-        <line x1="38" y1="54" x2="38" y2="56" stroke="#FFD166" stroke-width="2"/>
-      </svg>
+      <img src="brand/rooster-headshot.png" alt="" />
       Vibe Rooster
     </a>
     <a href="/connect.html" class="nav-cta">Hatch Now</a>
@@ -1822,7 +1810,7 @@
 
         <!-- Hatch (Free) -->
         <div class="price-card">
-          <span class="price-emoji">🐣</span>
+          <span class="price-emoji"><img src="egg_v2_transparent.png" alt="" /></span>
           <div class="price-tier">Hatch</div>
           <div class="price-amount">Free<span> 48 hours at a time</span></div>
           <p class="price-desc">Try it, pin it for a year, pack more space if you need it. Instant URL. No card.</p>
@@ -1838,7 +1826,7 @@
         <!-- Roost -->
         <div class="price-card featured">
           <span class="featured-badge">Teams</span>
-          <span class="price-emoji">🪺</span>
+          <span class="price-emoji"><img src="chick_transparent.png" alt="" /></span>
           <div class="price-tier">Roost</div>
           <div class="price-amount">$259<span> / mo</span></div>
           <p class="price-desc">Team workspace for agentic work — 10 pins while you subscribe, durable HITL included.</p>
@@ -1853,7 +1841,7 @@
 
         <!-- Roost Audit -->
         <div class="price-card">
-          <span class="price-emoji">🛡️</span>
+          <span class="price-emoji"><img src="rooster_transparent.png" alt="" /></span>
           <div class="price-tier">Roost Audit</div>
           <div class="price-amount">$459<span> / mo</span></div>
           <p class="price-desc">Roost plus compliance-grade trail and longer keep for procurement.</p>
@@ -1937,7 +1925,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">🐓 Vibe Rooster</span>
+    <span class="footer-logo"><img src="brand/rooster-headshot.png" alt="" /> Vibe Rooster</span>
     <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a></p>
     <p style="margin-top: 6px;"><a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect Hatch</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
     <div class="social-row">
