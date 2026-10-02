@@ -519,6 +519,16 @@
     .agent-chip.expected .status { color: var(--muted); }
     .agent-chip.new .status { color: #8A5A00; }
 
+    .store-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .store-row .agent-chip.expected { cursor: default; }
+
     /* ── SECTION SHARED ── */
     section { padding: 100px 24px; }
 
@@ -1486,6 +1496,10 @@
       <a class="agent-chip expected" href="/install.html#codex">Codex <span class="status">expected</span></a>
       <a class="agent-chip new" href="/install.html#muse">Muse <span class="status">new</span></a>
     </div>
+    <div class="store-row" aria-label="Mobile app">
+      <a class="agent-chip" href="https://apps.apple.com/app/id6798421234" target="_blank" rel="noopener noreferrer">App Store <span class="status">iOS</span></a>
+      <span class="agent-chip expected">Google Play <span class="status">coming soon</span></span>
+    </div>
   </section>
 
   <!-- LIVE HATCHES GALLERY -->
@@ -1720,6 +1734,10 @@
           <div class="feature-icon fi-red">📱</div>
           <h3>One Tap From Your Phone</h3>
           <p>The mobile app is where you claim a roost and approve the spends your agent starts. No laptop required to keep a hatch alive.</p>
+          <div class="store-row" style="justify-content:flex-start; margin-top:14px;">
+            <a class="agent-chip" href="https://apps.apple.com/app/id6798421234" target="_blank" rel="noopener noreferrer">App Store <span class="status">iOS</span></a>
+            <span class="agent-chip expected">Google Play <span class="status">coming soon</span></span>
+          </div>
         </div>
         <div class="feature-card">
           <div class="feature-icon fi-purple">🎨</div>
