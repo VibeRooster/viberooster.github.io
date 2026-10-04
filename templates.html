@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templates — Vibe Rooster</title>
+  <meta name="description" content="Browse Vibe Rooster templates, open the reference page, and copy a prompt your agent can use to hatch that shape." />
+  <link rel="canonical" href="https://viberooster.com/templates.html" />
+  <link rel="icon" href="/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/brand/icon-256.png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vibe Rooster" />
+  <meta property="og:title" content="Templates — Vibe Rooster" />
+  <meta property="og:description" content="Browse Vibe Rooster templates, open the reference page, and copy a prompt your agent can use to hatch that shape." />
+  <meta property="og:url" content="https://viberooster.com/templates.html" />
+  <meta property="og:image" content="https://viberooster.com/brand/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@VibeRooster" />
+  <meta name="twitter:title" content="Templates — Vibe Rooster" />
+  <meta name="twitter:description" content="Browse Vibe Rooster templates, open the reference page, and copy a prompt your agent can use to hatch that shape." />
+  <meta name="twitter:image" content="https://viberooster.com/brand/icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange:#FF6B35; --yellow:#FFD166; --cream:#FFFBF2;
+      --dark:#1A1A2E; --mid:#2D2D44; --muted:#6B6B8A; --white:#FFFFFF;
+      --radius:16px; --shadow:0 8px 32px rgba(255,107,53,0.15);
+    }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); line-height:1.6; }
+    a { color:var(--orange); }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 40px; background:rgba(255,251,242,0.9); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,107,53,0.1);
+    }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-family:'Fredoka One',cursive; font-size:1.4rem; color:var(--orange); text-decoration:none; }
+    .nav-logo img { width:40px; height:40px; object-fit:contain; display:block; }
+    .nav-cta { background:var(--orange); color:var(--white); border:none; border-radius:50px; padding:9px 22px; font-weight:800; font-size:0.85rem; text-decoration:none; }
+    main { max-width:760px; margin:0 auto; padding:120px 24px 64px; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2.4rem; line-height:1.15; margin:10px 0 12px; }
+    h2 { font-family:'Fredoka One',cursive; font-size:1.35rem; margin-bottom:8px; }
+    .lead { color:var(--mid); font-weight:600; margin-bottom:22px; }
+    .pill { display:inline-block; background:var(--yellow); color:var(--dark); font-weight:800; font-size:0.72rem; padding:3px 10px; border-radius:50px; letter-spacing:0.04em; text-transform:uppercase; }
+    .card { background:var(--white); border:1px solid rgba(255,107,53,0.15); border-radius:var(--radius); padding:22px; margin:0 0 16px; box-shadow:var(--shadow); }
+    .card p { margin:8px 0; font-weight:600; color:var(--mid); }
+    .pending { color:var(--muted); }
+    .prompt-label { display:block; font-size:0.75rem; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted); margin-top:12px; }
+    textarea.prompt {
+      width:100%; margin-top:6px; border:1px solid rgba(255,107,53,0.2); border-radius:12px;
+      background:var(--cream); color:var(--dark); font:13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+      padding:12px; resize:vertical;
+    }
+    .actions { margin-top:12px; }
+    button.copy {
+      background:var(--orange); color:var(--white); border:none; border-radius:50px;
+      padding:10px 18px; font-weight:800; font-size:0.9rem; cursor:pointer;
+    }
+    button.copy:focus-visible { outline:3px solid var(--yellow); outline-offset:2px; }
+    .status { font-weight:700; color:var(--muted); }
+    footer { text-align:center; padding:40px 24px; color:var(--muted); border-top:1px solid rgba(255,107,53,0.12); font-size:0.85rem; font-weight:600; }
+    .footer-logo { font-family:'Fredoka One',cursive; color:var(--orange); display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+    .footer-logo img { width:28px; height:28px; object-fit:contain; }
+    .social-row { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:14px 0 6px; }
+    .social-row a {
+      display:inline-block; padding:5px 14px; border:1px solid rgba(255,107,53,0.3); border-radius:50px;
+      color:var(--muted); font-weight:700; font-size:0.78rem; text-decoration:none;
+    }
+    @media (max-width:600px){ nav{padding:14px 20px;} h1{font-size:2rem;} main{padding-top:110px;} }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo"><img src="brand/rooster-headshot.png" alt="" /> Vibe Rooster</a>
+    <a href="/connect.html" class="nav-cta">Hatch Now</a>
+  </nav>
+  <main>
+    <span class="pill">Templates</span>
+    <h1>Copy a prompt. Let the agent hatch it.</h1>
+    <p class="lead">Each row is a template from the public catalog. Open the reference page to see the shape, then copy the prompt into the agent you already use. No account on this page.</p>
+    <p id="status" class="status">Loading templates…</p>
+    <div id="list"></div>
+  </main>
+  <footer>
+    <p><span class="footer-logo"><img src="brand/rooster-headshot.png" alt="" /> Vibe Rooster</span></p>
+    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect Hatch</a> · <a href="/templates.html">Templates</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
+    <div class="social-row">
+      <a href="https://x.com/VibeRooster" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://www.github.com/viberooster" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.instagram.com/viberooster" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@viberooster" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.linkedin.com/company/vibe-rooster/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.reddit.com/user/VibeRooster/" target="_blank" rel="noopener noreferrer">Reddit</a>
+    </div>
+  </footer>
+  <script src="templates.js"></script>
+  <script>
+    const api = window.VibeRoosterTemplates;
+    const statusEl = document.getElementById("status");
+    const listEl = document.getElementById("list");
+
+    function bindCopy() {
+      listEl.querySelectorAll("button.copy").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const name = button.getAttribute("data-copy");
+          const field = document.getElementById("prompt-" + name);
+          const text = field ? field.value : "";
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch (err) {
+            field.focus();
+            field.select();
+            document.execCommand("copy");
+          }
+          const previous = button.textContent;
+          button.textContent = "Copied";
+          window.setTimeout(() => {
+            button.textContent = previous;
+          }, 1600);
+        });
+      });
+    }
+
+    api.fetchTemplateCatalog()
+      .then((catalog) => {
+        listEl.innerHTML = api.renderTemplateList(catalog.templates);
+        statusEl.textContent = catalog.templates.length
+          ? catalog.templates.length + (catalog.templates.length === 1 ? " template." : " templates.")
+          : "No templates yet.";
+        bindCopy();
+      })
+      .catch((err) => {
+        statusEl.textContent = err && err.message ? err.message : "Could not load templates.";
+        listEl.innerHTML = '<p><a href="' + api.templateBrowseUrl() + '">Browse the template files</a></p>';
+      });
+  </script>
+</body>
+</html>
