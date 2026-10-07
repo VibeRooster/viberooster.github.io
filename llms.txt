@@ -6,7 +6,7 @@ The platform is live and open: anyone whose AI assistant can add a remote MCP se
 
 ## What Vibe Rooster is
 
-Each live site is a **hatch** at `https://{slug}.{apex}` (e.g. `https://recipe-finder.theroost.dev`, or a vertical apex below). A **roost** comes after hatch, pin, and pack: the step up to a team — Roost or Roost Audit — a home for the chicks and the more exacting enterprise needs. The platform brand is **Vibe Rooster** (the company and the marketing site at viberooster.com). Org stays the billing account. Full vocabulary: https://viberooster.com/the-new-verbs.html
+Each live site is a **hatch** at `https://{slug}.{apex}` (e.g. `https://recipe-finder.theroost.dev`, or a vertical apex below). A **roost** comes after hatch, pin, and pack: the step up to a team — Roost or Roost Audit — a home for the chicks and the more exacting enterprise needs. The platform brand is **Vibe Rooster** (the company and the marketing site at viberooster.com). Org stays the billing account. Full vocabulary: https://viberooster.com/vibe-thinking.html#the-new-verbs
 
 Vibe Rooster's core thesis: AI tools can now emit a working app or interactive artifact about as cheaply as a static picture, but hosting platforms still assume every project is a long-lived product run by someone who understands containers and connection strings. Most vibe-coded artifacts aren't that. Many want to live for exactly as long as the real-world thing they're about — one meeting, one listing, one wedding — then bow out. Vibe Rooster makes that kind of publishing first-class: hatch it, share it, let it expire, or pin it.
 
@@ -28,7 +28,7 @@ You don't share the conversation. You share the structure that survived it. Same
 
 ## The new verbs
 
-Hatch, pin, pack, and roost are the act, in that order. The noun is what you are holding when the act is done. Full argument: https://viberooster.com/the-new-verbs.html
+Hatch, pin, pack, and roost are the act, in that order. The noun is what you are holding when the act is done. Full argument: https://viberooster.com/vibe-thinking.html#the-new-verbs
 
 - **Hatch.** Publish a site. You get one live hatch at `https://{slug}.{apex}`. A free hatch stays up 48 hours and holds 100 MB. The `hatch` tool does this step. `convert` changes a hatch you already have (rename the URL, or pin it while a subscription Pin slot remains).
 - **Pin.** Stop the hatch from expiring. You get a pin: the hatch does not expire. $4.99/year keeps one hatch for a year, with 1 GB included. A roost, once you have graduated to one, includes 10 subscription Pins while the plan is active.
@@ -118,7 +118,7 @@ The tone is warm but not whimsical; the rooster/roost metaphor is present but ne
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
 - [Explorables](https://viberooster.com/explorables.html): what an explorable is and why Vibe Rooster hosts them
 - [Vibe Thinking](https://viberooster.com/vibe-thinking.html): vibe thinking vs vibe coding — capturing a thinking session as an explorable, not a chat transcript
-- [The New Verbs](https://viberooster.com/the-new-verbs.html): hatch, pin, pack, then roost — publish, stop the expiry, add a gigabyte, graduate to a team
+- [The New Verbs](https://viberooster.com/vibe-thinking.html#the-new-verbs): hatch, pin, pack, then roost — publish, stop the expiry, add a gigabyte, graduate to a team
 - [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and other MCP clients
 - [Connect Hatch](https://viberooster.com/connect.html): what the URL is, who we have tested, tools, example prompts, and limits
 - [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long

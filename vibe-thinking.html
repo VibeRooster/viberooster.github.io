@@ -32,7 +32,30 @@
       "headline": "Vibe Thinking — Vibe Rooster",
       "description": "Vibe thinking is what happens when you and an agent develop a concept or explore a topic — and the native way to capture it is an explorable, not a chat transcript.",
       "datePublished": "2026-08-20",
-      "dateModified": "2026-08-20",
+      "dateModified": "2026-10-07",
+      "isPartOf": {
+        "@id": "https://viberooster.com/#website"
+      },
+      "about": {
+        "@id": "https://viberooster.com/#hatch"
+      },
+      "publisher": {
+        "@id": "https://viberooster.com/#organization"
+      },
+      "author": {
+        "@id": "https://viberooster.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://viberooster.com/vibe-thinking.html#the-new-verbs",
+      "url": "https://viberooster.com/vibe-thinking.html#the-new-verbs",
+      "name": "The New Verbs",
+      "headline": "The New Verbs",
+      "description": "Hatch publishes a site, pin stops the expiry, pack adds a gigabyte, and roost graduates you to a team. The noun is what the act leaves behind.",
+      "datePublished": "2026-10-07",
+      "dateModified": "2026-10-07",
       "isPartOf": {
         "@id": "https://viberooster.com/#website"
       },
@@ -63,6 +86,19 @@
     html { scroll-behavior:smooth; }
     body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); line-height:1.7; }
     a { color:var(--orange); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255,107,53,0.12);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+    article { scroll-margin-top: 90px; }
+    article + article {
+      margin-top: 64px;
+      padding-top: 56px;
+      border-top: 1px solid rgba(255,107,53,0.15);
+    }
     nav {
       position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
@@ -128,6 +164,7 @@
   </nav>
 
   <main>
+    <article>
     <span class="pill">New vocabulary</span>
     <h1>What's <span>vibe thinking?</span></h1>
     <p class="lead">Vibe coding is what happens when you and an agent build something that <em>runs</em>. Vibe thinking is what happens when you and an agent build something that <em>makes sense</em> — a concept, a map of a topic, a model of a decision — and you want the next person to be able to walk it.</p>
@@ -215,11 +252,46 @@
       <a href="/connect.html" class="btn-primary">Hatch the concept 🐓</a>
       <a href="/explorables.html" class="btn-secondary">What's an explorable?</a>
     </div>
+    </article>
+
+    <article id="the-new-verbs">
+    <span class="pill">The steps</span>
+    <h1>The new <span>verbs.</span></h1>
+    <p class="lead">People say Xerox when they mean the copy, and Kleenex when they mean the tissue, because the brand word got there first and stayed shorter than the description. Hatch, pin, pack, and roost work the same way, said as the act, in that order. The barnyard is the language. The noun is what you are holding when the act is done.</p>
+
+    <h2>Four steps</h2>
+    <p><strong>Hatch.</strong> Publish a site. You get one live hatch at <code>https://{slug}.{apex}</code> — <code>recipe-finder.theroost.dev</code>, or a listing on <code>theroost.homes</code>. A free hatch stays up for 48 hours and holds 100 MB. The MCP that runs this step is also called Hatch, at <code>https://mcp.theroost.dev/mcp</code>. The thing you name afterward is the hatch at the apex.</p>
+    <p><strong>Pin.</strong> Stop the hatch from expiring. You get a pin: the hatch does not expire. On the price list that is a year — $4.99 keeps one hatch, with 1 GB included. Once you have graduated to a roost, that plan includes 10 pins while it is active.</p>
+    <p><strong>Pack.</strong> Add storage. You get a pack: one gigabyte at $4.99 a year, on a hatch or a pin. Stack packs when you need more than that. Pack is the space. Pin is the time.</p>
+    <p><strong>Roost.</strong> Graduate to a team. You get a roost: a home for the chicks, and the plan for the more exacting enterprise needs. Two plans. Roost is $259 a month: fair-use hatches that still expire, 10 subscription Pins, durable HITL, unlimited members. Roost Audit is $459 a month: that same roost, plus an exportable audit trail and a year of HITL retention. Org stays org. Billing lives on the org, outside these four words.</p>
+
+    <h2>What to say</h2>
+    <p>Read each word as the step, then as the thing that step left behind. Hatch, then pin, then pack. Roost is the graduation.</p>
+    <table>
+      <tr><th>The step</th><th>Say</th><th>You are holding</th></tr>
+      <tr class="top"><td>Publish a site</td><td>hatch</td><td>a hatch</td></tr>
+      <tr><td>Stop the expiry</td><td>pin</td><td>a pin</td></tr>
+      <tr><td>Add a gigabyte</td><td>pack</td><td>a pack</td></tr>
+      <tr><td>Graduate to a team</td><td>roost</td><td>a roost</td></tr>
+    </table>
+    <p>Where you would have said tenant or site, hatch. Where you would have said “upgrade to forever,” pin. Where you need another gigabyte, pack. Where you would have said workspace, roost — after the other three, as the team.</p>
+    <div class="note">The homepage still has a beat labeled <strong>Roost it</strong>, and there it means share the link, then decide. In this order, roost comes last. You have already hatched, pinned, and packed. Roosting is the step up.</div>
+
+    <h2>A new one, or this one</h2>
+    <p>Hatch when you want a new URL. The tool <code>hatch</code> does that step and hands the URL back. Convert when the hatch already exists — a new slug, or a pin while the roost still has a subscription slot. A second hatch is a second URL.</p>
+    <p>To pay for the pin, the pack, or the roost, use <code>catalog</code>, then <code>checkout</code>. Hand the person the payment URL.</p>
+    <p>Hatch it. If it should outlast the afternoon, pin it. If it needs more than its gigabytes, pack it. When the chicks need a home, and the work gets more exacting, roost.</p>
+
+    <div class="cta-row">
+      <a href="/connect.html" class="btn-primary">Hatch one 🐓</a>
+      <a href="/#pricing" class="btn-secondary">See the prices</a>
+    </div>
+    </article>
   </main>
 
   <footer>
     <p><span class="footer-logo"><img src="brand/rooster-headshot.png" alt="" /> Vibe Rooster</span></p>
-    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect Hatch</a> · <a href="/templates.html">Templates</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/the-new-verbs.html">The New Verbs</a> · <a href="/privacy.html">Privacy</a></p>
+    <p>© 2026 Vibe Rooster, Inc. · <a href="mailto:hello@viberooster.com">hello@viberooster.com</a> · <a href="/install.html">Install MCP</a> · <a href="/connect.html">Connect Hatch</a> · <a href="/templates.html">Templates</a> · <a href="/explorables.html">Explorables</a> · <a href="/vibe-thinking.html">Vibe Thinking</a> · <a href="/privacy.html">Privacy</a></p>
     <div class="social-row">
       <a href="https://x.com/VibeRooster" target="_blank" rel="noopener noreferrer">X</a>
       <a href="https://www.github.com/viberooster" target="_blank" rel="noopener noreferrer">GitHub</a>
