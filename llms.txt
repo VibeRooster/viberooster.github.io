@@ -6,9 +6,9 @@ The platform is live and open: anyone whose AI assistant can add a remote MCP se
 
 ## What Vibe Rooster is
 
-Each deployed site is called a **Roost**, and it lives on `theroost.dev` (e.g. `https://recipe-finder.theroost.dev`) or on one of the vertical namespaces listed below. The platform brand is **Vibe Rooster** (the company and the marketing site at viberooster.com). The product sub-brand is **The Roost** (where the sites actually live). You hatch on Vibe Rooster; your site lives on The Roost.
+Each live site is a **hatch** at `https://{slug}.{apex}` (e.g. `https://recipe-finder.theroost.dev`, or a vertical apex below). A **roost** is the container an agent works inside — Roost or Roost Audit — not the URL. The platform brand is **Vibe Rooster** (the company and the marketing site at viberooster.com). Org stays the billing account. It is not a hatch or a roost. Full vocabulary: https://viberooster.com/the-new-verbs.html
 
-Vibe Rooster's core thesis: AI tools can now emit a working app or interactive artifact about as cheaply as a static picture, but hosting platforms still assume every project is a long-lived product run by someone who understands containers and connection strings. Most vibe-coded artifacts aren't that. Many want to live for exactly as long as the real-world thing they're about — one meeting, one listing, one wedding — then bow out. Vibe Rooster makes that kind of publishing first-class: hatch it, share it, let it expire, or keep it forever.
+Vibe Rooster's core thesis: AI tools can now emit a working app or interactive artifact about as cheaply as a static picture, but hosting platforms still assume every project is a long-lived product run by someone who understands containers and connection strings. Most vibe-coded artifacts aren't that. Many want to live for exactly as long as the real-world thing they're about — one meeting, one listing, one wedding — then bow out. Vibe Rooster makes that kind of publishing first-class: hatch it, share it, let it expire, or pin it.
 
 ## Explorables
 
@@ -24,7 +24,18 @@ The ladder: **prose** is native to narrative and breaks on structural payloads; 
 
 Most sessions with an agent are vibe thinking, not vibe coding. They produce orientation, not software: a pricing thesis, a competitive landscape, a causal story. That work currently dies in the chat window. A **transcript** preserves the path of the thinking, not the topology. A **memo** keeps the conclusions and throws away the forks. An **explorable** keeps the structure that survived the session and throws away the dead ends — on purpose.
 
-You don't share the conversation. You share the structure that survived it. Same publishing primitive as vibe coding: hatch it to a live URL, share it for the meeting, let it expire or keep it. Full argument: https://viberooster.com/vibe-thinking.html
+You don't share the conversation. You share the structure that survived it. Same publishing primitive as vibe coding: hatch it to a live URL, share it for the meeting, let it expire or pin it. Full argument: https://viberooster.com/vibe-thinking.html
+
+## The new verbs
+
+Hatch, roost, pin, and pack are the ordinary words for the things they are — the way people say Xerox or Kleenex. The barnyard is the language. Full argument: https://viberooster.com/the-new-verbs.html
+
+- **Hatch** — one live site at `https://{slug}.{apex}`. The verb is hatch: publish that site. A free hatch stays up 48 hours and holds 100 MB. The `hatch` tool creates one. `convert` changes an existing hatch (rename the URL, or pin it while a subscription Pin slot remains).
+- **Roost** — the container an agent works inside, what the product used to call a workspace. Two plans: Roost ($259/mo: fair-use hatches that still expire, 10 subscription Pins, durable HITL, unlimited members) and Roost Audit ($459/mo: that roost, plus an exportable audit trail and 1-year HITL retention). Org stays org.
+- **Pin** — the hatch does not expire. $4.99/year keeps one hatch for a year, with 1 GB included. A Roost includes 10 subscription Pins while the plan is active. The verb is pin. Say pin it.
+- **Pack** — the add-on capacity. $4.99 per year per GB, one gigabyte per Pack, on a hatch or a Pin. Space, not time.
+
+Say hatch instead of tenant or site. Say roost instead of workspace. Say pin it instead of “upgrade to forever.” Say pack it for another gigabyte. Paying for a Pin, a Pack, a Roost, or Roost Audit is `catalog`, then `checkout`.
 
 ## Who Vibe Rooster is for
 
@@ -52,7 +63,7 @@ Claude is one install path, not the product. Example add commands:
 - OpenClaw: Settings → MCP → Add server → Streamable HTTP
 - Codex (expected): `codex mcp add hatch --url https://mcp.theroost.dev/mcp`
 
-The connector exposes tools including `hatch` (create a new site and return its live URL), `upload` (add or replace files on an existing site), `lookup` (find a previously created site by slug), `convert` (rename a site or Pin it while subscription slots remain), `catalog` / `checkout` / `poll_checkout` (in-chat Stripe payment for Pin, Pack, Roost, Roost Audit — show checkoutUrl; do not use Stripe MCP for VibeRooster features), `share` (guest view links for private run reports), `await_decision` / `poll_decision` (human-in-the-loop decision hooks), and `deploy` (advanced — replace server-side code). MCP prompt `run-report` scaffolds agent observability HTML — use `prompts/get` with name `run-report`, fill the sections, then hatch with `kind: "run-report"`. Free-tier TTL is configurable via `ttlSeconds` (1h–7d). Sites created through the anonymous connector are **Hatch**: live instantly, expiring after 48 hours by default. Pin a site for a year with `checkout` grant `publish`. New-site creation is rate-limited for fair use.
+The connector exposes tools including `hatch` (create a new site and return its live URL), `upload` (add or replace files on an existing site), `lookup` (find a previously created site by slug), `convert` (rename a site or Pin it while subscription slots remain), `catalog` / `checkout` / `poll_checkout` (in-chat Stripe payment for Pin, Pack, Roost, Roost Audit — show checkoutUrl; do not use Stripe MCP for VibeRooster features), `share` (guest view links for private run reports), `await_decision` / `poll_decision` (human-in-the-loop decision hooks), and `deploy` (advanced — replace server-side code). MCP prompt `run-report` scaffolds agent observability HTML — use `prompts/get` with name `run-report`, fill the sections, then hatch with `kind: "run-report"`. Free-tier TTL is configurable via `ttlSeconds` (1h–7d). Hatches created through the anonymous connector are live instantly, expiring after 48 hours by default. Pin a hatch for a year with `checkout` grant `publish`. New-site creation is rate-limited for fair use.
 
 Setup and usage docs (with example prompts) live at https://viberooster.com/connect.html. Per-client MCP install instructions are at https://viberooster.com/install.html. Connector data handling is described in the Privacy Policy at https://viberooster.com/privacy.html.
 
@@ -62,7 +73,7 @@ Three tiers plus shared add-ons. No user-facing coin. Term Passes are deferred.
 
 **Hatch (Free).** Ephemeral hatches (48h), try HITL (capped), TLD list only. Pin $4.99/yr keeps one hatch for a year. Pack $4.99/yr/GB adds storage. 100 MB per ephemeral hatch.
 
-**Roost — $259/month.** Team workspace: fair-use ephemeral hatches, 10 subscription Pins while subscribed, durable HITL (~90 day retention), unlimited members. Custom domain is +$29/mo, not bundled.
+**Roost — $259/month.** The container an agent works in: fair-use ephemeral hatches, 10 subscription Pins while subscribed, durable HITL (~90 day retention), unlimited members. Custom domain is +$29/mo, not bundled.
 
 **Roost Audit — $459/month.** Everything in Roost plus exportable audit trail and 1-year HITL retention. Same 10 Pins and Pin / Pack add-ons.
 
@@ -93,9 +104,10 @@ Users direct their agent to hatch on a specific namespace ("put my open house si
 
 Vibe Rooster speaks in plain English. No cloud jargon, no "spin up a container." Specific vocabulary:
 
-- *Your site is live* (not "your deployment is running")
-- *Your Roost* (not "your instance" or "your container")
-- *Pin* (1-year keep) / *Pack* (extra GB) / *Roost* (team plan) / *Roost Audit* (compliance)
+- *A hatch* — the live URL. Say this instead of tenant, site, instance, or deployment.
+- *A roost* — the container an agent works in. Say this instead of workspace. Two plans: Roost and Roost Audit. Org stays org.
+- *Pin it* — the hatch does not expire ($4.99/year keeps one hatch for a year). Say this instead of "upgrade to forever."
+- *Pack it* — extra storage, $4.99/year per GB, one gigabyte per Pack.
 - *Waking up...* (not "cold start")
 - *Something went wrong* (not "Error 502")
 
@@ -106,6 +118,7 @@ The tone is warm but not whimsical; the rooster/roost metaphor is present but ne
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
 - [Explorables](https://viberooster.com/explorables.html): what an explorable is and why Vibe Rooster hosts them
 - [Vibe Thinking](https://viberooster.com/vibe-thinking.html): vibe thinking vs vibe coding — capturing a thinking session as an explorable, not a chat transcript
+- [The New Verbs](https://viberooster.com/the-new-verbs.html): hatch, roost, pin, and pack — the words to use instead of tenant, site, workspace, and “upgrade to forever”
 - [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and other MCP clients
 - [Connect Hatch](https://viberooster.com/connect.html): what the URL is, who we have tested, tools, example prompts, and limits
 - [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long
