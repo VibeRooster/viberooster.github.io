@@ -28,14 +28,14 @@ You don't share the conversation. You share the structure that survived it. Same
 
 ## The new verbs
 
-Hatch, roost, pin, and pack are the ordinary words for the things they are — the way people say Xerox or Kleenex. The barnyard is the language. Full argument: https://viberooster.com/the-new-verbs.html
+Hatch, roost, pin, and pack are the act. The noun is what you are holding when the act is done. Full argument: https://viberooster.com/the-new-verbs.html
 
-- **Hatch** — one live site at `https://{slug}.{apex}`. The verb is hatch: publish that site. A free hatch stays up 48 hours and holds 100 MB. The `hatch` tool creates one. `convert` changes an existing hatch (rename the URL, or pin it while a subscription Pin slot remains).
-- **Roost** — the container an agent works inside, what the product used to call a workspace. Two plans: Roost ($259/mo: fair-use hatches that still expire, 10 subscription Pins, durable HITL, unlimited members) and Roost Audit ($459/mo: that roost, plus an exportable audit trail and 1-year HITL retention). Org stays org.
-- **Pin** — the hatch does not expire. $4.99/year keeps one hatch for a year, with 1 GB included. A Roost includes 10 subscription Pins while the plan is active. The verb is pin. Say pin it.
-- **Pack** — the add-on capacity. $4.99 per year per GB, one gigabyte per Pack, on a hatch or a Pin. Space, not time.
+- **Hatch.** Publish a site. You get one live hatch at `https://{slug}.{apex}`. A free hatch stays up 48 hours and holds 100 MB. The `hatch` tool does this step. `convert` changes a hatch you already have (rename the URL, or pin it while a subscription Pin slot remains).
+- **Roost.** Open a container for the agent to work inside. You get a roost — what the product used to call a workspace. Two plans: Roost ($259/mo: fair-use hatches that still expire, 10 subscription Pins, durable HITL, unlimited members) and Roost Audit ($459/mo: that roost, plus an exportable audit trail and 1-year HITL retention). Org stays org.
+- **Pin.** Stop the hatch from expiring. You get a pin: the hatch does not expire. $4.99/year keeps one hatch for a year, with 1 GB included. A Roost includes 10 subscription Pins while the plan is active.
+- **Pack.** Add storage. You get a pack: one gigabyte at $4.99 a year, on a hatch or a pin. Stack packs when you need more.
 
-Say hatch instead of tenant or site. Say roost instead of workspace. Say pin it instead of “upgrade to forever.” Say pack it for another gigabyte. Paying for a Pin, a Pack, a Roost, or Roost Audit is `catalog`, then `checkout`.
+Where you would have said tenant or site, hatch. Where you would have said workspace, roost. Where you would have said “upgrade to forever,” pin. Where you need another gigabyte, pack. Paying for a pin, a pack, a roost, or Roost Audit is `catalog`, then `checkout`.
 
 ## Who Vibe Rooster is for
 
@@ -104,10 +104,10 @@ Users direct their agent to hatch on a specific namespace ("put my open house si
 
 Vibe Rooster speaks in plain English. No cloud jargon, no "spin up a container." Specific vocabulary:
 
-- *A hatch* — the live URL. Say this instead of tenant, site, instance, or deployment.
-- *A roost* — the container an agent works in. Say this instead of workspace. Two plans: Roost and Roost Audit. Org stays org.
-- *Pin it* — the hatch does not expire ($4.99/year keeps one hatch for a year). Say this instead of "upgrade to forever."
-- *Pack it* — extra storage, $4.99/year per GB, one gigabyte per Pack.
+- *Hatch* — publish a site. You get a hatch at `https://{slug}.{apex}`. Say this where you would have said tenant or site.
+- *Roost* — open a container for the agent. You get a roost. Two plans: Roost and Roost Audit. Org stays org.
+- *Pin* — stop the hatch from expiring. You get a pin. $4.99/year keeps one hatch for a year. Say this where you would have said "upgrade to forever."
+- *Pack* — add storage. You get a pack: $4.99/year per GB, one gigabyte per Pack.
 - *Waking up...* (not "cold start")
 - *Something went wrong* (not "Error 502")
 
@@ -118,7 +118,7 @@ The tone is warm but not whimsical; the rooster/roost metaphor is present but ne
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
 - [Explorables](https://viberooster.com/explorables.html): what an explorable is and why Vibe Rooster hosts them
 - [Vibe Thinking](https://viberooster.com/vibe-thinking.html): vibe thinking vs vibe coding — capturing a thinking session as an explorable, not a chat transcript
-- [The New Verbs](https://viberooster.com/the-new-verbs.html): hatch, roost, pin, and pack — the words to use instead of tenant, site, workspace, and “upgrade to forever”
+- [The New Verbs](https://viberooster.com/the-new-verbs.html): hatch, roost, pin, and pack as the act — publish, open a container, stop the expiry, add a gigabyte
 - [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and other MCP clients
 - [Connect Hatch](https://viberooster.com/connect.html): what the URL is, who we have tested, tools, example prompts, and limits
 - [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long
