@@ -121,6 +121,38 @@ test("catalog follows the GitHub directory and skips the readme", async () => {
   assert.equal(catalog.templates[1].referenceUrl, "https://template-lever-explorable.theroost.dev");
 });
 
+test("catalog fetches do not set User-Agent", async () => {
+  const raw = "https://raw.githubusercontent.com/VibeRooster/hatch-mcp/main/";
+  const calls = [];
+  const fetchImpl = async (input, init) => {
+    calls.push({ url: String(input), headers: (init && init.headers) || {} });
+    if (String(input).includes("/contents/templates")) {
+      return new Response(
+        JSON.stringify([
+          {
+            name: "lever-explorable.md",
+            path: "templates/lever-explorable.md",
+            type: "file",
+            download_url: `${raw}templates/lever-explorable.md`,
+          },
+        ]),
+        { status: 200 }
+      );
+    }
+    return new Response(LEVER, { status: 200 });
+  };
+
+  const catalog = await fetchTemplateCatalog(fetchImpl);
+  assert.equal(catalog.templates.length, 1);
+  assert.equal(calls.length, 2);
+  for (const call of calls) {
+    const names = Object.keys(call.headers).map((name) => name.toLowerCase());
+    assert.equal(names.includes("user-agent"), false, call.url);
+  }
+  assert.equal(calls[1].url, `${raw}templates/lever-explorable.md`);
+  assert.equal(Object.keys(calls[1].headers).length, 0);
+});
+
 test("prompt text is escaped in the list", () => {
   const html = renderTemplateList([
     {

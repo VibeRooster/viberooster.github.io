@@ -87,8 +87,11 @@
     const fetchFn = fetchImpl || fetch;
     const { owner, repo, branch, directory } = TEMPLATE_REPO;
     const listUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${directory}?ref=${branch}`;
+    // Browsers already send User-Agent. Setting it makes the raw file GET
+    // below a CORS preflight, and raw.githubusercontent.com answers OPTIONS
+    // with 403. Firefox reports that as "NetworkError when attempting to fetch resource."
     const listRes = await fetchFn(listUrl, {
-      headers: { accept: "application/vnd.github+json", "user-agent": "viberooster-site" },
+      headers: { accept: "application/vnd.github+json" },
     });
     if (listRes.status === 404) {
       return { repo: templateRepoWebUrl(), browse: templateBrowseUrl(), templates: [] };
@@ -102,7 +105,7 @@
     const files = listed.filter(isTemplateFile).slice(0, MAX_TEMPLATES);
     const found = await Promise.all(
       files.map(async (file) => {
-        const res = await fetchFn(file.download_url, { headers: { "user-agent": "viberooster-site" } });
+        const res = await fetchFn(file.download_url);
         if (!res.ok) return null;
         const meta = parseTemplateFile(await res.text(), file.name);
         if (!meta) return null;
