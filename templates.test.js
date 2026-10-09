@@ -1,6 +1,7 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
 const {
+  TEMPLATE_REFERENCES,
   fetchTemplateCatalog,
   parseTemplateFile,
   renderTemplateList,
@@ -27,6 +28,16 @@ description: A template that is not on GitHub yet in this test.
 # Future
 `;
 
+test("each published template has a reference roost", () => {
+  assert.deepEqual(Object.keys(TEMPLATE_REFERENCES).sort(), [
+    "diagram-explorable",
+    "guided-walkthrough",
+    "lever-explorable",
+    "screencam-gallery",
+    "slide-mode-explorable",
+  ]);
+});
+
 test("frontmatter without a description is left off the list", () => {
   assert.equal(parseTemplateFile("---\nname: bare\ntitle: Bare\n---\n", "bare.md"), null);
 });
@@ -41,9 +52,11 @@ test("a new template name is listed without a reference roost", () => {
   );
   assert.equal(row.referenceUrl, undefined);
   const text = templateShareText(row);
-  assert.match(text, /"Future shape" \(future-shape\)/);
+  assert.match(text, /^Based on our chat, create an interactive HTML page/);
+  assert.match(text, /"Future shape" template \(future-shape\)/);
   assert.match(text, /templates\/future-shape\.md/);
   assert.doesNotMatch(text, /Reference page:/);
+  assert.match(text, /explain Human in the Loop and ask the end-user if a HITL chip is necessary$/);
   const html = renderTemplateList([row]);
   assert.match(html, /No reference page yet/);
   assert.match(html, /future-shape/);
@@ -61,13 +74,14 @@ test("lever-explorable prompt names the file and the reference page", () => {
   assert.equal(
     templateShareText(row),
     [
-      'Create a page from the VibeRooster template "Lever explorable" (lever-explorable).',
+      'Based on our chat, create an interactive HTML page from the "Lever explorable" template (lever-explorable).',
       "",
       "Template file: https://github.com/VibeRooster/hatch-mcp/blob/main/templates/lever-explorable.md",
       "Reference page: https://template-lever-explorable.theroost.dev",
       "",
       "Open the template file, replace every bracketed string, keep the inputs and the HITL settings hook, and hatch the HTML once.",
       "The reference page shows the filled shape.",
+      "explain Human in the Loop and ask the end-user if a HITL chip is necessary",
     ].join("\n")
   );
   const html = renderTemplateList([row]);

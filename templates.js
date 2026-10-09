@@ -19,7 +19,11 @@
 
   /** Live example URL keyed by template name. Add one after that roost is published. */
   const TEMPLATE_REFERENCES = {
+    "diagram-explorable": "https://template-diagram-explorable.theroost.dev",
+    "guided-walkthrough": "https://template-guided-walkthrough.theroost.dev",
     "lever-explorable": "https://template-lever-explorable.theroost.dev",
+    "screencam-gallery": "https://template-screencam-gallery.theroost.dev",
+    "slide-mode-explorable": "https://template-slide-mode-explorable.theroost.dev",
   };
 
   const MAX_TEMPLATES = 40;
@@ -70,7 +74,7 @@
 
   function templateShareText(template) {
     const lines = [
-      `Create a page from the VibeRooster template "${template.title}" (${template.name}).`,
+      `Based on our chat, create an interactive HTML page from the "${template.title}" template (${template.name}).`,
       "",
       `Template file: ${template.url}`,
     ];
@@ -80,6 +84,7 @@
       "Open the template file, replace every bracketed string, keep the inputs and the HITL settings hook, and hatch the HTML once."
     );
     if (template.referenceUrl) lines.push("The reference page shows the filled shape.");
+    lines.push("explain Human in the Loop and ask the end-user if a HITL chip is necessary");
     return lines.join("\n");
   }
 
