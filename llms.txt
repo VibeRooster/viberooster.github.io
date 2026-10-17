@@ -116,7 +116,7 @@ The tone is warm but not whimsical; the rooster/roost metaphor is present but ne
 ## Key pages
 
 - [Vibe Rooster homepage](https://viberooster.com/): platform overview, the Barnyard gallery of live hatches, pricing, the *Rise & Share* pitch
-- [Field Notes](https://viberooster.com/vibe-thinking.html): the running list, newest first — The New Verbs (October 7, 2026), What's vibe thinking? (August 20, 2026), What's an explorable? (August 13, 2026)
+- [Field Notes](https://viberooster.com/vibe-thinking.html): the running list, newest first — We Have Been Here Before by Tim Panagos (October 17, 2026; https://viberooster.com/vibe-thinking.html#we-have-been-here-before), The New Verbs (October 7, 2026), What's vibe thinking? (August 20, 2026), What's an explorable? (August 13, 2026)
 - [Install Hatch MCP](https://viberooster.com/install.html): add the connector to Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, Windsurf, and other MCP clients
 - [Connect Hatch](https://viberooster.com/connect.html): what the URL is, who we have tested, tools, example prompts, and limits
 - [Privacy Policy](https://viberooster.com/privacy.html): what the connector and platform store, and for how long
