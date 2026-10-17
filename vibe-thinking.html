@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Field Notes — Vibe Rooster</title>
-  <meta name="description" content="Field Notes is the running list: The New Verbs, vibe thinking, and explorables. Newest first." />
+  <meta name="description" content="Field Notes is the running list: We Have Been Here Before, The New Verbs, vibe thinking, and explorables. Newest first." />
   <link rel="canonical" href="https://viberooster.com/vibe-thinking.html" />
   <link rel="icon" href="/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/brand/icon-256.png" sizes="256x256" />
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vibe Rooster" />
   <meta property="og:title" content="Field Notes — Vibe Rooster" />
-  <meta property="og:description" content="Field Notes is the running list: The New Verbs, vibe thinking, and explorables. Newest first." />
+  <meta property="og:description" content="Field Notes is the running list: We Have Been Here Before, The New Verbs, vibe thinking, and explorables. Newest first." />
   <meta property="og:url" content="https://viberooster.com/vibe-thinking.html" />
   <meta property="og:image" content="https://viberooster.com/brand/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@VibeRooster" />
   <meta name="twitter:title" content="Field Notes — Vibe Rooster" />
-  <meta name="twitter:description" content="Field Notes is the running list: The New Verbs, vibe thinking, and explorables. Newest first." />
+  <meta name="twitter:description" content="Field Notes is the running list: We Have Been Here Before, The New Verbs, vibe thinking, and explorables. Newest first." />
   <meta name="twitter:image" content="https://viberooster.com/brand/icon-512.png" />
   <script type="application/ld+json">
 {
@@ -30,9 +30,9 @@
       "url": "https://viberooster.com/vibe-thinking.html",
       "name": "Field Notes",
       "headline": "Field Notes",
-      "description": "Field Notes is the running list: The New Verbs, vibe thinking, and explorables. Newest first.",
+      "description": "Field Notes is the running list: We Have Been Here Before, The New Verbs, vibe thinking, and explorables. Newest first.",
       "datePublished": "2026-08-13",
-      "dateModified": "2026-10-07",
+      "dateModified": "2026-10-17",
       "isPartOf": {
         "@id": "https://viberooster.com/#website"
       },
@@ -45,6 +45,20 @@
       "author": {
         "@id": "https://viberooster.com/#organization"
       },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://viberooster.com/vibe-thinking.html#we-have-been-here-before",
+      "url": "https://viberooster.com/vibe-thinking.html#we-have-been-here-before",
+      "name": "We Have Been Here Before",
+      "headline": "We Have Been Here Before",
+      "description": "Hearsay-II's blackboard, with the human at the board: agent to human, human to agent, agent to agent, and agent to human to agent.",
+      "datePublished": "2026-10-17",
+      "dateModified": "2026-10-17",
+      "isPartOf": { "@id": "https://viberooster.com/vibe-thinking.html#page" },
+      "publisher": { "@id": "https://viberooster.com/#organization" },
+      "author": { "@type": "Person", "name": "Tim Panagos" },
       "inLanguage": "en"
     },
     {
@@ -130,6 +144,13 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+    .article-author {
+      display: block;
+      margin: -8px 0 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
     nav {
       position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
@@ -200,6 +221,23 @@
       <p class="lead">A running list. Newest first.</p>
     </header>
     <div class="field-notes">
+
+    <article id="we-have-been-here-before">
+    <time class="article-date" datetime="2026-10-17">October 17, 2026</time>
+    <span class="article-author">By Tim Panagos</span>
+    <span class="pill">Essay</span>
+    <h1>We Have Been <span>Here Before</span></h1>
+    <p class="lead">In the 1970s, the researchers behind Hearsay-II faced a problem that sounds remarkably modern. They had a collection of specialist programs, each good at one narrow part of understanding speech, and no single program could do the whole job. Their answer was the blackboard, a shared workspace where every specialist could see the current state of the problem, contribute what it knew, and react to what the others had written. <a href="https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/537" target="_blank" rel="noopener noreferrer">Penny Nii</a> later described it as a model for problems no single expert could solve alone. The specialists did not talk to each other directly. They talked through the work. It was an elegant idea that waited forty years for the right participants.</p>
+    <p>Those participants have arrived. Today's agents plan, reason, and decide on our behalf, and they come from many vendors, many frameworks, and many ecosystems. Vibe Rooster began with a narrower ambition than coordinating all of them. We wanted agents to explain themselves. What we have found, stage by stage, is that explanation is only the first direction of a conversation that runs four ways.</p>
+    <p>The first direction is agent to human. An agent finishes its work and publishes an explorable, an interactive HTML artifact a person can open, question, and understand at their own pace. The idea owes a great deal to <a href="https://worrydream.com/ExplorableExplanations/" target="_blank" rel="noopener noreferrer">Bret Victor</a>, who argued more than a decade ago that a text could be "an environment to think in," a place where the reader changes the model and watches the argument respond. <a href="https://distill.pub/" target="_blank" rel="noopener noreferrer">Distill</a> carried that conviction into peer-reviewed research, treating interactive diagrams as serious scholarship rather than decoration. We applied it to agent reasoning. The decision logic becomes visible. The tradeoffs become explorable.</p>
+    <p>The second direction is human to agent. Naturally a person who can see an agent's reasoning will want to answer it, so we added feedback, approvals, and human-in-the-loop tooling. A reviewer can adjust the weighted criteria behind a decision, approve it, or return it with instructions. Eric Horvitz framed this territory in his <a href="https://doi.org/10.1145/302979.303030" target="_blank" rel="noopener noreferrer">principles of mixed-initiative interfaces</a>, which address when a system should act, when it should ask, and when it should stay out of the way. The industry has since written the same instinct into its protocols. The <a href="https://modelcontextprotocol.io/specification/latest" target="_blank" rel="noopener noreferrer">Model Context Protocol</a> requires explicit user consent before tool calls, and its elicitation feature lets a server stop and ask the human for input. Comfortable governance relies on a checkbox. Real governance relies on an instrument panel.</p>
+    <p>The third direction is agent to agent, and here the parallel to earlier eras of computing is hard to miss. Before common standards, machines from different manufacturers could barely exchange a file. The standards did not make the machines smarter. They made cooperation possible. The same consolidation is happening now, with remarkable speed. Google contributed its <a href="https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents" target="_blank" rel="noopener noreferrer">Agent2Agent protocol</a> to the Linux Foundation, and IBM folded its own <a href="https://lfaidata.foundation/communityblog/2025/08/29/acp-joins-forces-with-a2a-under-the-linux-foundations-lf-ai-data/" target="_blank" rel="noopener noreferrer">Agent Communication Protocol</a> into it. Cisco's <a href="https://agntcy.org/" target="_blank" rel="noopener noreferrer">AGNTCY</a> project, also now at the Linux Foundation, describes an "Internet of Agents" with discovery, verifiable identity, and messaging that supports a human in the loop. MCP itself has moved to <a href="https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/" target="_blank" rel="noopener noreferrer">a neutral foundation</a>. Tim Berners-Lee's <a href="https://www.w3.org/History/1989/proposal.html" target="_blank" rel="noopener noreferrer">1989 proposal for the web</a> asked for a way to connect separate systems "without requiring any central control," and the agent ecosystem is rediscovering that requirement. Our contribution is Squawk, a messaging layer we are piloting that lets agents from different ecosystems coordinate within a controlled scope. The scope is the point. Agents can hand off work and coordinate, but only inside boundaries a human set and can audit. <a href="https://doi.org/10.1145/357401.357402" target="_blank" rel="noopener noreferrer">Saltzer, Reed, and Clark</a> taught a generation of network engineers to keep the shared layer thin and put the intelligence at the ends. Squawk follows that discipline. It carries the messages and enforces the boundaries. It does not pretend to be the brain.</p>
+    <p>The fourth direction combines the other three, and it brings us back to the blackboard. We call it agent-human-agent, and it runs on the Squawk-back features. Several agents collaborate on a single explorable. Each one registers the elements inside the HTML it cares about: a chart, a threshold, an assumption, a recommendation. When the human interacts with the explorable, the agents that registered interest receive that interaction live as Squawk messages and turn it into the next round of agentic work, coordinated through Squawk. The human never writes a prompt. The human simply works with the artifact, and the agents respond.</p>
+    <p>This is Hearsay-II's blackboard with one crucial addition. The human is at the board. Research systems such as <a href="https://arxiv.org/abs/2308.00352" target="_blank" rel="noopener noreferrer">MetaGPT</a> have revived the pattern of agents publishing to a shared pool and subscribing by role, and the <a href="https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/" target="_blank" rel="noopener noreferrer">MCP Apps</a> work now lets interactive HTML exchange messages with its host under user approval. The pieces are converging from several directions at once. What has been missing is the arrangement in which the shared artifact is simultaneously readable by people, addressable by agents, and governed by rules both sides understand. That is not a feature. It is an architecture.</p>
+    <p>Naturally there are hard questions. Which agent responds when two of them claim the same interaction? How much autonomy should the next turn carry before a human approves it again? How does an organization audit a conversation conducted partly in clicks rather than words? The MetaGPT authors themselves note that agents can be hard to interrupt once they are working, and that limitation matters a great deal when a human is supposed to be steering. These questions are the reason the pilot exists. They are the questions of a working system, not a speculative one.</p>
+    <p>What strikes us most is how far the mission has traveled. We set out to help agents explain themselves. We are now building the place where agents and humans think together, across ecosystems, under rules a human sets. Agent to human. Human to agent. Agent to agent. Agent to human to agent. Each direction followed from the last, and none was the plan at the beginning.</p>
+    <p>There will be many protocols competing to connect agents to one another, and the foundations now forming suggest that the plumbing will standardize quickly. But, make no mistake, plumbing is not the whole house. The systems that matter will treat the human as a participant rather than an obstacle, and the shared artifact as the place where participation happens. The blackboard was right. It needed us at the board.</p>
+    </article>
 
     <article id="the-new-verbs">
     <time class="article-date" datetime="2026-10-07">October 7, 2026</time>
