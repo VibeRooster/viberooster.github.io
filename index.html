@@ -293,7 +293,7 @@
     .hero-banner {
       width: auto;
       max-width: min(90vw, 820px);
-      max-height: 34vh;
+      max-height: 30vh;
       height: auto;
       border-radius: 20px;
       box-shadow:
@@ -490,7 +490,7 @@
       justify-content: center;
       gap: 8px;
       margin: 18px auto 0;
-      max-width: 760px;
+      max-width: 980px;
     }
 
     .agent-chip {
@@ -716,6 +716,12 @@
       flex-direction: column;
       justify-content: center;
       scroll-margin-top: 76px;
+    }
+
+    #human-agent > .how-inner,
+    #agent-agent > .features-inner,
+    #at-the-board > .coop-inner {
+      width: 100%;
     }
 
     .how-inner {
@@ -1450,8 +1456,11 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 16px 20px; }
-      #hero { padding: 96px 20px 48px; }
-      .hero-banner { max-height: 24vh; margin-bottom: 24px; }
+      #hero { padding: 88px 20px 32px; }
+      #hero h1 { font-size: 2.75rem; }
+      .hero-banner { max-width: 64vw; max-height: 22vh; margin-bottom: 18px; }
+      .hero-sub { margin-bottom: 22px; }
+      .cta-row { margin-bottom: 12px; }
       .features-header { flex-direction: column; align-items: flex-start; }
       .gallery-stage { grid-template-columns: 1fr; }
       .slice-stage { grid-template-columns: 1fr; }
