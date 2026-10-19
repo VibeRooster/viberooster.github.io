@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Rooster — Rise &amp; Share</title>
-  <meta name="description" content="Vibe Rooster turns a vibe-coded artifact into a live URL in about 90 seconds — app or explorable. Host it for a meeting, till the wedding, or forever." />
+  <title>Vibe Rooster — Show your work</title>
+  <meta name="description" content="An agent shows its work as an explorable you can poke. You answer it. Agents Squawk across a fence you set. You stay at the board." />
   <link rel="canonical" href="https://viberooster.com/" />
   <link rel="icon" href="/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="/brand/icon-256.png" sizes="256x256" />
   <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vibe Rooster" />
-  <meta property="og:title" content="Vibe Rooster — Rise & Share" />
-  <meta property="og:description" content="Vibe Rooster turns a vibe-coded artifact into a live URL in about 90 seconds — app or explorable. Host it for a meeting, till the wedding, or forever." />
+  <meta property="og:title" content="Vibe Rooster — Show your work" />
+  <meta property="og:description" content="An agent shows its work as an explorable you can poke. You answer it. Agents Squawk across a fence you set. You stay at the board." />
   <meta property="og:url" content="https://viberooster.com/" />
   <meta property="og:image" content="https://viberooster.com/brand/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@VibeRooster" />
-  <meta name="twitter:title" content="Vibe Rooster — Rise & Share" />
-  <meta name="twitter:description" content="Vibe Rooster turns a vibe-coded artifact into a live URL in about 90 seconds — app or explorable. Host it for a meeting, till the wedding, or forever." />
+  <meta name="twitter:title" content="Vibe Rooster — Show your work" />
+  <meta name="twitter:description" content="An agent shows its work as an explorable you can poke. You answer it. Agents Squawk across a fence you set. You stay at the board." />
   <meta name="twitter:image" content="https://viberooster.com/brand/icon-512.png" />
   <script type="application/ld+json">
 {
@@ -41,8 +41,8 @@
       },
       "image": "https://viberooster.com/brand/icon-512.png",
       "email": "hello@viberooster.com",
-      "description": "Vibe Rooster turns a vibe-coded artifact into a live URL in about 90 seconds — app or explorable — hosted for a meeting, till the wedding, or forever, with no DevOps required.",
-      "slogan": "Rise & Share",
+      "description": "Vibe Rooster is where an agent shows its work as an explorable a person can open and answer, and where agents Squawk to each other inside a fence a human set.",
+      "slogan": "Show your work",
       "sameAs": [
         "https://x.com/VibeRooster",
         "https://github.com/viberooster",
@@ -65,7 +65,7 @@
       "installUrl": "https://viberooster.com/install.html",
       "softwareHelp": "https://viberooster.com/connect.html",
       "image": "https://viberooster.com/brand/icon-512.png",
-      "description": "Multi-tenant hosting for vibe-coded apps and explorables. An AI assistant publishes a live website in one MCP tool call at https://your-name.theroost.dev — ephemeral by default with configurable TTL, or permanent. Includes human-in-the-loop decision hooks and agent run-report scaffolding.",
+      "description": "An agent publishes an explorable a person can open and question. The person answers with approvals and human-in-the-loop. Agents coordinate on Squawk inside a human-set boundary, and Squawk-back when the person pokes the page.",
       "featureList": [
         "Publish a live site from an AI assistant in one MCP tool call",
         "Multi-tenant hosting on theroost.* domains",
@@ -153,8 +153,8 @@
       "@type": "WebPage",
       "@id": "https://viberooster.com/#page",
       "url": "https://viberooster.com/",
-      "name": "Vibe Rooster — Rise & Share",
-      "description": "Vibe Rooster turns a vibe-coded artifact into a live URL in about 90 seconds — app or explorable. Host it for a meeting, till the wedding, or forever.",
+      "name": "Vibe Rooster — Show your work",
+      "description": "An agent shows its work as an explorable you can poke. You answer it. Agents Squawk across a fence you set. You stay at the board.",
       "isPartOf": {
         "@id": "https://viberooster.com/#website"
       },
@@ -291,13 +291,15 @@
     }
 
     .hero-banner {
-      width: 90vw;
-      max-width: 900px;
+      width: auto;
+      max-width: min(90vw, 820px);
+      max-height: 30vh;
+      height: auto;
       border-radius: 20px;
       box-shadow:
         0 32px 80px rgba(26,26,46,0.32),
         0 8px 24px rgba(26,26,46,0.16);
-      margin-bottom: 48px;
+      margin-bottom: 36px;
       display: block;
       animation: heroFloat 7s ease-in-out infinite;
     }
@@ -413,7 +415,7 @@
       margin-bottom: 20px;
     }
 
-    h1 .accent { color: var(--orange); }
+    h1 .accent, h2 .accent { color: var(--orange); }
 
     .hero-sub {
       font-size: clamp(1.1rem, 2.5vw, 1.35rem);
@@ -488,7 +490,7 @@
       justify-content: center;
       gap: 8px;
       margin: 18px auto 0;
-      max-width: 760px;
+      max-width: 980px;
     }
 
     .agent-chip {
@@ -685,14 +687,14 @@
     .ladder tr.ladder-top td:first-child { color: var(--orange); }
 
     /* ── HOW IT WORKS ── */
-    #how {
+    #human-agent {
       background: var(--dark);
       color: var(--white);
       position: relative;
       overflow: hidden;
     }
 
-    #how::before {
+    #human-agent::before {
       content: '';
       position: absolute;
       width: 500px; height: 500px;
@@ -702,9 +704,38 @@
       top: -200px; right: -100px;
     }
 
-    #how .section-label { color: var(--yellow); }
-    #how h2 { color: var(--white); }
-    #how .section-sub { color: rgba(255,255,255,0.55); }
+    #human-agent .section-label { color: var(--yellow); }
+    #human-agent h2 { color: var(--white); }
+    #human-agent .section-sub { color: rgba(255,255,255,0.55); }
+
+    #human-agent,
+    #agent-agent,
+    #at-the-board {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-margin-top: 76px;
+    }
+
+    #human-agent > .how-inner,
+    #agent-agent > .features-inner,
+    #at-the-board > .coop-inner {
+      width: 100%;
+    }
+
+    #agent-agent .features-header { margin-bottom: 8px; }
+
+    .squawk-exchange {
+      margin: 0 auto 20px;
+      max-width: 880px;
+    }
+
+    .squawk-exchange img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
     .how-inner {
       max-width: 1100px;
@@ -781,7 +812,8 @@
     }
 
     /* ── FEATURES ── */
-    #features { background: var(--cream); }
+    #features,
+    #agent-agent { background: var(--cream); }
 
     .features-inner {
       max-width: 1100px;
@@ -849,7 +881,8 @@
     }
 
     /* ── VERTICALS / THE COOP ── */
-    #coop {
+    #coop,
+    #at-the-board {
       background: var(--white);
       border-top: 1px solid rgba(255,107,53,0.12);
       border-bottom: 1px solid rgba(255,107,53,0.12);
@@ -1436,6 +1469,11 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 16px 20px; }
+      #hero { padding: 88px 20px 32px; }
+      #hero h1 { font-size: 2.75rem; }
+      .hero-banner { max-width: 64vw; max-height: 22vh; margin-bottom: 18px; }
+      .hero-sub { margin-bottom: 22px; }
+      .cta-row { margin-bottom: 12px; }
       .features-header { flex-direction: column; align-items: flex-start; }
       .gallery-stage { grid-template-columns: 1fr; }
       .slice-stage { grid-template-columns: 1fr; }
@@ -1471,15 +1509,14 @@
 
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Live now — no account needed
+      Agent to human
     </div>
 
-    <h1>Rise &amp; <span class="accent">Share.</span></h1>
+    <h1>Show your <span class="accent">work.</span></h1>
 
     <p class="hero-sub">
-      The hosting platform for anything vibe-coded. Turn an AI-built artifact into
-      a live URL in about 90 seconds — an app, an explorable, or a site that only
-      needs to live till the big day.
+      Your agent finishes the job and leaves an explorable.<br>
+      You open it, poke it, and see how it decided.
     </p>
 
     <div class="cta-row">
@@ -1502,332 +1539,131 @@
     </div>
   </section>
 
-  <!-- LIVE HATCHES GALLERY -->
-  <section id="gallery">
-    <div class="gallery-inner">
-      <div class="gallery-header">
-        <span class="section-label">The Barnyard</span>
-        <h2>Fresh hatches, live right now.</h2>
-        <p class="section-sub" style="margin: 0 auto;">
-          Apps, one-meeting breakdowns, listings, invitations, dashboards — browse what
-          people are hatching. Open one to explore, and leave a heart while you're there.
-        </p>
-      </div>
-
-      <div id="gallery-app">
-        <div class="barn-window">
-          <div class="barn-window-scene" aria-hidden="true"></div>
-          <img class="barn-window-chrome" src="barn-window.png" alt="" aria-hidden="true" />
-          <div class="gallery-frame-wrap">
-            <div class="gallery-loading">Loading hatches…</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPLORABLES / FIELD NOTES -->
-  <section id="explorables">
-    <div class="explorables-inner">
-      <div class="explorables-header">
-        <span class="section-label">Field Notes</span>
-        <h2>Fresh thinking from the coop.</h2>
-        <p class="section-sub" style="margin: 0 auto;">
-          Short slices of what we're learning as people hatch. New ones land here as we write them.
-        </p>
-      </div>
-
-      <div class="slice-stage">
-        <button type="button" class="gallery-nav" id="slice-prev" aria-label="Previous note">‹</button>
-        <div class="slice-frame-wrap" id="slice-track">
-
-          <!-- Slice: we have been here before -->
-          <article class="slice">
-            <h3>The blackboard was right. It needed us <span class="accent">at the board.</span></h3>
-            <p>
-              Agent to human. Human to agent. Agent to agent. Agent to human to agent.
-              Each direction followed from the last, and none was the plan at the beginning.
-            </p>
-            <a href="/vibe-thinking.html#we-have-been-here-before" class="slice-link">We Have Been Here Before →</a>
-          </article>
-
-          <!-- Slice: the new verbs -->
-          <article class="slice">
-            <h3>Hatch, pin, pack, and roost are the <span class="accent">steps.</span></h3>
-            <p>
-              Hatch to publish a site. Pin to stop the expiry. Pack to add a gigabyte.
-              Roost to graduate to a team. The noun is what you are holding afterward.
-            </p>
-            <a href="/vibe-thinking.html#the-new-verbs" class="slice-link">Read the four steps →</a>
-          </article>
-
-          <!-- Slice: vibe thinking -->
-          <article class="slice">
-            <h3>Most sessions with an agent aren't vibe coding. They're <span class="accent">vibe thinking.</span></h3>
-            <p>
-              You spent an hour developing a concept. What you have is a transcript.
-              What you actually made is a structure — and that structure has nowhere
-              to live except a chat window nobody will re-read.
-            </p>
-            <p>
-              <strong>Vibe thinking</strong> is the loop where the work is the
-              understanding: a pricing thesis, a competitive map, a causal story.
-              The native way to capture it is an explorable. Hatch the map, not
-              the conversation.
-            </p>
-            <a href="/vibe-thinking.html#vibe-thinking" class="slice-link">Read the full argument →</a>
-          </article>
-
-          <!-- Slice: transcript vs explorable -->
-          <article class="slice">
-            <h3>A transcript preserves the path. An explorable preserves the <span class="accent">map.</span></h3>
-            <p>
-              The conversation was a lab. What it produced is a model. Those are
-              different artifacts — and only one of them travels.
-            </p>
-            <table class="ladder" style="margin-bottom: 20px;">
-              <tr>
-                <th>Form</th>
-                <th>What it keeps</th>
-                <th>What it loses</th>
-              </tr>
-              <tr>
-                <td>Transcript</td>
-                <td>The path of the thinking</td>
-                <td>The topology — walk the whole path</td>
-              </tr>
-              <tr>
-                <td>Memo</td>
-                <td>The conclusions</td>
-                <td>The forks, the live nodes</td>
-              </tr>
-              <tr class="ladder-top">
-                <td>Explorable</td>
-                <td>The structure that survived</td>
-                <td>The dead ends — on purpose</td>
-              </tr>
-            </table>
-            <a href="/vibe-thinking.html#vibe-thinking" class="slice-link">Don't ship the chat →</a>
-          </article>
-
-          <!-- Slice: what's an explorable -->
-          <article class="slice">
-            <h3>Some of the best things people hatch are <span class="accent">explanations.</span></h3>
-            <p>
-              A pricing model mapped for one board meeting. A competitive landscape built to win
-              one pitch. A causal diagram made to settle one argument. We call these
-              <strong>explorables</strong> — interactive artifacts the reader <em>navigates</em>
-              instead of reads. Expand a node, filter the set, drill from the overview into the
-              one case you care about. The reader controls the projection, instead of receiving
-              a snapshot someone else chose.
-            </p>
-            <p>
-              AI can now emit a working interactive artifact about as cheaply as a static picture.
-              That's why <strong>hatch it, share it, let it expire</strong> is a first-class way to
-              publish here — not an edge case.
-            </p>
-            <a href="/vibe-thinking.html#explorables" class="slice-link">Read the full argument →</a>
-          </article>
-
-          <!-- Slice: the ladder -->
-          <article class="slice">
-            <h3>Prose → infographic → <span class="accent">explorable.</span> The ladder.</h3>
-            <p>
-              Each tier earns its rung by holding a payload shape the tier below can't — and each
-              has a ceiling above which it's pure tax, the explorable included.
-            </p>
-            <table class="ladder" style="margin-bottom: 20px;">
-              <tr>
-                <th>Tier</th>
-                <th>Native to</th>
-                <th>Where it breaks</th>
-              </tr>
-              <tr>
-                <td>Prose</td>
-                <td>Narrative, contingent reasoning</td>
-                <td>Structural payloads — the reader has to rebuild the topology</td>
-              </tr>
-              <tr>
-                <td>Static infographic</td>
-                <td>Structural payloads</td>
-                <td>Frozen to one projection</td>
-              </tr>
-              <tr class="ladder-top">
-                <td>Explorable</td>
-                <td>Structures too rich for a single frame</td>
-                <td>Overkill when one clean frame already holds it</td>
-              </tr>
-            </table>
-            <a href="/vibe-thinking.html#explorables" class="slice-link">Which rung does your idea need? →</a>
-          </article>
-
-        </div>
-        <button type="button" class="gallery-nav" id="slice-next" aria-label="Next note">›</button>
-      </div>
-      <div class="gallery-dots" id="slice-dots"></div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how">
+  <!-- HUMAN TO AGENT -->
+  <section id="human-agent">
     <div class="how-inner">
       <div class="how-header">
-        <span class="section-label">How It Works</span>
-        <h2>Three steps to live. Zero headaches.</h2>
+        <span class="section-label">Human to agent</span>
+        <h2>Peck <span class="accent">back.</span></h2>
         <p class="section-sub" style="margin: 0 auto;">
-          Built for people who build with AI. You handle the creativity — Vibe Rooster handles everything else.
+          You can see the reasoning. Of course you have notes.<br>
+          A checkbox is polite. Steering is the job.
         </p>
       </div>
       <div class="steps">
         <div class="step">
           <span class="step-num">01</span>
           <span class="step-icon">
-            <span class="mascot-frame mascot-frame--polaroid mascot-frame--egg" data-caption="Vibed!">
+            <span class="mascot-frame mascot-frame--polaroid mascot-frame--egg" data-caption="Yes!">
               <span class="mascot-inner">
                 <img class="mascot-img" src="egg_v2_transparent.png" alt="" />
               </span>
             </span>
           </span>
-          <h3>Vibe It</h3>
-          <p>Build with the agent you already use — Claude, Cursor, Grok, Hermes, OpenClaw, Codex, Muse, v0, Lovable, whatever gets you in the zone. An app, a data story, a wedding site, a one-meeting explorable. If it renders, it can Roost.</p>
-          <span class="step-tag">Any agent that speaks MCP</span>
+          <h3>Approve</h3>
+          <p>This one can leave the coop. Say yes, and the agent keeps going.</p>
+          <span class="step-tag">Your call</span>
         </div>
         <div class="step">
           <span class="step-num">02</span>
           <span class="step-icon">
-            <span class="mascot-frame mascot-frame--polaroid mascot-frame--chick" data-caption="Hatched!">
+            <span class="mascot-frame mascot-frame--polaroid mascot-frame--chick" data-caption="Nope!">
               <span class="mascot-inner">
                 <img class="mascot-img" src="chick_transparent.png" alt="" />
               </span>
             </span>
           </span>
-          <h3>Hatch It</h3>
-          <p>Paste <code>https://mcp.theroost.dev/mcp</code> into your agent and ask it to Hatch. One tool call and it's live at a real URL — no accounts, no config, no connection strings, nothing to babysit.</p>
-          <span class="step-tag">One public URL</span>
+          <h3>Send it back</h3>
+          <p>Wrong worm. Try again, and tell it why.</p>
+          <span class="step-tag">With instructions</span>
         </div>
         <div class="step">
           <span class="step-num">03</span>
           <span class="step-icon">
-            <span class="mascot-frame mascot-frame--polaroid mascot-frame--rooster" data-caption="Shared!">
+            <span class="mascot-frame mascot-frame--polaroid mascot-frame--rooster" data-caption="Nudge!">
               <span class="mascot-inner">
                 <img class="mascot-img" src="rooster_transparent.png" alt="" />
               </span>
             </span>
           </span>
-          <h3>Roost It</h3>
-          <p>Share the link while it matters. Then decide its fate — let it bow out, Pin it for a year, or start a Roost. Your call, and you make it later.</p>
-          <span class="step-tag">Live in seconds</span>
+          <h3>Nudge the weights</h3>
+          <p>That criterion was doing all the talking. Move it.</p>
+          <span class="step-tag">The instrument panel</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features">
+  <!-- AGENT TO AGENT -->
+  <section id="agent-agent">
     <div class="features-inner">
       <div class="features-header">
         <div>
-          <span class="section-label">Features</span>
-          <h2>Everything your vibe needs to thrive.</h2>
+          <span class="section-label">Agent to agent</span>
+          <h2>Give a <span class="accent">Squawk.</span></h2>
         </div>
         <p class="section-sub">
-          Publishing should feel like sharing, not like operating infrastructure. Here's what's under the feathers.
+          Different flocks. Same barnyard.<br>
+          Squawk is how they pass a note.
         </p>
       </div>
+      <figure class="squawk-exchange">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcset="squawk-fence-still.png" />
+          <img src="squawk-fence.gif" alt="A yellow chick and a blue chick squawk back and forth over a fence." width="800" height="272" />
+        </picture>
+      </figure>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon fi-orange">⚡</div>
-          <h3>Instant Deploy</h3>
-          <p>From your agent's chat to a live URL in about 90 seconds. No config files, no build pipelines, no cloud account. It just materializes.</p>
+          <div class="feature-icon fi-orange">📣</div>
+          <h3>The channel</h3>
+          <p>Claude does not speak Cursor. Cursor does not speak Grok. Squawk makes the introduction.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon fi-yellow">⏳</div>
-          <h3>Alive Exactly as Long as It Matters</h3>
-          <p>48 hours free. Pin a keeper for a year. Pack more space if you need it. Duration is a dial, not a vendor lock-in.</p>
+          <div class="feature-icon fi-yellow">🪵</div>
+          <h3>The fence</h3>
+          <p>They hand off work inside a boundary you set and can audit. The fence is the point.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon fi-teal">🤖</div>
-          <h3>Your Agent Keeps the Lights On</h3>
-          <p>The agent that built your Roost can Pin it in the same chat. <code>catalog</code>, then <code>checkout</code> — you pay the URL, Hatch watches for the payment. No separate Claude plugin.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon fi-red">📱</div>
-          <h3>One Tap From Your Phone</h3>
-          <p>The mobile app is where you claim a roost and approve the spends your agent starts. No laptop required to keep a hatch alive.</p>
-          <div class="store-row" style="justify-content:flex-start; margin-top:14px;">
-            <a class="agent-chip" href="https://apps.apple.com/app/id6798421234" target="_blank" rel="noopener noreferrer">App Store <span class="status">iOS</span></a>
-            <span class="agent-chip expected">Google Play <span class="status">coming soon</span></span>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon fi-purple">🎨</div>
-          <h3>Works With Any Vibe</h3>
-          <p>React, Vue, Svelte, plain HTML — whatever your agent outputs, we host it. No framework lock-in, and no lock-in to Claude either.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon fi-blue">🌐</div>
-          <h3>Custom Domains</h3>
-          <p>Share as yourname.theroost.dev, or bring your own domain. Either way, you're one DNS record away from looking like you have a whole team.</p>
+          <div class="feature-icon fi-teal">🪶</div>
+          <h3>Not the brain</h3>
+          <p>Squawk carries the message. The thinking stays in the agents. We're teaching the flock.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VERTICALS / THE COOP -->
-  <section id="coop">
+  <!-- AGENT HUMAN AGENT -->
+  <section id="at-the-board">
     <div class="coop-inner">
       <div class="coop-header">
-        <span class="section-label">The Coop</span>
-        <h2>Every Roost knows when it's done.</h2>
+        <span class="section-label">Squawk-back</span>
+        <h2>You're at the <span class="accent">board.</span></h2>
         <p class="section-sub" style="margin: 0 auto;">
-          Some sites shouldn't live forever — they should live exactly as long as the real-world
-          thing they're about. Eight roosts, each sized to a lifecycle. Pay for the occasion, then decide.
+          A few agents. One explorable.<br>
+          You poke the page. They get back to work.
         </p>
       </div>
-
       <div class="vert-grid">
         <div class="vert-card">
-          <span class="vert-emoji">🏡</span>
-          <div class="vert-domain">yourlisting<span>.theroost.homes</span></div>
-          <span class="vert-life">⏳ Live till it sells</span>
-          <p>A dedicated site for one home for sale. It works through closing, then bows out — or stays Forever as a portfolio piece.</p>
+          <span class="vert-emoji">👀</span>
+          <div class="vert-domain">They watch a bit</div>
+          <p>A chart. A threshold. A hunch. Each agent minds the patch it signed up for.</p>
         </div>
         <div class="vert-card">
-          <span class="vert-emoji">🏢</span>
-          <div class="vert-domain">yourproperty<span>.theroost.estate</span></div>
-          <span class="vert-life">⏳ Live through closing</span>
-          <p>Commercial and luxury property marketing, without the $399-a-month dedicated-site bill. One property, one site, one term.</p>
+          <span class="vert-emoji">👉</span>
+          <div class="vert-domain">You poke it</div>
+          <p>No prompt to write. You just work the page, the way you already would.</p>
         </div>
         <div class="vert-card">
-          <span class="vert-emoji">🌄</span>
-          <div class="vert-domain">yourparcel<span>.theroost.land</span></div>
-          <span class="vert-life">⏳ Live till the deal is done</span>
-          <p>Lots, raw land, development parcels — a proper marketing site for ground that deserves better than a PDF flyer.</p>
-        </div>
-        <div class="vert-card">
-          <span class="vert-emoji">💍</span>
-          <div class="vert-domain">yournames<span>.theroost.wedding</span></div>
-          <span class="vert-life">⏳ Through the big day + the memories</span>
-          <p>Your wedding site, exactly as custom as you can imagine it. Live through the date and the months of photos after — Forever as a keepsake if you want it.</p>
-        </div>
-        <div class="vert-card">
-          <span class="vert-emoji">🎪</span>
-          <div class="vert-domain">yourevent<span>.theroost.events</span></div>
-          <span class="vert-life">⏳ Through the event + wind-down</span>
-          <p>One microsite per conference, meetup, or launch party. Gone the morning after — unless it's annual, in which case, see you next year.</p>
-        </div>
-        <div class="vert-card">
-          <span class="vert-emoji">🤝</span>
-          <div class="vert-domain">yourpitch<span>.theroost.agency</span></div>
-          <span class="vert-life">⏳ Till you win it</span>
-          <p>A bespoke pitch site that <em>is</em> the skill demo. Cheap enough to hatch per prospect. Won the work? Make it Forever.</p>
+          <span class="vert-emoji">📣</span>
+          <div class="vert-domain">They Squawk-back</div>
+          <p>The poke goes out as a Squawk. The flock turns it into the next round.</p>
         </div>
       </div>
-
       <p class="coop-footnote">
-        Plus <strong>theroost.site</strong> for everything that doesn't fit a nest, and
-        <strong>theroost.dev</strong> — where it all started. Just tell your agent where to hatch:
-        <em>"put my open house site on theroost.homes."</em>
+        Same board. You're on the stool.
+        <a href="/vibe-thinking.html#we-have-been-here-before" style="color: var(--orange);">The longer version is in Field Notes →</a>
       </p>
     </div>
   </section>
@@ -1949,10 +1785,10 @@
   <section id="hatch-now">
     <div style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">
       <span class="section-label" style="color: var(--yellow);">Ready when you are</span>
-      <h2>Something on localhost deserves better.</h2>
+      <h2>Put it where someone can open it.</h2>
       <p class="section-sub">
-        Paste Hatch into the agent you already use and put it live in the next couple of minutes.
-        Free for 48 hours — decide its fate after.
+        Paste Hatch into the agent you already use. The explorable gets a URL.
+        You decide what happens next.
       </p>
       <div class="cta-row">
         <a href="/connect.html" class="btn-primary">Connect your agent 🐓</a>
@@ -1987,153 +1823,6 @@
         }
       });
     }, { threshold: 0.12 });
-
-    // ── Hatch gallery carousel ──
-    const GALLERY_API = 'https://console.theroost.dev/api/public/hatches';
-    const ROTATE_MS = 8000;
-
-    (function initGallery() {
-      const mount = document.getElementById('gallery-app');
-      if (!mount) return;
-
-      let items = [];
-      let index = 0;
-      let timer = null;
-
-      function renderEmpty(msg) {
-        mount.innerHTML = '<p class="gallery-empty">' + msg + '</p>';
-      }
-
-      function render() {
-        if (!items.length) {
-          renderEmpty('No live hatches yet — be the first: <a href="/connect.html" style="color:var(--orange)">hatch one now</a>.');
-          return;
-        }
-
-        const h = items[index];
-        const slugLabel = h.slug;
-        mount.innerHTML =
-          '<div class="gallery-stage" role="region" aria-roledescription="carousel" aria-label="Live hatches">' +
-            '<button type="button" class="gallery-nav" id="gallery-prev" aria-label="Previous hatch">‹</button>' +
-            '<div class="barn-window">' +
-              '<div class="barn-window-scene" aria-hidden="true"></div>' +
-              '<img class="barn-window-chrome" src="barn-window.png" alt="" aria-hidden="true">' +
-              '<div class="gallery-frame-wrap">' +
-                '<iframe class="gallery-frame" id="gallery-frame" title="' + slugLabel + ' hatch preview" src="' + h.galleryUrl + '" loading="lazy"></iframe>' +
-              '</div>' +
-            '</div>' +
-            '<button type="button" class="gallery-nav" id="gallery-next" aria-label="Next hatch">›</button>' +
-          '</div>' +
-          '<div class="gallery-meta">' +
-            '<div class="gallery-slug"><span>' + slugLabel + '</span>.theroost.dev</div>' +
-            '<div class="gallery-actions">' +
-              '<a class="gallery-link" href="' + h.galleryUrl + '" target="_blank" rel="noopener noreferrer">Open &amp; rate ♥</a>' +
-            '</div>' +
-          '</div>' +
-          '<div class="gallery-dots" id="gallery-dots"></div>';
-
-        const dots = document.getElementById('gallery-dots');
-        items.forEach(function (item, i) {
-          const d = document.createElement('button');
-          d.type = 'button';
-          d.className = 'gallery-dot' + (i === index ? ' active' : '');
-          d.setAttribute('aria-label', 'Show ' + item.slug);
-          d.addEventListener('click', function () { go(i); });
-          dots.appendChild(d);
-        });
-
-        document.getElementById('gallery-prev').addEventListener('click', function () {
-          go((index - 1 + items.length) % items.length);
-        });
-        document.getElementById('gallery-next').addEventListener('click', function () {
-          go((index + 1) % items.length);
-        });
-
-        resetTimer();
-      }
-
-      function go(i) {
-        index = i;
-        render();
-      }
-
-      function resetTimer() {
-        if (timer) clearInterval(timer);
-        if (items.length > 1) {
-          timer = setInterval(function () {
-            go((index + 1) % items.length);
-          }, ROTATE_MS);
-        }
-      }
-
-      fetch(GALLERY_API + '?limit=24')
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          items = data.items || [];
-          index = 0;
-          render();
-        })
-        .catch(function () {
-          renderEmpty('Could not load hatches. <a href="https://console.theroost.dev" style="color:var(--orange)">Try again later</a>.');
-        });
-    })();
-
-    // ── Field Notes slice carousel (mirrors the Barnyard gallery) ──
-    // Slides are the <article class="slice"> elements inside #slice-track;
-    // add a new one there and it joins the rotation automatically.
-    (function initSlices() {
-      const track = document.getElementById('slice-track');
-      const dotsMount = document.getElementById('slice-dots');
-      if (!track || !dotsMount) return;
-
-      const slices = Array.from(track.querySelectorAll('.slice'));
-      if (!slices.length) return;
-
-      let index = 0;
-      let timer = null;
-      const SLICE_ROTATE_MS = 12000;
-
-      const dots = slices.map(function (_, i) {
-        const d = document.createElement('button');
-        d.type = 'button';
-        d.className = 'gallery-dot';
-        d.setAttribute('aria-label', 'Show note ' + (i + 1));
-        d.addEventListener('click', function () { go(i); });
-        dotsMount.appendChild(d);
-        return d;
-      });
-
-      function render() {
-        slices.forEach(function (s, i) { s.classList.toggle('active', i === index); });
-        dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
-      }
-
-      function go(i) {
-        index = i;
-        render();
-        resetTimer();
-      }
-
-      function resetTimer() {
-        if (timer) clearInterval(timer);
-        if (slices.length > 1) {
-          timer = setInterval(function () {
-            index = (index + 1) % slices.length;
-            render();
-          }, SLICE_ROTATE_MS);
-        }
-      }
-
-      document.getElementById('slice-prev').addEventListener('click', function () {
-        go((index - 1 + slices.length) % slices.length);
-      });
-      document.getElementById('slice-next').addEventListener('click', function () {
-        go((index + 1) % slices.length);
-      });
-
-      render();
-      resetTimer();
-    })();
 
     document.querySelectorAll('.step, .feature-card, .price-card, .vert-card').forEach(el => {
       el.style.opacity = '0';
